@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">VoiceTest</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="click_me">Click me!</string>
+    <string name="voice_promt">Voice recognition Demo…</string>
+    
+    
+    <!-- Errors -->
+	<string name="no_speech">No speech recognizer available on your device!</string>
+	<string name="no_match">No match!</string>
+</resources>

@@ -57,6 +57,8 @@ public class LockPatternView extends View {
                                                     // be minimum of (w,h)
     private static final int ASPECT_LOCK_HEIGHT = 2; // Fixed height; width will
                                                      // be minimum of (w,h)
+    
+    private static final int DOTS_COUNT = 4; //number of dots per row and col 
 
     private static final boolean PROFILE_DRAWING = false;
     private boolean mDrawingProfilingStarted = false;
@@ -75,7 +77,7 @@ public class LockPatternView extends View {
     private static final int MILLIS_PER_CIRCLE_ANIMATING = 700;
 
     private OnPatternListener mOnPatternListener;
-    private ArrayList<Cell> mPattern = new ArrayList<Cell>(9);
+    private ArrayList<Cell> mPattern = new ArrayList<Cell>((int) Math.pow(DOTS_COUNT, 2));
 
     /**
      * Lookup table for the circles of the pattern we are currently drawing.
@@ -83,7 +85,7 @@ public class LockPatternView extends View {
      * in which case we use this to hold the cells we are drawing for the in
      * progress animation.
      */
-    private boolean[][] mPatternDrawLookup = new boolean[3][3];
+    private boolean[][] mPatternDrawLookup = new boolean[DOTS_COUNT][DOTS_COUNT];
 
     /**
      * the in progress point: - during interaction: where the user's finger is -
@@ -133,7 +135,7 @@ public class LockPatternView extends View {
     private final int mPaddingBottom = mPadding;
 
     /**
-     * Represents a cell in the 3 X 3 matrix of the unlock pattern view.
+     * Represents a cell in the 4 X 4 matrix of the unlock pattern view.
      */
     public static class Cell {
 
@@ -141,10 +143,10 @@ public class LockPatternView extends View {
         int column;
 
         // keep # objects limited to 9
-        static Cell[][] sCells = new Cell[3][3];
+        static Cell[][] sCells = new Cell[DOTS_COUNT][DOTS_COUNT];
         static {
-            for (int i = 0; i < 3; i++) {
-                for (int j = 0; j < 3; j++) {
+            for (int i = 0; i < DOTS_COUNT; i++) {
+                for (int j = 0; j < DOTS_COUNT; j++) {
                     sCells[i][j] = new Cell(i, j);
                 }
             }
@@ -182,12 +184,12 @@ public class LockPatternView extends View {
         }
 
         private static void checkRange(int row, int column) {
-            if (row < 0 || row > 2) {
-                throw new IllegalArgumentException("row must be in range 0-2");
+            if (row < 0 || row > DOTS_COUNT-1) {
+                throw new IllegalArgumentException("row must be in range 0-3");
             }
-            if (column < 0 || column > 2) {
+            if (column < 0 || column > DOTS_COUNT-1) {
                 throw new IllegalArgumentException(
-                        "column must be in range 0-2");
+                        "column must be in range 0-3");
             }
         }
 
@@ -483,8 +485,8 @@ public class LockPatternView extends View {
      * Clear the pattern lookup table.
      */
     private void clearPatternDrawLookup() {
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
+        for (int i = 0; i < DOTS_COUNT; i++) {
+            for (int j = 0; j < DOTS_COUNT; j++) {
                 mPatternDrawLookup[i][j] = false;
             }
         }
@@ -508,10 +510,10 @@ public class LockPatternView extends View {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         final int width = w - mPaddingLeft - mPaddingRight;
-        mSquareWidth = width / 3.0f;
+        mSquareWidth = width / (float) DOTS_COUNT;
 
         final int height = h - mPaddingTop - mPaddingBottom;
-        mSquareHeight = height / 3.0f;
+        mSquareHeight = height / (float) DOTS_COUNT;
     }
 
     private int resolveMeasured(int measureSpec, int desired) {
@@ -533,14 +535,14 @@ public class LockPatternView extends View {
 
     @Override
     protected int getSuggestedMinimumWidth() {
-        // View should be large enough to contain 3 side-by-side target bitmaps
-        return 3 * mBitmapWidth;
+        // View should be large enough to contain 4 side-by-side target bitmaps
+        return DOTS_COUNT * mBitmapWidth;
     }
 
     @Override
     protected int getSuggestedMinimumHeight() {
-        // View should be large enough to contain 3 side-by-side target bitmaps
-        return 3 * mBitmapWidth;
+        // View should be large enough to contain 4 side-by-side target bitmaps
+        return DOTS_COUNT * mBitmapWidth;
     }
 
     @Override
@@ -655,7 +657,7 @@ public class LockPatternView extends View {
         float hitSize = squareHeight * mHitFactor;
 
         float offset = mPaddingTop + (squareHeight - hitSize) / 2f;
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < DOTS_COUNT; i++) {
 
             final float hitTop = offset + squareHeight * i;
             if (y >= hitTop && y <= hitTop + hitSize) {
@@ -677,7 +679,7 @@ public class LockPatternView extends View {
         float hitSize = squareWidth * mHitFactor;
 
         float offset = mPaddingLeft + (squareWidth - hitSize) / 2f;
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < DOTS_COUNT; i++) {
 
             final float hitLeft = offset + squareWidth * i;
             if (x >= hitLeft && x <= hitLeft + hitSize) {
@@ -997,11 +999,11 @@ public class LockPatternView extends View {
         final int paddingTop = mPaddingTop;
         final int paddingLeft = mPaddingLeft;
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < DOTS_COUNT; i++) {
             float topY = paddingTop + i * squareHeight;
             // float centerY = mPaddingTop + i * mSquareHeight + (mSquareHeight
             // / 2);
-            for (int j = 0; j < 3; j++) {
+            for (int j = 0; j < DOTS_COUNT; j++) {
                 float leftX = paddingLeft + j * squareWidth;
                 drawCircle(canvas, (int) leftX, (int) topY, drawLookup[i][j]);
             }

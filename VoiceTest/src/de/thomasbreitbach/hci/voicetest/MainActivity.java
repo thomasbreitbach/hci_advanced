@@ -96,6 +96,9 @@ public class MainActivity extends Activity {
             matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
             if(DEBUG) Log.d(TAG, matches.toString());       
             adapter.setMatches(matches);
+            //wordsList.setAdapter(adapter);
+            //adapter.notifyDataSetChanged();
+            
             wordsList.invalidateViews(); //rebuild ListView
         }
         

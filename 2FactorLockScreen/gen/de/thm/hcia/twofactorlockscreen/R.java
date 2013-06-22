@@ -10,6 +10,7 @@ package de.thm.hcia.twofactorlockscreen;
 public final class R {
     public static final class array {
         public static final int menu=0x7f0b0000;
+        public static final int menu_imgs=0x7f0b0001;
     }
     public static final class attr {
         /**  Custom divider drawable to use for elements in the action bar. 
@@ -1094,7 +1095,11 @@ containing a value of this type.
         public static final int aosp_indicator_code_lock_point_area_green_holo=0x7f02007d;
         public static final int aosp_indicator_code_lock_point_area_red_holo=0x7f02007e;
         public static final int ic_launcher=0x7f02007f;
-        public static final int shadow=0x7f020080;
+        public static final int ic_menu_about=0x7f020080;
+        public static final int ic_menu_home=0x7f020081;
+        public static final int ic_menu_settings=0x7f020082;
+        public static final int ic_menu_settings_holo_light=0x7f020083;
+        public static final int shadow=0x7f020084;
     }
     public static final class id {
         public static final int abs__action_bar=0x7f040025;
@@ -1136,14 +1141,14 @@ containing a value of this type.
         public static final int abs__textButton=0x7f040018;
         public static final int abs__title=0x7f040020;
         public static final int abs__up=0x7f04000b;
-        public static final int action_settings=0x7f040041;
+        public static final int action_settings=0x7f040043;
         public static final int alp_cancel=0x7f04003a;
         public static final int alp_confirm=0x7f04003b;
         public static final int alp_footer=0x7f040038;
         public static final int alp_info=0x7f040037;
         public static final int alp_lock_pattern=0x7f040039;
         public static final int button1=0x7f04003d;
-        public static final int content_frame=0x7f04003f;
+        public static final int content_frame=0x7f040041;
         public static final int disableHome=0x7f040009;
         public static final int edit_query=0x7f04002b;
         public static final int fullscreen=0x7f040013;
@@ -1155,11 +1160,13 @@ containing a value of this type.
         public static final int menu_frame=0x7f04003e;
         public static final int normal=0x7f040001;
         public static final int right=0x7f040011;
+        public static final int row_icon=0x7f04003f;
+        public static final int row_title=0x7f040040;
         public static final int selected_view=0x7f040014;
         public static final int showCustom=0x7f040008;
         public static final int showHome=0x7f040005;
         public static final int showTitle=0x7f040007;
-        public static final int slidingmenumain=0x7f040040;
+        public static final int slidingmenumain=0x7f040042;
         public static final int tabMode=0x7f040003;
         public static final int useLogo=0x7f040004;
         public static final int wrap_content=0x7f040000;
@@ -1198,10 +1205,11 @@ containing a value of this type.
         public static final int list=0x7f030018;
         public static final int main_fragment=0x7f030019;
         public static final int menu_frame=0x7f03001a;
-        public static final int responsive_content_frame=0x7f03001b;
-        public static final int sherlock_spinner_dropdown_item=0x7f03001c;
-        public static final int sherlock_spinner_item=0x7f03001d;
-        public static final int slidingmenumain=0x7f03001e;
+        public static final int menu_row=0x7f03001b;
+        public static final int responsive_content_frame=0x7f03001c;
+        public static final int sherlock_spinner_dropdown_item=0x7f03001d;
+        public static final int sherlock_spinner_item=0x7f03001e;
+        public static final int slidingmenumain=0x7f03001f;
     }
     public static final class menu {
         public static final int main=0x7f0c0000;

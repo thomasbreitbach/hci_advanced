@@ -85,6 +85,12 @@ public class MainActivity extends SlidingFragmentActivity {
 			.show();     	
         }      	
 	}
+	
+	@Override
+	public void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
+		getSupportFragmentManager().putFragment(outState, "mContent", mContent);
+	}
 
 	/**
 	 * sets some menu preferences
@@ -92,7 +98,7 @@ public class MainActivity extends SlidingFragmentActivity {
 	private void prepareSlidingMenu() {
 		mMenu = getSlidingMenu();
 		mMenu.setMode(SlidingMenu.LEFT);
-		mMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+		mMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
 		mMenu.setShadowWidthRes(R.dimen.shadow_width);
 		mMenu.setShadowDrawable(R.drawable.shadow);
 		mMenu.setBehindOffsetRes(R.dimen.slidingmenu_offset);

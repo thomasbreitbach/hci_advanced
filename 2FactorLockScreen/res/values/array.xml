@@ -5,9 +5,16 @@
         <item>Home</item>
         <item>Assistent</item>
         <item>Einstellungen</item>
+        <item>Über diese App</item>
     </string-array>
     
-
+	<string-array name="menu_imgs">
+        <item>drawable/ic_menu_home</item>
+        <item>drawable/ic_menu_about</item>
+        <item>drawable/ic_menu_settings_holo_light</item>
+        <item>drawable/ic_menu_about</item>
+    </string-array>
+    
 
 
 </resources>

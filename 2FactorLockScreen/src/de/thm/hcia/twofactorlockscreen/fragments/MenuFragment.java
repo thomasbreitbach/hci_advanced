@@ -60,6 +60,9 @@ public class MenuFragment extends ListFragment {
 		case 2:
 			newContent = new MainFragment();
 			break;
+		case 3:
+			newContent = new AboutFragment();
+			break;
 		}
 		if (newContent != null)
 			switchFragment(newContent);

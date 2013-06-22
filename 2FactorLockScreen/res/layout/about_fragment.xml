@@ -6,22 +6,12 @@
     android:gravity="center"
     android:orientation="vertical" >
 
-    <ImageView
-        android:id="@+id/iv_logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_launcher" />
 
 	<TextView 
 	    android:id="@+id/tv_statement"
 	    android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/statement"/>
+        android:text="@string/about_info_txt"/>
 
-	<Button
-	    android:id="@+id/btn_start_assistent"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:text="@string/start_assistent" />
 	
 </LinearLayout>

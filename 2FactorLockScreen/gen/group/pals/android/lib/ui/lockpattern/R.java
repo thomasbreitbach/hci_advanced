@@ -56,11 +56,11 @@ public final class R {
 		public static final int aosp_indicator_code_lock_point_area_red_holo = 0x7f02007e;
 	}
 	public static final class id {
-		public static final int alp_cancel = 0x7f04003a;
-		public static final int alp_confirm = 0x7f04003b;
-		public static final int alp_footer = 0x7f040038;
-		public static final int alp_info = 0x7f040037;
-		public static final int alp_lock_pattern = 0x7f040039;
+		public static final int alp_cancel = 0x7f04003c;
+		public static final int alp_confirm = 0x7f04003d;
+		public static final int alp_footer = 0x7f04003a;
+		public static final int alp_info = 0x7f040039;
+		public static final int alp_lock_pattern = 0x7f04003b;
 	}
 	public static final class integer {
 		public static final int alp_lib_version_code = 0x7f080001;
@@ -68,9 +68,9 @@ public final class R {
 		public static final int alp_pkey_display_min_wired_dots_default = 0x7f080002;
 	}
 	public static final class layout {
-		public static final int alp_lock_pattern_activity = 0x7f030015;
-		public static final int alp_lock_pattern_activity_land = 0x7f030016;
-		public static final int alp_lock_pattern_view = 0x7f030017;
+		public static final int alp_lock_pattern_activity = 0x7f030016;
+		public static final int alp_lock_pattern_activity_land = 0x7f030017;
+		public static final int alp_lock_pattern_view = 0x7f030018;
 	}
 	public static final class string {
 		public static final int alp_cmd_confirm = 0x7f090015;

@@ -11,29 +11,17 @@ import android.widget.Toast;
 
 import com.actionbarsherlock.app.SherlockFragment;
 
-import de.thm.hcia.twofactorlockscreen.MainActivity;
 import de.thm.hcia.twofactorlockscreen.R;
 
-public class MainFragment extends SherlockFragment {
+public class AboutFragment extends SherlockFragment {
 
 	private static Context mContext;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		mContext = getActivity();
-		
-		View v = inflater.inflate(R.layout.main_fragment, null); 
-		
-		Button b = (Button) v.findViewById(R.id.btn_start_assistent);
-		b.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				Toast.makeText(mContext, "Button clicked", Toast.LENGTH_SHORT).show();
-			}
-		});
-		
+		View v = inflater.inflate(R.layout.about_fragment, null); 
+
 		
 		return v;
 	}

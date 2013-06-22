@@ -1,5 +1,6 @@
 package de.thm.hcia.twofactorlockscreen;
 
+import com.actionbarsherlock.view.MenuItem;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 
@@ -66,9 +67,9 @@ public class MainActivity extends SlidingFragmentActivity {
 		.commit();
         
 		//set sliding menu
-        prepareSlidingMenu();
+        prepareSlidingMenu();  
         
-       //Show explanation dialog (one time)
+        //Show explanation dialog (one time)   
         if (savedInstanceState == null && mSettings.getBoolean("informationRead", false) == false){
         	new AlertDialog.Builder(this)
 			.setTitle(R.string.app_explanation_head)
@@ -90,6 +91,15 @@ public class MainActivity extends SlidingFragmentActivity {
 	public void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
 		getSupportFragmentManager().putFragment(outState, "mContent", mContent);
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			toggle();
+		}
+		return super.onOptionsItemSelected(item);
 	}
 
 	/**

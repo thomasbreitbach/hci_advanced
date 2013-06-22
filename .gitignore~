@@ -1,0 +1,12 @@
+# Can ignore specific files
+.DS_Store
+
+# Can also ignore all directories and files in a directory.
+VoiceTest/gen
+VoiceTest/bin
+
+LockScreenTest/gen 
+LockScreenTest/bin
+
+android-lockpattern/code/gen
+android-lockpattern/code/bin

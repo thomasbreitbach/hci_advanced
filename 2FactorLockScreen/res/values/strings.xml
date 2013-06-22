@@ -4,5 +4,8 @@
     <string name="app_name">2FactorLockScreen</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="app_explanation_head">Um was geht es</string>
+    <string name="app_explanation_txt">Hier kommt ein Text hin…</string>
+    <string name="ok">OK</string>
 
 </resources>

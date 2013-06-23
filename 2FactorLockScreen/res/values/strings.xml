@@ -8,6 +8,7 @@
     <string name="app_explanation_txt">Hier kommt ein Text hin…</string>
     <string name="ok">OK</string>
     <string name="statement">Ich bin ein Statement…</string>
-    <string name="start_assistent">Start Lock-Assistent</string>
+    <string name="start_assistent">Lock-Assistent starten</string>
 	<string name="about_info_txt">In welchem Kontext ist die App entstanden? Welchen nutzen hat Sie? Wer hat daran mitgewirkt?</string>
+	<string name="lockscreen_explanation">Der LockScreen Assistent führt dich bequem und einfach durch diese App und erklärt dir die einzelenen Optionen. \nDauer: ca. 3 Minuten!</string>
 </resources>

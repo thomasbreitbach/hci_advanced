@@ -960,11 +960,13 @@ containing a value of this type.
         public static final int alp_dialog_width_xlarge_land_base=0x7f070016;
         public static final int alp_lockpatternview_size=0x7f07000f;
         public static final int alp_separator_size=0x7f070010;
-        public static final int list_padding=0x7f07001c;
-        public static final int shadow_width=0x7f07001d;
+        public static final int list_padding=0x7f07001e;
+        public static final int shadow_width=0x7f07001f;
         /**  SligingMenu Demensions 
          */
-        public static final int slidingmenu_offset=0x7f07001b;
+        public static final int slidingmenu_offset=0x7f07001d;
+        public static final int txt_headline_size=0x7f07001b;
+        public static final int txt_info_text_size=0x7f07001c;
     }
     public static final class drawable {
         public static final int abs__ab_bottom_solid_dark_holo=0x7f020000;
@@ -1143,34 +1145,36 @@ containing a value of this type.
         public static final int abs__textButton=0x7f04001a;
         public static final int abs__title=0x7f040022;
         public static final int abs__up=0x7f04000b;
-        public static final int action_settings=0x7f040045;
+        public static final int action_settings=0x7f040047;
         public static final int alp_cancel=0x7f04003c;
         public static final int alp_confirm=0x7f04003d;
         public static final int alp_footer=0x7f04003a;
         public static final int alp_info=0x7f040039;
         public static final int alp_lock_pattern=0x7f04003b;
-        public static final int btn_start_assistent=0x7f04003f;
-        public static final int content_frame=0x7f040043;
+        public static final int btn_start_assistent=0x7f040040;
+        public static final int content_frame=0x7f040045;
         public static final int disableHome=0x7f040009;
         public static final int edit_query=0x7f04002d;
         public static final int fullscreen=0x7f040013;
         public static final int homeAsUp=0x7f040006;
-        public static final int iv_logo=0x7f04003e;
+        public static final int iv_logo=0x7f040041;
         public static final int left=0x7f040010;
         public static final int listMode=0x7f040002;
         public static final int main_fragment=0x7f040015;
         public static final int margin=0x7f040012;
-        public static final int menu_frame=0x7f040040;
+        public static final int menu_frame=0x7f040042;
         public static final int normal=0x7f040001;
         public static final int right=0x7f040011;
-        public static final int row_icon=0x7f040041;
-        public static final int row_title=0x7f040042;
+        public static final int row_icon=0x7f040043;
+        public static final int row_title=0x7f040044;
+        public static final int scrollView1=0x7f04003e;
         public static final int selected_view=0x7f040014;
         public static final int showCustom=0x7f040008;
         public static final int showHome=0x7f040005;
         public static final int showTitle=0x7f040007;
-        public static final int slidingmenumain=0x7f040044;
+        public static final int slidingmenumain=0x7f040046;
         public static final int tabMode=0x7f040003;
+        public static final int tv_lockscreen_explanation=0x7f04003f;
         public static final int tv_statement=0x7f040016;
         public static final int useLogo=0x7f040004;
         public static final int wrap_content=0x7f040000;
@@ -1292,6 +1296,7 @@ containing a value of this type.
         public static final int app_explanation_txt=0x7f090029;
         public static final int app_name=0x7f090025;
         public static final int hello_world=0x7f090027;
+        public static final int lockscreen_explanation=0x7f09002e;
         public static final int ok=0x7f09002a;
         public static final int start_assistent=0x7f09002c;
         public static final int statement=0x7f09002b;

@@ -1096,10 +1096,13 @@ containing a value of this type.
         public static final int aosp_indicator_code_lock_point_area_red_holo=0x7f02007e;
         public static final int ic_launcher=0x7f02007f;
         public static final int ic_menu_about=0x7f020080;
-        public static final int ic_menu_home=0x7f020081;
-        public static final int ic_menu_settings=0x7f020082;
-        public static final int ic_menu_settings_holo_light=0x7f020083;
-        public static final int shadow=0x7f020084;
+        public static final int ic_menu_assistent=0x7f020081;
+        public static final int ic_menu_edit=0x7f020082;
+        public static final int ic_menu_home=0x7f020083;
+        public static final int ic_menu_settings=0x7f020084;
+        public static final int ic_menu_settings_2=0x7f020085;
+        public static final int ic_menu_settings_holo_light=0x7f020086;
+        public static final int shadow=0x7f020087;
     }
     public static final class id {
         public static final int abs__action_bar=0x7f040027;
@@ -1205,14 +1208,17 @@ containing a value of this type.
         public static final int alp_lock_pattern_activity=0x7f030016;
         public static final int alp_lock_pattern_activity_land=0x7f030017;
         public static final int alp_lock_pattern_view=0x7f030018;
-        public static final int list=0x7f030019;
-        public static final int main_fragment=0x7f03001a;
-        public static final int menu_frame=0x7f03001b;
-        public static final int menu_row=0x7f03001c;
-        public static final int responsive_content_frame=0x7f03001d;
-        public static final int sherlock_spinner_dropdown_item=0x7f03001e;
-        public static final int sherlock_spinner_item=0x7f03001f;
-        public static final int slidingmenumain=0x7f030020;
+        public static final int assistent_fragment=0x7f030019;
+        public static final int list=0x7f03001a;
+        public static final int main_fragment=0x7f03001b;
+        public static final int manual_input_fragment=0x7f03001c;
+        public static final int menu_frame=0x7f03001d;
+        public static final int menu_row=0x7f03001e;
+        public static final int responsive_content_frame=0x7f03001f;
+        public static final int settings_fragment=0x7f030020;
+        public static final int sherlock_spinner_dropdown_item=0x7f030021;
+        public static final int sherlock_spinner_item=0x7f030022;
+        public static final int slidingmenumain=0x7f030023;
     }
     public static final class menu {
         public static final int main=0x7f0c0000;

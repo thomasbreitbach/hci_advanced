@@ -3,7 +3,6 @@ package de.thm.hcia.twofactorlockscreen.fragments;
 import de.thm.hcia.twofactorlockscreen.MainActivity;
 import de.thm.hcia.twofactorlockscreen.R;
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
@@ -55,12 +54,15 @@ public class MenuFragment extends ListFragment {
 			newContent = new MainFragment();
 			break;
 		case 1:
-			newContent = new MainFragment();
+			newContent = new AssistentFragment();
 			break;
 		case 2:
-			newContent = new MainFragment();
+			newContent = new ManualInputFragment();
 			break;
 		case 3:
+			newContent = new SettingsFragment();
+			break;
+		case 4:
 			newContent = new AboutFragment();
 			break;
 		}

@@ -3,7 +3,7 @@
 
     <string-array name="menu">
         <item>Home</item>
-        <item>Assistent</item>
+        <item>LockScreen Assistent</item>
         <item>Manuelle Eingabe</item>
         <item>Einstellungen</item>
         <item>Über diese App</item>

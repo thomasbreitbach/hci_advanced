@@ -1101,8 +1101,7 @@ containing a value of this type.
         public static final int ic_menu_home=0x7f020083;
         public static final int ic_menu_settings=0x7f020084;
         public static final int ic_menu_settings_2=0x7f020085;
-        public static final int ic_menu_settings_holo_light=0x7f020086;
-        public static final int shadow=0x7f020087;
+        public static final int shadow=0x7f020086;
     }
     public static final class id {
         public static final int abs__action_bar=0x7f040027;

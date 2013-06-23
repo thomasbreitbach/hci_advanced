@@ -36,7 +36,7 @@
 	   			android:text="@string/lockscreen_explanation"
 	   			android:layout_marginTop="25dip"
 	   			android:textSize="@dimen/txt_info_text_size"/>
-	        
+      
 	        <Button
 			    android:id="@+id/btn_start_assistent"
 			    android:layout_width="match_parent"

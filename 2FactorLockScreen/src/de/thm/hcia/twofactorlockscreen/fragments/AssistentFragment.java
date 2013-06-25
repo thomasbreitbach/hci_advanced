@@ -21,7 +21,15 @@ public class AssistentFragment extends SherlockFragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		mContext = getActivity();
 		View v = inflater.inflate(R.layout.assistent_fragment, null); 
-
+		
+		Button btnStartAssistent = (Button) v.findViewById(R.id.btn_start_assistent);
+		btnStartAssistent.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Toast.makeText(mContext, "Button clicked", Toast.LENGTH_SHORT).show();
+			}
+		});
 		
 		return v;
 	}

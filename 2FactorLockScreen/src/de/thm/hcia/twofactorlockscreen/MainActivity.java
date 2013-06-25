@@ -1,15 +1,19 @@
 package de.thm.hcia.twofactorlockscreen;
 
+import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 
+import de.thm.hcia.twofactorlockscreen.fragments.AboutFragment;
 import de.thm.hcia.twofactorlockscreen.fragments.MainFragment;
 import de.thm.hcia.twofactorlockscreen.fragments.MenuFragment;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -98,6 +102,15 @@ public class MainActivity extends SlidingFragmentActivity {
 		switch (item.getItemId()) {
 		case android.R.id.home:
 			toggle();
+			break;
+		case R.id.action_about:
+			switchContent(new AboutFragment());
+			break;
+		case R.id.action_code_on_github:
+			//Open Browser
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/thomasbreitbach/hci_advanced/"));
+			startActivity(browserIntent);
+			break;
 		}
 		return super.onOptionsItemSelected(item);
 	}
@@ -132,6 +145,11 @@ public class MainActivity extends SlidingFragmentActivity {
 			}
 		}, 50);
 	}
-
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getSupportMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
 }
  

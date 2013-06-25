@@ -10,5 +10,14 @@
     <string name="statement">Ich bin ein Statement…</string>
     <string name="start_assistent">Lock-Assistent starten</string>
 	<string name="about_info_txt">In welchem Kontext ist die App entstanden? Welchen nutzen hat Sie? Wer hat daran mitgewirkt?</string>
-	<string name="lockscreen_explanation">Der LockScreen Assistent führt dich bequem und einfach durch diese App und erklärt dir die einzelnen Optionen. \nDauer: ca. 3 Minuten!</string>
+	<string name="assistent_explanation">Der LockScreen Assistent führt dich bequem und einfach durch diese App und erklärt dir die einzelnen Optionen. \nDauer: ca. 3 Minuten!</string>
+	<string name="assistent">Assistent</string>
+	<string name="manual_input">Manuelle Eingabe</string>
+	<string name="manual_input_explanation">Mit Hilfe der manuellen Eingabe kannst du …</string>
+	<string name="start_speech_input">Spache aufzeichnen</string>
+	<string name="start_pattern_input">Muster aufzeichnen</string>
+	<string name="about">Über diese App</string>
+	<string name="home">Home</string>
+	<string name="settings">Einstellungen</string>
+	<string name="code_on_github">Code auf Github</string>
 </resources>

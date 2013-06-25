@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/main_fragment"
+    android:id="@+id/assistent_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="top|fill_vertical"
     android:gravity="top"
     android:orientation="vertical" >
 
+    <!-- Headline -->
 	<TextView
-	    android:id="@+id/tv_statement"
+	    android:id="@+id/tv_headline"
 	    android:layout_width="fill_parent"
 	    android:layout_height="50dip"
 	    android:gravity="center"
 	    android:layout_gravity="top"
-	    android:text="Assistent"
+	    android:text="@string/assistent"
 	    android:background="@color/abs__background_holo_light"
 	    android:textSize="@dimen/txt_headline_size"/>
 
@@ -33,7 +34,7 @@
 	            android:id="@+id/tv_lockscreen_explanation"
 	            android:layout_width="wrap_content"
 	   			android:layout_height="wrap_content"
-	   			android:text="@string/lockscreen_explanation"
+	   			android:text="@string/assistent_explanation"
 	   			android:layout_marginTop="25dip"
 	   			android:textSize="@dimen/txt_info_text_size"/>
       
@@ -46,7 +47,4 @@
 	        
 	    </LinearLayout>
 	</ScrollView>
-
-	
-	
 </LinearLayout>

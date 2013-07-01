@@ -3,10 +3,12 @@ package de.thm.hcia.twofactorlockscreen.fragments;
 import de.thm.hcia.twofactorlockscreen.MainActivity;
 import de.thm.hcia.twofactorlockscreen.R;
 import android.content.Context;
+import android.content.res.Resources.Theme;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
+import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,8 +23,17 @@ public class MenuFragment extends ListFragment {
 	private static final String TAG = "MenuFragment";
 	
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		return inflater.inflate(R.layout.list, null);
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){		
+//		 // create ContextThemeWrapper from the original Activity Context with the custom theme
+//	    final Context contextThemeWrapper = new ContextThemeWrapper(getActivity(), R.style.Theme_Sherlock);
+//
+//	    // clone the inflater using the ContextThemeWrapper
+//	    LayoutInflater localInflater = inflater.cloneInContext(contextThemeWrapper);
+//
+//	    // inflate the layout using the cloned inflater, not default inflater
+//	    return localInflater.inflate(R.layout.list, container, false);	
+		
+	    return inflater.inflate(R.layout.list, null);
 	}
 
 	@Override

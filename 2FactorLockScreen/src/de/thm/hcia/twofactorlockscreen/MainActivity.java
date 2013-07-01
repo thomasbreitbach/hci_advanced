@@ -17,13 +17,19 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.CheckBox;
 
 public class MainActivity extends SlidingFragmentActivity {
 
+	private static final String TAG = "MainActivity";
+	
 	private static Fragment mContent;
 	private static SharedPreferences mSettings;
 	private static SlidingMenu mMenu;
+	public static CheckBox mDontShowAgain;
 		
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -75,16 +81,26 @@ public class MainActivity extends SlidingFragmentActivity {
         
         //Show explanation dialog (one time)   
         if (savedInstanceState == null && mSettings.getBoolean("informationRead", false) == false){
-        	new AlertDialog.Builder(this)
-			.setTitle(R.string.app_explanation_head)
-			.setMessage(R.string.app_explanation_txt)
-			.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+        	AlertDialog.Builder adb = new AlertDialog.Builder(this);
+        	
+			LayoutInflater adbInflater = LayoutInflater.from(this);
+			View checkBoxLayout = adbInflater.inflate(R.layout.checkbox, null);
+			mDontShowAgain = (CheckBox) checkBoxLayout.findViewById(R.id.never_again);
+        	
+			adb.setView(checkBoxLayout);
+        	adb.setTitle(R.string.app_explanation_head);
+			adb.setMessage(R.string.app_explanation_txt);
+			adb.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
 				
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
-					SharedPreferences.Editor prefEditor = mSettings.edit();
-		        	prefEditor.putBoolean("informationRead", true);
-		            prefEditor.commit();
+					
+					if(mDontShowAgain.isChecked()){
+						SharedPreferences.Editor prefEditor = mSettings.edit();
+			        	prefEditor.putBoolean("informationRead", true);
+			            prefEditor.commit();
+					}
+					
 				}
 			})
 			.show();     	
@@ -99,6 +115,7 @@ public class MainActivity extends SlidingFragmentActivity {
 	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
+		Log.i(TAG, item.toString());
 		switch (item.getItemId()) {
 		case android.R.id.home:
 			toggle();

@@ -1103,7 +1103,9 @@ containing a value of this type.
         public static final int ic_menu_home=0x7f020083;
         public static final int ic_menu_settings=0x7f020084;
         public static final int ic_menu_settings_2=0x7f020085;
-        public static final int shadow=0x7f020086;
+        public static final int indicator=0x7f020086;
+        public static final int logo_lock=0x7f020087;
+        public static final int shadow=0x7f020088;
     }
     public static final class id {
         public static final int about_fragment=0x7f040015;
@@ -1146,8 +1148,9 @@ containing a value of this type.
         public static final int abs__textButton=0x7f04001c;
         public static final int abs__title=0x7f040024;
         public static final int abs__up=0x7f04000b;
-        public static final int action_about=0x7f040050;
-        public static final int action_code_on_github=0x7f04004f;
+        public static final int action_about=0x7f040051;
+        public static final int action_code_on_github=0x7f040050;
+        public static final int action_toggle_sliding_menu=0x7f04004f;
         public static final int alp_cancel=0x7f04003e;
         public static final int alp_confirm=0x7f04003f;
         public static final int alp_footer=0x7f04003c;
@@ -1312,6 +1315,7 @@ containing a value of this type.
         public static final int dont_show_again=0x7f090038;
         public static final int hello_world=0x7f090027;
         public static final int home=0x7f090035;
+        public static final int main_menu=0x7f090039;
         public static final int manual_input=0x7f090030;
         public static final int manual_input_explanation=0x7f090031;
         public static final int ok=0x7f09002a;
@@ -1336,15 +1340,6 @@ containing a value of this type.
         public static final int Alp_Theme_Dialog_Light=0x7f0a0064;
         public static final int Alp_Theme_Light=0x7f0a005e;
         /** 
-        Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
-    
-
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        
-
         Base application theme for API 11+. This theme completely replaces
         AppBaseTheme from res/values/styles.xml on API 11+ devices.
     
@@ -1356,11 +1351,7 @@ containing a value of this type.
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f0a0068;
-        /**  Application theme. 
- All customizations that are NOT specific to a particular API-level can go here. 
-         */
-        public static final int AppTheme=0x7f0a0069;
+        public static final int AppBaseTheme=0x7f0a0069;
         public static final int Sherlock___TextAppearance_Small=0x7f0a0046;
         public static final int Sherlock___Theme=0x7f0a0051;
         public static final int Sherlock___Theme_DarkActionBar=0x7f0a0053;
@@ -1403,6 +1394,7 @@ containing a value of this type.
         public static final int Theme_Sherlock_Light_DarkActionBar=0x7f0a0056;
         public static final int Theme_Sherlock_Light_NoActionBar=0x7f0a0058;
         public static final int Theme_Sherlock_NoActionBar=0x7f0a0057;
+        public static final int TwoFactorTheme=0x7f0a0068;
         public static final int Widget=0x7f0a0000;
         public static final int Widget_Sherlock_ActionBar=0x7f0a0002;
         public static final int Widget_Sherlock_ActionBar_Solid=0x7f0a0003;

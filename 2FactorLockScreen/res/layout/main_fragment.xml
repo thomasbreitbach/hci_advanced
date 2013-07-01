@@ -1,28 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/main_fragment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="top|fill_vertical"
-    android:gravity="top"
-    android:orientation="vertical" >
+    android:layout_height="wrap_content"
+   >
 
-    <ImageView
-        android:id="@+id/iv_logo"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_launcher" />
+        android:gravity="center|top"
+		android:orientation="vertical" 
+		android:layout_gravity="top|fill_vertical">
+        
+        <!-- Content here -->
+        <ImageView
+	      android:id="@+id/iv_logo"
+	      android:layout_width="190dp"
+	      android:layout_height="254dp"
+	      android:src="@drawable/logo_lock" />
 
-	<TextView 
-	    android:id="@+id/tv_statement"
-	    android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/statement"/>
+	  	<TextView
+	      android:id="@+id/tv_statement"
+	      android:layout_width="wrap_content"
+	      android:layout_height="wrap_content"
+	      android:text="@string/statement" />
 
-	<Button
-	    android:id="@+id/btn_start_assistent"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:text="@string/start_assistent" />
-	
-</LinearLayout>
+	  	<Button
+	      android:id="@+id/btn_start_assistent"
+	      android:layout_width="wrap_content"
+	      android:layout_height="wrap_content"
+	      android:text="@string/start_assistent" />
+        
+    </LinearLayout>
+</ScrollView>

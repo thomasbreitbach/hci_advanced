@@ -93,14 +93,12 @@ public class MainActivity extends SlidingFragmentActivity {
 			adb.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
 				
 				@Override
-				public void onClick(DialogInterface dialog, int which) {
-					
+				public void onClick(DialogInterface dialog, int which) {					
 					if(mDontShowAgain.isChecked()){
 						SharedPreferences.Editor prefEditor = mSettings.edit();
 			        	prefEditor.putBoolean("informationRead", true);
 			            prefEditor.commit();
-					}
-					
+					}					
 				}
 			})
 			.show();     	
@@ -118,6 +116,9 @@ public class MainActivity extends SlidingFragmentActivity {
 		Log.i(TAG, item.toString());
 		switch (item.getItemId()) {
 		case android.R.id.home:
+			toggle();
+			break;
+		case R.id.action_toggle_sliding_menu:
 			toggle();
 			break;
 		case R.id.action_about:

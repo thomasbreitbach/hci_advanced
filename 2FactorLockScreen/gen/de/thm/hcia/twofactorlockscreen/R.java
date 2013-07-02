@@ -1096,16 +1096,18 @@ containing a value of this type.
         public static final int aosp_indicator_code_lock_point_area_blue_holo=0x7f02007c;
         public static final int aosp_indicator_code_lock_point_area_green_holo=0x7f02007d;
         public static final int aosp_indicator_code_lock_point_area_red_holo=0x7f02007e;
-        public static final int ic_launcher=0x7f02007f;
-        public static final int ic_menu_about=0x7f020080;
-        public static final int ic_menu_assistent=0x7f020081;
-        public static final int ic_menu_edit=0x7f020082;
-        public static final int ic_menu_home=0x7f020083;
-        public static final int ic_menu_settings=0x7f020084;
-        public static final int ic_menu_settings_2=0x7f020085;
-        public static final int indicator=0x7f020086;
-        public static final int logo_lock=0x7f020087;
-        public static final int shadow=0x7f020088;
+        public static final int ic_green_light=0x7f02007f;
+        public static final int ic_launcher=0x7f020080;
+        public static final int ic_menu_about=0x7f020081;
+        public static final int ic_menu_assistent=0x7f020082;
+        public static final int ic_menu_edit=0x7f020083;
+        public static final int ic_menu_home=0x7f020084;
+        public static final int ic_menu_settings=0x7f020085;
+        public static final int ic_menu_settings_2=0x7f020086;
+        public static final int ic_red_light=0x7f020087;
+        public static final int indicator=0x7f020088;
+        public static final int logo_lock=0x7f020089;
+        public static final int shadow=0x7f02008a;
     }
     public static final class id {
         public static final int about_fragment=0x7f040015;
@@ -1166,6 +1168,8 @@ containing a value of this type.
         public static final int edit_query=0x7f04002f;
         public static final int fullscreen=0x7f040013;
         public static final int homeAsUp=0x7f040006;
+        public static final int imgb_pattern=0x7f040046;
+        public static final int imgb_speech_recognition=0x7f040049;
         public static final int iv_logo=0x7f040051;
         public static final int left=0x7f040010;
         public static final int listMode=0x7f040002;
@@ -1190,8 +1194,6 @@ containing a value of this type.
         public static final int tableRow2=0x7f040047;
         public static final int tableRow3=0x7f04004a;
         public static final int tableRow4=0x7f04004d;
-        public static final int toggleButton1=0x7f040049;
-        public static final int toggleButton2=0x7f040046;
         public static final int tv_app_version=0x7f040052;
         public static final int tv_headline=0x7f040016;
         public static final int tv_lockscreen_explanation=0x7f040018;
@@ -1199,7 +1201,7 @@ containing a value of this type.
         public static final int tv_logins_failed_count=0x7f04004f;
         public static final int tv_logins_successfull=0x7f04004b;
         public static final int tv_logins_successfull_count=0x7f04004c;
-        public static final int tv_muster=0x7f040045;
+        public static final int tv_pattern=0x7f040045;
         public static final int tv_speech_recognition=0x7f040048;
         public static final int tv_statement=0x7f040053;
         public static final int useLogo=0x7f040004;

@@ -20,6 +20,12 @@
 	      android:layout_height="254dp"
 	      android:src="@drawable/logo_lock" />
 
+        <TextView
+	      android:id="@+id/tv_app_version"
+	      android:layout_width="wrap_content"
+	      android:layout_height="wrap_content"
+	      android:text="@string/statement" />
+        
 	  	<TextView
 	      android:id="@+id/tv_statement"
 	      android:layout_width="wrap_content"
@@ -31,6 +37,8 @@
 	      android:layout_width="wrap_content"
 	      android:layout_height="wrap_content"
 	      android:text="@string/start_assistent" />
-        
+	  	
+	  	<!-- DASHBOARD -->
+	  	<include android:id="@+id/dashboard" layout="@layout/dashboard" />   
     </LinearLayout>
 </ScrollView>

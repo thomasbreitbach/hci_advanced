@@ -22,4 +22,8 @@
 	<string name="code_on_github">Code auf Github</string>
 	<string name="dont_show_again">Nicht wieder anzeigen</string>
 	<string name="main_menu">Hauptmenü</string>
+	<string name="pattern">Muster</string>
+	<string name="speech_recognition">Spracherkennung</string>
+	<string name="logins_successfull">Erfolgreiche Logins</string>
+	<string name="logins_failed">Fehlgeschlagene Logins</string>
 </resources>

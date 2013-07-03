@@ -37,15 +37,11 @@ public class MainFragment extends SherlockFragment {
 		});
 		
 		//get app version from AndroidManifest
-		String versionName = "App Version: ";
-		try {
-			versionName += mContext.getPackageManager().getPackageInfo(mContext.getPackageName(), 0).versionName;
-		} catch (NameNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		StringBuffer versionName = new StringBuffer().append(mContext.getString(R.string.app_version));
+		versionName.append(" ").append(MainActivity.appVersion);
+
 		TextView appVersion = (TextView) v.findViewById(R.id.tv_app_version);
-		appVersion.setText(versionName);
+		appVersion.setText(versionName.toString());
 			
 		return v;
 	}

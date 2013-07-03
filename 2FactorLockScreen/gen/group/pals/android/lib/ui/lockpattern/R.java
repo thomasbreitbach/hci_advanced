@@ -56,11 +56,11 @@ public final class R {
 		public static final int aosp_indicator_code_lock_point_area_red_holo = 0x7f02007e;
 	}
 	public static final class id {
-		public static final int alp_cancel = 0x7f04003e;
-		public static final int alp_confirm = 0x7f04003f;
-		public static final int alp_footer = 0x7f04003c;
-		public static final int alp_info = 0x7f04003b;
-		public static final int alp_lock_pattern = 0x7f04003d;
+		public static final int alp_cancel = 0x7f04003f;
+		public static final int alp_confirm = 0x7f040040;
+		public static final int alp_footer = 0x7f04003d;
+		public static final int alp_info = 0x7f04003c;
+		public static final int alp_lock_pattern = 0x7f04003e;
 	}
 	public static final class integer {
 		public static final int alp_lib_version_code = 0x7f080001;

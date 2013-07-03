@@ -13,6 +13,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -30,12 +31,18 @@ public class MainActivity extends SlidingFragmentActivity {
 	private static SharedPreferences mSettings;
 	private static SlidingMenu mMenu;
 	public static CheckBox mDontShowAgain;
+	public static String appVersion;
 		
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setTitle(R.string.app_name);
 		mSettings = getSharedPreferences("AppPrefs", MODE_PRIVATE);
+		try {
+			appVersion = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
+		} catch (NameNotFoundException e) {
+			e.printStackTrace();
+		}
 		
 		setContentView(R.layout.responsive_content_frame);
 		

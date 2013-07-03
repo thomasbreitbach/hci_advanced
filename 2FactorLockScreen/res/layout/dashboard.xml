@@ -1,92 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout 
-    xmlns:android="http://schemas.android.com/apk/res/android"
-	android:id="@+id/dashboard"  
-	android:orientation="vertical"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content">
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dashboard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center|top">
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+      <TableRow
+          android:id="@+id/tableRow1"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content" >
 
-        <TableRow
-            android:id="@+id/tableRow1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
+          <TextView
+              android:id="@+id/tv_pattern"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/pattern" />
+          
+          <ImageButton 
+              android:id="@+id/imgb_pattern"
+              android:background="@drawable/ic_red_light"
+              android:layout_width="20dip"
+              android:layout_height="20dip"
+              android:contentDescription="status lamp"/>
 
-            <TextView
-                android:id="@+id/tv_pattern"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/pattern" />
-            
-            <ImageButton 
-                android:id="@+id/imgb_pattern"
-                android:background="@drawable/ic_red_light"
-                android:layout_width="20dip"
-                android:layout_height="20dip"
-                android:contentDescription="status lamp"/>
+      </TableRow>
 
-        </TableRow>
+      <TableRow
+          android:id="@+id/tableRow2"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content" >
 
-        <TableRow
-            android:id="@+id/tableRow2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
+          <TextView
+              android:id="@+id/tv_speech_recognition"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/speech_recognition" />
+          
+          <ImageButton 
+              android:id="@+id/imgb_speech_recognition"
+              android:background="@drawable/ic_red_light"
+              android:layout_width="20dip"
+              android:layout_height="20dip"
+              android:contentDescription="status lamp"/>
 
-            <TextView
-                android:id="@+id/tv_speech_recognition"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/speech_recognition" />
-            
-            <ImageButton 
-                android:id="@+id/imgb_speech_recognition"
-                android:background="@drawable/ic_red_light"
-                android:layout_width="20dip"
-                android:layout_height="20dip"
-                android:contentDescription="status lamp"/>
+      </TableRow>
 
-        </TableRow>
+      <TableRow
+          android:id="@+id/tableRow3"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content" >
 
-        <TableRow
-            android:id="@+id/tableRow3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
+          <TextView
+              android:id="@+id/tv_logins_successfull"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/logins_successfull" />
+          
+          <TextView
+              android:id="@+id/tv_logins_successfull_count"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="0" />
 
-            <TextView
-                android:id="@+id/tv_logins_successfull"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/logins_successfull" />
-            
-            <TextView
-                android:id="@+id/tv_logins_successfull_count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0" />
+      </TableRow>
 
-        </TableRow>
+      <TableRow
+          android:id="@+id/tableRow4"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content" >
 
-        <TableRow
-            android:id="@+id/tableRow4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
+          <TextView
+              android:id="@+id/tv_logins_failed"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/logins_failed" />
+          
+          <TextView
+              android:id="@+id/tv_logins_failed_count"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="0" />
 
-            <TextView
-                android:id="@+id/tv_logins_failed"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/logins_failed" />
-            
-            <TextView
-                android:id="@+id/tv_logins_failed_count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0" />
+      </TableRow>
+ </TableLayout>
 
-        </TableRow>
-    </TableLayout>
-
-</LinearLayout>

@@ -1,5 +1,7 @@
 package de.thm.hcia.twofactorlockscreen;
 
+import group.pals.android.lib.ui.lockpattern.LockPatternActivity;
+
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
@@ -10,6 +12,7 @@ import de.thm.hcia.twofactorlockscreen.fragments.MainFragment;
 import de.thm.hcia.twofactorlockscreen.fragments.MenuFragment;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -18,24 +21,31 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.text.GetChars;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.Toast;
 
 public class MainActivity extends SlidingFragmentActivity {
 
 	private static final String TAG = "MainActivity";
+	public static final int REQ_CODE_CREATE_PATTERN = 1;
+	public static final int REQ_CODE_COMPARE_PATTERN = 2;
 	
 	private static Fragment mContent;
 	private static SharedPreferences mSettings;
 	private static SlidingMenu mMenu;
 	public static CheckBox mDontShowAgain;
+	private static Context mContext;
 	public static String appVersion;
+	private static char[] savedPattern = null;
 		
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		mContext = this;
 		setTitle(R.string.app_name);
 		mSettings = getSharedPreferences("AppPrefs", MODE_PRIVATE);
 		try {
@@ -176,5 +186,19 @@ public class MainActivity extends SlidingFragmentActivity {
 		getSupportMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data){
+		Log.i(TAG, "onActivityResult");
+		switch(requestCode) {
+	    case REQ_CODE_CREATE_PATTERN:
+	        if(resultCode == RESULT_OK){
+	            savedPattern = data.getCharArrayExtra(LockPatternActivity.EXTRA_PATTERN);
+	            Log.i(TAG, savedPattern.toString());
+	            Toast.makeText(mContext, R.string.pattern_recorded, Toast.LENGTH_SHORT).show();
+	        }
+	        break;
+	    }
+	} 
 }
  

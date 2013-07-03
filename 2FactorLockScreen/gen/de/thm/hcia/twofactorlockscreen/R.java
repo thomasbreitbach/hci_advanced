@@ -1259,7 +1259,7 @@ containing a value of this type.
         public static final int main=0x7f0c0000;
     }
     public static final class string {
-        public static final int about=0x7f090033;
+        public static final int about=0x7f090034;
         public static final int about_info_txt=0x7f09002c;
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
          */
@@ -1328,22 +1328,23 @@ containing a value of this type.
         public static final int app_explanation_head=0x7f090027;
         public static final int app_explanation_txt=0x7f090028;
         public static final int app_name=0x7f090025;
-        public static final int app_version=0x7f09003d;
+        public static final int app_version=0x7f09003e;
         public static final int assistent=0x7f09002e;
         public static final int assistent_explanation=0x7f09002d;
-        public static final int code_on_github=0x7f090036;
-        public static final int dont_show_again=0x7f090037;
-        public static final int home=0x7f090034;
-        public static final int logins_failed=0x7f09003c;
-        public static final int logins_successfull=0x7f09003b;
-        public static final int main_menu=0x7f090038;
+        public static final int code_on_github=0x7f090037;
+        public static final int dont_show_again=0x7f090038;
+        public static final int home=0x7f090035;
+        public static final int logins_failed=0x7f09003d;
+        public static final int logins_successfull=0x7f09003c;
+        public static final int main_menu=0x7f090039;
         public static final int manual_input=0x7f09002f;
         public static final int manual_input_explanation=0x7f090030;
         public static final int ok=0x7f090029;
-        public static final int pattern=0x7f090039;
+        public static final int pattern=0x7f09003a;
+        public static final int pattern_recorded=0x7f090033;
         public static final int quick_start_statement=0x7f09002a;
-        public static final int settings=0x7f090035;
-        public static final int speech_recognition=0x7f09003a;
+        public static final int settings=0x7f090036;
+        public static final int speech_recognition=0x7f09003b;
         public static final int start_assistent=0x7f09002b;
         public static final int start_pattern_input=0x7f090032;
         public static final int start_speech_input=0x7f090031;

@@ -69,8 +69,7 @@ public class MainActivity extends Activity {
 	}
 
 	@Override
-	protected void onActivityResult(int requestCode, int resultCode,
-	        Intent data) {
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 	    switch(requestCode) {
 	    case REQ_CODE_CREATE_PATTERN:
 	        if(resultCode == RESULT_OK){

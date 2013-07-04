@@ -1,6 +1,7 @@
 package de.thm.hcia.twofactorlockscreen.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 
 import com.actionbarsherlock.app.SherlockFragment;
 
+import de.thm.hcia.twofactorlockscreen.AssistentMainActivity;
 import de.thm.hcia.twofactorlockscreen.MainActivity;
 import de.thm.hcia.twofactorlockscreen.R;
 
@@ -31,8 +33,14 @@ public class MainFragment extends SherlockFragment {
 			
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				Toast.makeText(mContext, "Button clicked", Toast.LENGTH_SHORT).show();
+				
+				/*
+				 * Start the assistent
+				 */
+				Intent intent = new Intent();
+	            intent.setClass(getActivity().getBaseContext(), AssistentMainActivity.class);
+	            startActivity(intent);
+				
 			}
 		});
 		

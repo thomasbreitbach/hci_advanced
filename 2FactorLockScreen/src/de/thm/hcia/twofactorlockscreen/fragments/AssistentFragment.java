@@ -29,10 +29,7 @@ public class AssistentFragment extends SherlockFragment {
 			
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent();
-	            intent.setClass(getActivity().getBaseContext(), AssistentMainActivity.class);
-	            startActivity(intent);
-				Toast.makeText(mContext, "Test-Button clicked", Toast.LENGTH_SHORT).show();
+				//ToDo
 			}
 		});
 		

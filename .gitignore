@@ -11,5 +11,5 @@ LockScreenTest/bin
 android-lockpattern/code/gen
 android-lockpattern/code/bin
 
-hci_advanced/2FactorLockScreen/gen
-hci_advanced/2FactorLockScreen/bin
+2FactorLockScreen/gen
+2FactorLockScreen/bin

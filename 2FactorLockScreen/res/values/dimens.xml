@@ -6,6 +6,7 @@
     <dimen name="txt_headline_size">20dip</dimen>
     <dimen name="txt_info_text_size">18dip</dimen>
     <dimen name="element_size">280dip</dimen>
+    <dimen name="element_margin_bottom">50dip</dimen>
     
     <!-- SligingMenu Demensions -->
 	<dimen name="slidingmenu_offset">60dp</dimen>

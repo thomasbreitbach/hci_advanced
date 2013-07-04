@@ -25,30 +25,34 @@
 	    android:layout_height="wrap_content" >
 
 	   <LinearLayout
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:orientation="vertical"
-	        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-    		android:layout_marginRight="@dimen/activity_horizontal_margin">
-	        
+	       android:layout_width="match_parent"
+	       android:layout_height="wrap_content"
+	       android:layout_marginLeft="@dimen/activity_horizontal_margin"
+	       android:layout_marginRight="@dimen/activity_horizontal_margin"
+	       android:gravity="center_vertical|center_horizontal"
+	       android:orientation="vertical"
+	       android:textAlignment="center" >
+
 	       <!-- Content here! -->
-	        <TextView 
-	            android:id="@+id/tv_lockscreen_explanation"
-	            android:layout_width="wrap_content"
-	   			android:layout_height="wrap_content"
-	   			android:text="@string/about_info_txt"
-	   			android:layout_marginTop="25dip"
-	   			android:textSize="@dimen/txt_info_text_size"/>
-	        
-	        <TextView 
-	            android:id="@+id/tv_app_version"
-	            android:layout_width="wrap_content"
-	   			android:layout_height="wrap_content"
-	   			android:text="@string/app_version"
-	   			android:layout_marginTop="25dip"
-	   			android:textSize="@dimen/txt_info_text_size"/>
-          
-	    </LinearLayout>
+
+	       <TextView
+	           android:id="@+id/tv_lockscreen_explanation"
+	           android:layout_width="264dp"
+	           android:layout_height="wrap_content"
+	           android:layout_marginTop="25dip"
+	           android:gravity="center_vertical"
+	           android:text="@string/about_info_txt"
+	           android:textSize="@dimen/txt_info_text_size" />
+
+	       <TextView
+	           android:id="@+id/tv_app_version"
+	           android:layout_width="264dp"
+	           android:layout_height="wrap_content"
+	           android:layout_marginTop="25dip"
+	           android:text="@string/app_version"
+	           android:textSize="@dimen/txt_info_text_size" />
+	   </LinearLayout>
+
 	</ScrollView>
 
 	

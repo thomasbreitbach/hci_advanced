@@ -71,10 +71,10 @@ public class MenuFragment extends ListFragment {
 			newContent = new ManualInputFragment();
 			break;
 		case 3:
-			newContent = new SettingsFragment();
+			newContent = new PrototypeFragment();
 			break;
 		case 4:
-			newContent = new PrototypeFragment();
+			newContent = new SettingsFragment();
 			break;
 		case 5:
 			newContent = new AboutFragment();

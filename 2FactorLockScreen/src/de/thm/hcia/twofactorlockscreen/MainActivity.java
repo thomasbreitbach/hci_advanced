@@ -21,7 +21,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
-import android.text.GetChars;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,6 +36,7 @@ public class MainActivity extends SlidingFragmentActivity {
 	
 	private static Fragment 			mContent;
 	private static SharedPreferences 	mSettings;
+	SharedPreferences.Editor 			mPrefEditor; 
 	private static SlidingMenu 		mMenu;
 	public static CheckBox 			mDontShowAgain;
 	private static Context 			mContext;
@@ -48,15 +48,18 @@ public class MainActivity extends SlidingFragmentActivity {
 		super.onCreate(savedInstanceState);
 		mContext = this;
 		setTitle(R.string.app_name);
+		setContentView(R.layout.responsive_content_frame);		
 		mSettings = getSharedPreferences("AppPrefs", MODE_PRIVATE);
+		mPrefEditor = mSettings.edit();
+		
+		//try to get app version
 		try {
 			mAppVersion = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
 		} catch (NameNotFoundException e) {
 			e.printStackTrace();
+			mAppVersion = "1.0";
 		}
-		
-		setContentView(R.layout.responsive_content_frame);
-		
+	
 		//check if the content frame contains the menu frame
 		if(findViewById(R.id.menu_frame) == null){
 			setBehindContentView(R.layout.menu_frame);
@@ -112,10 +115,9 @@ public class MainActivity extends SlidingFragmentActivity {
 				
 				@Override
 				public void onClick(DialogInterface dialog, int which) {					
-					if(mDontShowAgain.isChecked()){
-						SharedPreferences.Editor prefEditor = mSettings.edit();
-			        	prefEditor.putBoolean("informationRead", true);
-			            prefEditor.commit();
+					if(mDontShowAgain.isChecked()){					
+			        	mPrefEditor.putBoolean("informationRead", true);
+			            mPrefEditor.commit();
 					}					
 				}
 			})
@@ -195,8 +197,15 @@ public class MainActivity extends SlidingFragmentActivity {
 	    case REQ_CODE_CREATE_PATTERN:
 	        if(resultCode == RESULT_OK){
 	            savedPattern = data.getCharArrayExtra(LockPatternActivity.EXTRA_PATTERN);
-	            Log.i(TAG, savedPattern.toString());
-	            Toast.makeText(mContext, R.string.pattern_recorded, Toast.LENGTH_SHORT).show();
+	            
+	            //save pattern in prefs
+	        	mPrefEditor.putString("savedPattern", savedPattern.toString());
+	            if(mPrefEditor.commit()){
+	            	Toast.makeText(mContext, R.string.pattern_recorded, Toast.LENGTH_SHORT).show();
+	            }else{
+	            	//TODO String-Ressource anlegen!
+	            	Toast.makeText(mContext, "Konnte aus unbekannten Gründen nicht gespeichert werden", Toast.LENGTH_SHORT).show();
+	            }      
 	        }
 	        break;
 	    }

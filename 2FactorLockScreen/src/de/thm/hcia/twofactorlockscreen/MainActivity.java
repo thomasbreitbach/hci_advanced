@@ -48,6 +48,7 @@ public class MainActivity extends SlidingFragmentActivity {
 		super.onCreate(savedInstanceState);
 		mContext = this;
 		setTitle(R.string.app_name);
+		
 		setContentView(R.layout.responsive_content_frame);		
 		
 		/*

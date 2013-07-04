@@ -37,11 +37,11 @@ public class MainActivity extends SlidingFragmentActivity {
 	private static Fragment 			mContent;
 	private static SharedPreferences 	mSettings;
 	SharedPreferences.Editor 			mPrefEditor; 
-	private static SlidingMenu 		mMenu;
-	public static CheckBox 			mDontShowAgain;
-	private static Context 			mContext;
+	private static SlidingMenu 			mMenu;
+	public static CheckBox 				mDontShowAgain;
+	private static Context 				mContext;
 	private static String 				mAppVersion;
-	private static char[] 			savedPattern = null;
+	private static char[] 				savedPattern = null;
 		
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

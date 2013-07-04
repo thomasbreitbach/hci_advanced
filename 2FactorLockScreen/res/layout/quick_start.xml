@@ -16,6 +16,6 @@
 	  	    android:id="@+id/btn_start_assistent"
 	  	    android:layout_width="280dp"
 	  	    android:layout_height="wrap_content"
-	  	    android:text="@string/start_assistent" />
+	  	    android:text="@string/quickstart_assistent" />
 
 </LinearLayout>

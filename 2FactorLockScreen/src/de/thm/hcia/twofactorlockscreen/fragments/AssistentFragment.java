@@ -29,7 +29,12 @@ public class AssistentFragment extends SherlockFragment {
 			
 			@Override
 			public void onClick(View v) {
-				//ToDo
+				/*
+				 * Start the assistent
+				 */
+				Intent intent = new Intent();
+	            intent.setClass(getActivity().getBaseContext(), AssistentMainActivity.class);
+	            startActivity(intent);
 			}
 		});
 		

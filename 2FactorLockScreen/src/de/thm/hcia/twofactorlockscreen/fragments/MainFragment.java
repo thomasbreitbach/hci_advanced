@@ -31,16 +31,13 @@ public class MainFragment extends SherlockFragment {
 		Button b = (Button) v.findViewById(R.id.btn_start_assistent);
 		b.setOnClickListener(new OnClickListener() {
 			
+			/*
+			 * Nicht direkt zum Assistenten sondern zum Fragment
+			 */
 			@Override
 			public void onClick(View v) {
-				
-				/*
-				 * Start the assistent
-				 */
-				Intent intent = new Intent();
-	            intent.setClass(getActivity().getBaseContext(), AssistentMainActivity.class);
-	            startActivity(intent);
-				
+				MainActivity activity = (MainActivity) getActivity();
+				activity.switchContent(new AssistentFragment());					
 			}
 		});
 		

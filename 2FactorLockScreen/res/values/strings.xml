@@ -7,13 +7,12 @@
     <string name="app_explanation_txt">Herzlich Willkommen und vielen Dank,  dass Sie an der Evaluation dieser APP teilnehmen. Mit dieser APP soll herausgefunden werden, ob man zwei Sicherheitsmechanismen im täglichen Gebrauch verwenden kann.</string>
     <string name="quick_start_statement">Sie haben noch keine Einrichtung vorgenommen. Nutzen Sie den Lock-Assistenten für eine einfache Konfiguration.</string>
     <string name="about_info_txt">Dieser Prototyp entstand in der Veranstaltung „Fortgeschrittene Mensch-Maschine-Interaktion“ der Technischen Hochschule Fiedberg. In dieser App geht es darum zu Evaluieren, ob man im täglichen Gebrauch mehr als nur eine Sicherheitsabfrage für ein Android-Smartphone verwenden sollte. </string>
-    
-    <string name="assistent_explanation">Der Lock Assistent führt Sie bequem und einfach durch diese App und erklärt Ihnen die einzelnen Optionen und Einstellungsmöglichkeiten. \nDauer: ca. 3 Minuten!</string>
+    <string name="assistent_explanation">Der Lock Assistent führt Sie bequem und einfach durch diese App und erklärt Ihnen die einzelnen Optionen und Einstellungsmöglichkeiten. \n\nDauer: ca. 3 Minuten!</string>
     <!-- assistenten strings -->
     <string name="start_assistent">Assistent starten</string>
     <string name="quickstart_assistent">Zum Assistenten</string>
     <string name="assistent">Assistent</string>
-    <string name="assistent_start_pattern_description">Zeichnen Sie mit einem Finger ein beliebiges Muster Ihrer Wahl. Die einzelnen Punkte können mehrfach selektiert werden, um komplexere Muster zu ermöglichen. Ein Beispiel für ein komplexeres Muster mit wiederholter Selektion von Musterpunkten wäre die Nachzeichnung des Haus vom Nikolaus.</string>
+    <string name="assistent_start_pattern_description">Zeichnen Sie mit einem Finger ein beliebiges Muster Ihrer Wahl. Die einzelnen Punkte können mehrfach selektiert werden, um komplexere Muster zu ermöglichen.</string>
     <string name="assistent_pattern_record_description">Bitte zeichnen Sie ein beliebiges Muster Ihrer Wahl und Bestätigen Sie Ihre Eingabe anschließend mit „OK“.</string>
     <string name="assistent_pattern_record_description_repeat">Bitte wiederholen Sie Ihr eingegebenes Muster und bestätigen Sie dann mit „OK“.</string>
     <string name="assistent_start_speech_input_description">Sprechen Sie Ihren Entsperrbefehl mit mindestens einem Wort,  klar und deutlich in Ihr mobiles Endgerät.\nHalten sie Ihr Gerät dabei etwa 20-30cm von Ihrem Mund entfernt.\nDie Anzeige unterhalb des Mikrofons hilft Ihnen die bestmögliche Aufnahme zu erzielen. Der grüne Bereich des Balkens steht dabei für hervorragende Qualität. Im roten Bereich ist die Qualität nicht ausreichend.</string>
@@ -33,7 +32,6 @@
     <string name="code_on_github">Quellcode auf Github</string>
     <string name="dont_show_again">Nicht wieder anzeigen!</string>
     <string name="main_menu">Hauptmenü</string>
-    
     <string name="pattern">Muster</string>
     <string name="speech_recognition">Spracherkennung</string>
     <string name="logins_successfull">Erfolgreiche Logins</string>
@@ -53,10 +51,16 @@
     <string name="ok">OK</string>
     <string name="title_activity_assistent_main">AssistentMainActivity</string>
 
-    <!-- Assistent Strings -->
+    <!-- Assistent Strings 3.2 -->
     <string name="main_assistent_headline">Lockscreen Assistent</string>
-    
-    <!-- Submenue MainActivity -->
+    <string name="main_assistent_next">Weiter</string>
+    <string name="main_assistent_abort">Abbrechen</string>
+
+    <!-- Assistent String 3.3 -->
+
+
+    <!-- Submenue MainActivity 3.2 -->
     <string name="main_activity_abort">Assistenten abbrechen</string>
-    
+    <string name="title_activity_assistent_patter_input">AssistentPatterInput</string>
+
 </resources>

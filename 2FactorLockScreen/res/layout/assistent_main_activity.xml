@@ -2,10 +2,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:gravity="top|center"
     tools:context=".AssistentMainActivity" >
+
+    <TextView
+        android:id="@+id/tv_headline"
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/abs__background_holo_light"
+        android:gravity="center"
+        android:text="@string/main_assistent_headline"
+        android:textSize="@dimen/txt_headline_size" />
+
+    <ImageView
+        android:id="@+id/img_pattern"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_headline"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/img_3_2_pattern" />
+
+    <Button
+        android:id="@+id/bttn_abbort"
+        android:layout_width="140dip"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:text="@string/main_assistent_abort" />
+
+    <Button
+        android:id="@+id/bttn_next"
+        android:layout_width="140dip"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="@string/main_assistent_next" />
+
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="@dimen/element_size"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img_pattern"
+        android:layout_centerHorizontal="true"
+        android:text="@string/assistent_start_pattern_description"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>

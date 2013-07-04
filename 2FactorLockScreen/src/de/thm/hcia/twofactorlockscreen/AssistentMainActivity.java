@@ -18,7 +18,7 @@ public class AssistentMainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setTitle(R.string.main_assistent_headline);
+		setTitle(R.string.app_name);
 		setContentView(R.layout.assistent_main_activity);
 	}
 

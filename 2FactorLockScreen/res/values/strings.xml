@@ -42,5 +42,7 @@
 	<string name="logins_failed">Fehlgeschlagene Logins</string>
 	<string name="app_version">App Version: </string>
 	
+	<!-- Fehlertext -->
+	<string name="writing_prefs_error_01">Speichern der Einstellung nicht möglich!</string>
 	
 </resources>

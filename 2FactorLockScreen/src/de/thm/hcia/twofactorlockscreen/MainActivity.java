@@ -49,17 +49,26 @@ public class MainActivity extends SlidingFragmentActivity {
 		mContext = this;
 		setTitle(R.string.app_name);
 		setContentView(R.layout.responsive_content_frame);		
+		
+		/*
+		 * Vorbereiten für das lokale Speichern von Einstellungen
+		 */
 		mSettings = getSharedPreferences("AppPrefs", MODE_PRIVATE);
 		mPrefEditor = mSettings.edit();
 		
-		//try to get app version
+		/*
+		 * Holen der Versionsnummer über die PackageInfo
+		 */
 		try {
 			mAppVersion = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
 		} catch (NameNotFoundException e) {
 			e.printStackTrace();
 			mAppVersion = "1.0";
 		}
-	
+		
+		/*
+		 *	Einstellungen für das Slide-Framework
+		 */
 		//check if the content frame contains the menu frame
 		if(findViewById(R.id.menu_frame) == null){
 			setBehindContentView(R.layout.menu_frame);
@@ -102,11 +111,11 @@ public class MainActivity extends SlidingFragmentActivity {
         
         //Show explanation dialog (one time)   
         if (savedInstanceState == null && mSettings.getBoolean("informationRead", false) == false){
-        	AlertDialog.Builder adb = new AlertDialog.Builder(this);
+        	AlertDialog.Builder adb 	= new AlertDialog.Builder(this);
         	
-			LayoutInflater adbInflater = LayoutInflater.from(this);
-			View checkBoxLayout = adbInflater.inflate(R.layout.checkbox, null);
-			mDontShowAgain = (CheckBox) checkBoxLayout.findViewById(R.id.never_again);
+			LayoutInflater adbInflater 	= LayoutInflater.from(this);
+			View checkBoxLayout 		= adbInflater.inflate(R.layout.checkbox, null);
+			mDontShowAgain 				= (CheckBox) checkBoxLayout.findViewById(R.id.never_again);
         	
 			adb.setView(checkBoxLayout);
         	adb.setTitle(R.string.app_explanation_head);
@@ -198,13 +207,14 @@ public class MainActivity extends SlidingFragmentActivity {
 	        if(resultCode == RESULT_OK){
 	            savedPattern = data.getCharArrayExtra(LockPatternActivity.EXTRA_PATTERN);
 	            
-	            //save pattern in prefs
+	            /*
+	    		 * Speichern der Pattern in "prefs"
+	    		 */
 	        	mPrefEditor.putString("savedPattern", savedPattern.toString());
 	            if(mPrefEditor.commit()){
 	            	Toast.makeText(mContext, R.string.pattern_recorded, Toast.LENGTH_SHORT).show();
 	            }else{
-	            	//TODO String-Ressource anlegen!
-	            	Toast.makeText(mContext, "Konnte aus unbekannten GrÃ¼nden nicht gespeichert werden", Toast.LENGTH_SHORT).show();
+	            	Toast.makeText(mContext, R.string.writing_prefs_error_01, Toast.LENGTH_SHORT).show();
 	            }      
 	        }
 	        break;

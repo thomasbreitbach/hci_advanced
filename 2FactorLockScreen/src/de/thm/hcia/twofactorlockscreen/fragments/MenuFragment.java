@@ -74,6 +74,9 @@ public class MenuFragment extends ListFragment {
 			newContent = new SettingsFragment();
 			break;
 		case 4:
+			newContent = new PrototypeFragment();
+			break;
+		case 5:
 			newContent = new AboutFragment();
 			break;
 		}

@@ -17,19 +17,22 @@
         <activity
             android:name="de.thm.hcia.twofactorlockscreen.MainActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait"
-            >
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-         <activity
-		    android:name="group.pals.android.lib.ui.lockpattern.LockPatternActivity"
-		    android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
-		    android:screenOrientation="portrait"
-		    android:theme="@style/Alp.Theme.Dialog.Light" />
+        <activity
+            android:name="group.pals.android.lib.ui.lockpattern.LockPatternActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@style/Alp.Theme.Dialog.Light" />
+        <activity
+            android:name="de.thm.hcia.twofactorlockscreen.fragments.PrototypeFragment"
+            android:label="@string/title_activity_prototype_fragment" >
+        </activity>
     </application>
 
 </manifest>

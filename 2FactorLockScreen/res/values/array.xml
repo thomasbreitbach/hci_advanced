@@ -6,7 +6,8 @@
         <item>@string/assistent</item>
         <item>@string/manual_input</item>
         <item>@string/settings</item>
-        <item>@string/about</item>
+        <item>Prototype testen...</item><item>@string/about</item>
+        
     </string-array>
     
 	<string-array name="menu_imgs">
@@ -14,7 +15,8 @@
         <item>drawable/ic_menu_assistent</item>
         <item>drawable/ic_menu_edit</item>
         <item>drawable/ic_menu_settings_2</item>
-        <item>drawable/ic_menu_about</item>
+        <item /><item>drawable/ic_menu_about</item>
+        
     </string-array>
     
 

@@ -25,7 +25,7 @@ public class AboutFragment extends SherlockFragment {
 		View v = inflater.inflate(R.layout.about_fragment, null); 
 
 		StringBuffer versionName = new StringBuffer().append(mContext.getString(R.string.app_version));
-		versionName.append(" ").append(MainActivity.appVersion);
+		versionName.append(" ").append(MainActivity.getAppVersion());
 				
 		TextView tvAppVersion = (TextView) v.findViewById(R.id.tv_app_version);
 		tvAppVersion.setText(versionName.toString());

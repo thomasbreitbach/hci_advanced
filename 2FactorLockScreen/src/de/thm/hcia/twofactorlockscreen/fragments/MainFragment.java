@@ -38,7 +38,7 @@ public class MainFragment extends SherlockFragment {
 		
 		//get app version from AndroidManifest
 		StringBuffer versionName = new StringBuffer().append(mContext.getString(R.string.app_version));
-		versionName.append(" ").append(MainActivity.appVersion);
+		versionName.append(" ").append(MainActivity.getAppVersion());
 
 		TextView appVersion = (TextView) v.findViewById(R.id.tv_app_version);
 		appVersion.setText(versionName.toString());

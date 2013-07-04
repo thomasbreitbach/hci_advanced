@@ -31,16 +31,17 @@ import android.widget.Toast;
 public class MainActivity extends SlidingFragmentActivity {
 
 	private static final String TAG = "MainActivity";
+	
 	public static final int REQ_CODE_CREATE_PATTERN = 1;
 	public static final int REQ_CODE_COMPARE_PATTERN = 2;
 	
-	private static Fragment mContent;
-	private static SharedPreferences mSettings;
-	private static SlidingMenu mMenu;
-	public static CheckBox mDontShowAgain;
-	private static Context mContext;
-	public static String appVersion;
-	private static char[] savedPattern = null;
+	private static Fragment 			mContent;
+	private static SharedPreferences 	mSettings;
+	private static SlidingMenu 		mMenu;
+	public static CheckBox 			mDontShowAgain;
+	private static Context 			mContext;
+	private static String 				mAppVersion;
+	private static char[] 			savedPattern = null;
 		
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -49,7 +50,7 @@ public class MainActivity extends SlidingFragmentActivity {
 		setTitle(R.string.app_name);
 		mSettings = getSharedPreferences("AppPrefs", MODE_PRIVATE);
 		try {
-			appVersion = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
+			mAppVersion = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
 		} catch (NameNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -200,5 +201,9 @@ public class MainActivity extends SlidingFragmentActivity {
 	        break;
 	    }
 	} 
+	
+	public static String getAppVersion(){
+		return mAppVersion;
+	}
 }
  

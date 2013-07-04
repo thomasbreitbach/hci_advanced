@@ -7,7 +7,7 @@
     <string name="ok">OK</string>
     <string name="quick_start_statement">Sie haben noch keine Einrichtung vorgenommen. Nutzen Sie den Lock-Assistenten für eine einfache Konfiguration.</string>
     <string name="start_assistent">Lock-Assistent starten</string>
-	<string name="about_info_txt">In welchem Kontext ist die App entstanden? Welchen nutzen hat Sie? Wer hat daran mitgewirkt?</string>
+	<string name="about_info_txt">Dieser Prototyp entstand in der Veranstaltung „Fortgeschrittene Mensch-Maschine-Interaktion“ der Technischen Hochschule Fiedberg. In dieser App geht es darum zu Evaluieren, ob man im täglichen Gebrauch mehr als nur eine Sicherheitsabfrage für ein Android-Smartphone verwenden sollte. </string>
 	<string name="assistent_explanation">Der Lock Assistent führt Sie bequem und einfach durch diese App und erklärt Ihnen die einzelnen Optionen und Einstellungsmöglichkeiten. \nDauer: ca. 3 Minuten!</string>
 	<string name="assistent">Assistent</string>
 	<string name="manual_input">Manuelle Eingabe</string>
@@ -19,7 +19,7 @@
 	<string name="home">Home</string>
 	<string name="settings">Einstellungen</string>
 	<string name="code_on_github">Code auf Github</string>
-	<string name="dont_show_again">Nicht wieder anzeigen</string>
+	<string name="dont_show_again">Nicht wieder anzeigen!</string>
 	<string name="main_menu">Hauptmenü</string>
 	<string name="pattern">Muster</string>
 	<string name="speech_recognition">Spracherkennung</string>

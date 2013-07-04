@@ -53,4 +53,10 @@
     <string name="ok">OK</string>
     <string name="title_activity_assistent_main">AssistentMainActivity</string>
 
+    <!-- Assistent Strings -->
+    <string name="main_assistent_headline">Lockscreen Assistent</string>
+    
+    <!-- Submenue MainActivity -->
+    <string name="main_activity_abort">Assistenten abbrechen</string>
+    
 </resources>

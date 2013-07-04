@@ -23,8 +23,17 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="14dp"
         android:height="250dp"
-        android:text="Medium Text"
+        android:text="@string/prototype_start_description"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:width="250dp" />
+        android:width="@dimen/element_size" />
+
+    <Button
+        android:id="@+id/bttn_startProto"
+        android:layout_width="@dimen/element_size"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="42dp"
+        android:text="Button" />
 
 </RelativeLayout>

@@ -43,4 +43,5 @@
 	
     <!-- Strings for the PrototypeFragmentView -->
     <string name="prototype_headline">Prototyp testen</string>
+    <string name="prototype_start_description">Here you can test the app...</string>
 </resources>

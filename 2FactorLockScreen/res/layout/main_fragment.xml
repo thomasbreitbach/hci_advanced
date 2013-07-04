@@ -34,9 +34,11 @@
         <include android:id="@+id/quick_start" layout="@layout/quick_start"/> 
 	  	
 	  	<!-- DASHBOARD -->
-	  	<include android:id="@+id/dashboard" layout="@layout/dashboard" android:visibility="gone"/>   
-	  	
-	  	
+
+	  	<include
+	  	    android:id="@+id/dashboard"
+	  	    layout="@layout/dashboard"
+	  	    android:paddingTop="50dip" android:visibility="gone" />
 
     </LinearLayout>
 </ScrollView>

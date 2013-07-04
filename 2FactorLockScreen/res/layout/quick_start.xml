@@ -7,15 +7,15 @@
     android:orientation="vertical" >
  
 	  	<TextView
-	      android:id="@+id/tv_statement"
-	      android:layout_width="wrap_content"
-	      android:layout_height="wrap_content"
-	      android:text="@string/quick_start_statement" />
+	  	    android:id="@+id/tv_statement"
+	  	    android:layout_width="265dp"
+	  	    android:layout_height="wrap_content"
+	  	    android:text="@string/quick_start_statement" />
 
 	  	<Button
-	      android:id="@+id/btn_start_assistent"
-	      android:layout_width="wrap_content"
-	      android:layout_height="wrap_content"
-	      android:text="@string/start_assistent" />
+	  	    android:id="@+id/btn_start_assistent"
+	  	    android:layout_width="280dp"
+	  	    android:layout_height="wrap_content"
+	  	    android:text="@string/start_assistent" />
 
 </LinearLayout>

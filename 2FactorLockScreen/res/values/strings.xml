@@ -5,11 +5,12 @@
     <string name="action_settings">Einstellungen</string>
     <string name="app_explanation_head">Information</string>
     <string name="app_explanation_txt">Herzlich Willkommen und vielen Dank,  dass Sie an der Evaluation dieser APP teilnehmen. Mit dieser APP soll herausgefunden werden, ob man zwei Sicherheitsmechanismen im täglichen Gebrauch verwenden kann.</string>
-    <string name="ok">OK</string>
+
     <string name="quick_start_statement">Sie haben noch keine Einrichtung vorgenommen. Nutzen Sie den Lock-Assistenten für eine einfache Konfiguration.</string>
     <string name="about_info_txt">Dieser Prototyp entstand in der Veranstaltung „Fortgeschrittene Mensch-Maschine-Interaktion“ der Technischen Hochschule Fiedberg. In dieser App geht es darum zu Evaluieren, ob man im täglichen Gebrauch mehr als nur eine Sicherheitsabfrage für ein Android-Smartphone verwenden sollte. </string>
     <string name="start_assistent">Lock-Assistent starten</string>
     <string name="assistent_explanation">Der Lock Assistent führt Sie bequem und einfach durch diese App und erklärt Ihnen die einzelnen Optionen und Einstellungsmöglichkeiten. \nDauer: ca. 3 Minuten!</string>
+    <!-- assistenten strings -->
     <string name="assistent">Assistent</string>
     <string name="assistent_start_pattern_description">Zeichnen Sie mit einem Finger ein beliebiges Muster Ihrer Wahl. Die einzelnen Punkte können mehrfach selektiert werden, um komplexere Muster zu ermöglichen. Ein Beispiel für ein komplexeres Muster mit wiederholter Selektion von Musterpunkten wäre die Nachzeichnung des Haus vom Nikolaus.</string>
     <string name="assistent_pattern_record_description">Bitte zeichnen Sie ein beliebiges Muster Ihrer Wahl und Bestätigen Sie Ihre Eingabe anschließend mit „OK“.</string>
@@ -44,4 +45,7 @@
     <!-- Strings for the PrototypeFragmentView -->
     <string name="prototype_headline">Prototyp testen</string>
     <string name="prototype_start_description">Here you can test the app...</string>
+    
+    <!-- menü strings -->
+        <string name="ok">OK</string>
 </resources>

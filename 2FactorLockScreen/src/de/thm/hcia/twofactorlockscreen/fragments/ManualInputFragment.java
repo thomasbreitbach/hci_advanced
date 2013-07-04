@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 import com.actionbarsherlock.app.SherlockFragment;
@@ -57,7 +58,7 @@ public class ManualInputFragment extends SherlockFragment {
 			
 			@Override
 			public void onClick(View v) {
-				//TODO!
+				
 			}
 		});
 	}

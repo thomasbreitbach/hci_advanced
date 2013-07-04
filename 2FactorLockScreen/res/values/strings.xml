@@ -15,7 +15,13 @@
 	<string name="assistent_start_pattern_description">Zeichnen Sie mit einem Finger ein beliebiges Muster Ihrer Wahl. Die einzelnen Punkte können mehrfach selektiert werden, um komplexere Muster zu ermöglichen. Ein Beispiel für ein komplexeres Muster mit wiederholter Selektion von Musterpunkten wäre die Nachzeichnung des Haus vom Nikolaus.</string>
 	<string name="assistent_pattern_record_description">Bitte zeichnen Sie ein beliebiges Muster Ihrer Wahl und Bestätigen Sie Ihre Eingabe anschließend mit „OK“.</string>
 	<string name="assistent_pattern_record_description_repeat">Bitte wiederholen Sie Ihr eingegebenes Muster und bestätigen Sie dann mit „OK“.</string>
-	<string name="null">Null</string>
+	<string name="assistent_start_speech_input_description">Sprechen Sie Ihren Entsperrbefehl mit mindestens einem Wort,  klar und deutlich in Ihr mobiles Endgerät.\nHalten sie Ihr Gerät dabei etwa 20-30cm von Ihrem Mund entfernt.\nDie Anzeige unterhalb des Mikrofons hilft Ihnen die bestmögliche Aufnahme zu erzielen. Der grüne Bereich des Balkens steht dabei für hervorragende Qualität. Im roten Bereich ist die Qualität nicht ausreichend.</string>
+	<string name="assistent_speech_input_record_description">Sprechen Sie jetzt ihren Entsperrbefehl in das Mikrofon und bestätigen Sie Ihre Aufnahme anschließend mit „OK“.</string>
+	<string name="assistent_speech_input_record_description_repeat">Wiederholen Sie den von Ihnen eingesprochenen Entsperrbefehl und bestätigen Sie diesen dann mit „OK“.</string>
+	
+	<string name="app_evaluation_start_description">Zeichnen Sie nun das von Ihnen gewählte  Muster und sprechen Sie gleichzeitig Ihren Entsperrbefehl in das mobile Endgerät ein. Bei richtiger Authentifizierung erhalten Sie eine Bestätigung.</string>
+	<string name="app_evaluation_success_input">Gratulation !  Sie haben soeben erfolgreich ihre Entsperrungskombination eingerichtet und damit das Sicherheitslevel ihres mobilen Endgerätes erhöht.</string>
+	
 	<string name="manual_input">Manuelle Eingabe</string>
 	<string name="manual_input_explanation">Mit Hilfe der manuellen Eingabe können Sie …</string>
 	

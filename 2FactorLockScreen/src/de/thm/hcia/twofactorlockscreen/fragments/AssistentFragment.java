@@ -1,6 +1,7 @@
 package de.thm.hcia.twofactorlockscreen.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 
 import com.actionbarsherlock.app.SherlockFragment;
 
+import de.thm.hcia.twofactorlockscreen.AssistentMainActivity;
 import de.thm.hcia.twofactorlockscreen.R;
 
 public class AssistentFragment extends SherlockFragment {
@@ -27,7 +29,10 @@ public class AssistentFragment extends SherlockFragment {
 			
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(mContext, "Button clicked", Toast.LENGTH_SHORT).show();
+				Intent intent = new Intent();
+	            intent.setClass(getActivity().getBaseContext(), AssistentMainActivity.class);
+	            startActivity(intent);
+				Toast.makeText(mContext, "Test-Button clicked", Toast.LENGTH_SHORT).show();
 			}
 		});
 		

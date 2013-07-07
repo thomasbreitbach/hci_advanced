@@ -52,13 +52,13 @@ public class MainActivity extends SlidingFragmentActivity {
 		setContentView(R.layout.responsive_content_frame);		
 		
 		/*
-		 * Vorbereiten für das lokale Speichern von Einstellungen
+		 * Vorbereiten fÃ¼r das lokale Speichern von Einstellungen
 		 */
 		mSettings = getSharedPreferences("AppPrefs", MODE_PRIVATE);
 		mPrefEditor = mSettings.edit();
 		
 		/*
-		 * Holen der Versionsnummer über die PackageInfo
+		 * Holen der Versionsnummer Ã¼ber die PackageInfo
 		 */
 		try {
 			mAppVersion = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
@@ -68,7 +68,7 @@ public class MainActivity extends SlidingFragmentActivity {
 		}
 		
 		/*
-		 *	Einstellungen für das Slide-Framework
+		 *	Einstellungen fÃ¼r das Slide-Framework
 		 */
 		//check if the content frame contains the menu frame
 		if(findViewById(R.id.menu_frame) == null){

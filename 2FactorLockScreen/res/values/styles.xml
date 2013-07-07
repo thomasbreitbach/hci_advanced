@@ -3,7 +3,7 @@
      <style name="TwoFactorTheme" parent="Theme.Sherlock.Light.DarkActionBar">
         <item name="homeAsUpIndicator">@drawable/indicator</item>
         <item name="android:homeAsUpIndicator">@drawable/indicator</item>
-        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowFullscreen">false</item>
     </style>
 
 </resources>

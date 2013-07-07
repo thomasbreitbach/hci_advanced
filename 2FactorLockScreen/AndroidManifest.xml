@@ -28,7 +28,7 @@
             android:name="group.pals.android.lib.ui.lockpattern.LockPatternActivity"
             android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
             android:screenOrientation="portrait"
-            android:theme="@style/Alp.Theme.Dialog.Light" />
+            android:theme="@style/Alp.Theme.Light" />
         <activity
             android:name="de.thm.hcia.twofactorlockscreen.fragments.PrototypeFragment"
             android:label="@string/title_activity_prototype_fragment" >

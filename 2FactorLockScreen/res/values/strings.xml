@@ -15,7 +15,7 @@
     <string name="assistent_start_pattern_description">Zeichnen Sie mit einem Finger ein beliebiges Muster Ihrer Wahl. Die einzelnen Punkte können mehrfach selektiert werden, um komplexere Muster zu ermöglichen.</string>
     <string name="assistent_pattern_record_description">Bitte zeichnen Sie ein beliebiges Muster Ihrer Wahl und Bestätigen Sie Ihre Eingabe anschließend mit „OK“.</string>
     <string name="assistent_pattern_record_description_repeat">Bitte wiederholen Sie Ihr eingegebenes Muster und bestätigen Sie dann mit „OK“.</string>
-    <string name="assistent_start_speech_input_description">Sprechen Sie Ihren Entsperrbefehl mit mindestens einem Wort,  klar und deutlich in Ihr mobiles Endgerät.\nHalten sie Ihr Gerät dabei etwa 20-30cm von Ihrem Mund entfernt.\nDie Anzeige unterhalb des Mikrofons hilft Ihnen die bestmögliche Aufnahme zu erzielen. Der grüne Bereich des Balkens steht dabei für hervorragende Qualität. Im roten Bereich ist die Qualität nicht ausreichend.</string>
+    <string name="assistent_start_speech_input_description">Sprechen Sie Ihren Entsperrbefehl mit mindestens einem Wort, klar und deutlich in Ihr mobiles Endgerät.\nHalten sie Ihr Gerät dabei etwa 20-30cm von Ihrem Mund entfernt.\nDie Anzeige unterhalb des Mikrofons hilft Ihnen die bestmögliche Aufnahme zu erzielen. Der grüne Bereich des Balkens steht dabei für hervorragende Qualität. Im roten Bereich ist die Qualität nicht ausreichend.</string>
     <string name="assistent_speech_input_record_description">Sprechen Sie jetzt ihren Entsperrbefehl in das Mikrofon und bestätigen Sie Ihre Aufnahme anschließend mit „OK“.</string>
     <string name="assistent_speech_input_record_description_repeat">Wiederholen Sie den von Ihnen eingesprochenen Entsperrbefehl und bestätigen Sie diesen dann mit „OK“.</string>
     <string name="app_evaluation_start_description">Zeichnen Sie nun das von Ihnen gewählte  Muster und sprechen Sie gleichzeitig Ihren Entsperrbefehl in das mobile Endgerät ein. Bei richtiger Authentifizierung erhalten Sie eine Bestätigung.</string>
@@ -25,6 +25,8 @@
     <string name="start_speech_input">Spache aufzeichnen</string>
     <string name="start_pattern_input">Muster aufzeichnen</string>
     <string name="pattern_recorded">Ihr Muster wurde gespeichert!</string>
+    <string name="voice_prompt">Voice recognition Demo…</string>
+    <string name="voice_no_match">Keine Spracheingabe erkannt!</string>
     <!-- Slidemenü -->
     <string name="about">Über diese App</string>
     <string name="home">Hauptmenü</string>
@@ -41,11 +43,10 @@
     <!-- Fehlertext -->
     <string name="writing_prefs_error_01">Speichern der Einstellung nicht möglich!</string>
     <string name="title_activity_prototype_fragment">PrototypeFragment</string>
-    <string name="hello_world">Hello world!</string>
 
     <!-- Strings for the PrototypeFragmentView -->
     <string name="prototype_headline">Prototyp testen</string>
-    <string name="prototype_start_description">Here you can test the app...</string>
+    <string name="prototype_start_description">Teste den Prototyp</string>
 
     <!-- menü strings -->
     <string name="ok">OK</string>
@@ -55,6 +56,7 @@
     <string name="main_assistent_headline">Lockscreen Assistent</string>
     <string name="main_assistent_next">Weiter</string>
     <string name="main_assistent_abort">Abbrechen</string>
+    <string name="hello_world">Hello world!</string>
 
     <!-- Assistent String 3.3 -->
 

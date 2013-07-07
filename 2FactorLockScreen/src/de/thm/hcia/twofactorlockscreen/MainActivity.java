@@ -225,15 +225,16 @@ public class MainActivity extends SlidingFragmentActivity {
 	        }
 	        break;
 	    case REQ_CODE_CREATE_VOICE:
-	    	 if (resultCode == RESULT_OK)
-	         {  	
-	             matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-	             Log.d(TAG, matches.toString());
-	         }
-	         
-	         if(resultCode == RecognizerIntent.RESULT_NO_MATCH){
-	         	Toast.makeText(this, R.string.voice_no_match, Toast.LENGTH_LONG).show();
-	         }
+	    	Log.d(TAG, matches.toString());
+	    	if (resultCode == RESULT_OK)
+	        {  	
+	            matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+	            Log.d(TAG, matches.toString());
+	        }
+	        
+	        if(resultCode == RecognizerIntent.RESULT_NO_MATCH){
+	        	Toast.makeText(this, R.string.voice_no_match, Toast.LENGTH_LONG).show();
+	        }
 	    	break;
 		}
 		

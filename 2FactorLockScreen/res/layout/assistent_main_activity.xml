@@ -25,7 +25,7 @@
         android:src="@drawable/img_3_2_pattern" />
 
     <Button
-        android:id="@+id/bttn_abbort"
+        android:id="@+id/btn_cancel"
         android:layout_width="140dip"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -33,7 +33,7 @@
         android:text="@string/main_assistent_abort" />
 
     <Button
-        android:id="@+id/bttn_next"
+        android:id="@+id/btn_next"
         android:layout_width="140dip"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

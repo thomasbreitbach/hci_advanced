@@ -1,44 +1,59 @@
 package de.thm.hcia.twofactorlockscreen;
 
+import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.MenuItem;
 
 import de.thm.hcia.twofactorlockscreen.fragments.AboutFragment;
+
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
-import android.view.ActionMode;
 import android.view.Menu;
-import android.widget.Toast;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 
 
-public class AssistentMainActivity extends Activity {
+public class AssistentMainActivity extends SherlockActivity {
 
+	private static Button mBtnCancel;
+	private static Button mBtnNext;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setTitle(R.string.app_name);
 		setContentView(R.layout.assistent_main_activity);
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.assistent_main, menu);
-		return true;
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		
+		mBtnCancel = (Button) findViewById(R.id.btn_cancel);
+		mBtnNext = (Button) findViewById(R.id.btn_next);
+		
+		setOnClickListeners();
 	}
 	
-	/*@Override
+	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-	    // Handle item selection
-	    switch (item.getItemId()) {
-	        case R.id.action_abort:
-	        	Toast.makeText(getApplicationContext(), "TEST", 1000);
-	            return true;
-	        default:
-	            return false;
-	    }
-	}*/
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			finish();
+		}
+		return super.onOptionsItemSelected(item);
+	}
+	
+	/**
+	 * sets all required onClickListeners
+	 */
+	private void setOnClickListeners() {
+		mBtnCancel.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				finish();
+			}
+		});
+	}
 	
 }

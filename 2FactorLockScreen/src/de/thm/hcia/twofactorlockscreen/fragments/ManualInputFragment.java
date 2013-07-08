@@ -1,8 +1,12 @@
 package de.thm.hcia.twofactorlockscreen.fragments;
 
+import java.util.List;
+
 import group.pals.android.lib.ui.lockpattern.LockPatternActivity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.view.LayoutInflater;
@@ -31,6 +35,17 @@ public class ManualInputFragment extends SherlockFragment {
 
 		mBtnPattern = (Button) v.findViewById(R.id.btn_start_pattern_input);	
 		mBtnSpeech = (Button) v.findViewById(R.id.btn_start_speech_input);
+		
+		// Disable button if no recognition service is present
+		PackageManager pm = getActivity().getPackageManager();
+        List<ResolveInfo> activities = pm.queryIntentActivities(
+                new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH), 0);
+        if (activities.size() == 0)
+        {
+            mBtnSpeech.setEnabled(false);
+            mBtnSpeech.setText("Recognizer nicht verfügbar");
+            Toast.makeText(mContext, R.string.no_speech, Toast.LENGTH_LONG).show();
+        }
 		
 		setupOnClickListeners();
 		

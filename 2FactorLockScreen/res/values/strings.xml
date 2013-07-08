@@ -27,6 +27,7 @@
     <string name="pattern_recorded">Ihr Muster wurde gespeichert!</string>
     <string name="voice_prompt">Voice recognition Demo…</string>
     <string name="voice_no_match">Keine Spracheingabe erkannt!</string>
+    <string name="no_speech">Leider unterstützt dein Gerät keine Spracherkennung!</string>
     <!-- Slidemenü -->
     <string name="about">Über diese App</string>
     <string name="home">Hauptmenü</string>

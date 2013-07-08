@@ -225,10 +225,11 @@ public class MainActivity extends SlidingFragmentActivity {
 	        }
 	        break;
 	    case REQ_CODE_CREATE_VOICE:
-	    	Log.d(TAG, matches.toString());
+	    	Log.d(TAG, "REQ_CODE_CREATE_VOICE");
 	    	if (resultCode == RESULT_OK)
 	        {  	
 	            matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+	            Toast.makeText(this, matches.toString(), Toast.LENGTH_LONG).show();
 	            Log.d(TAG, matches.toString());
 	        }
 	        

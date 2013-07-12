@@ -6,6 +6,7 @@
         <item>@string/assistent</item>
         <item>@string/manual_input</item>
         <item>@string/prototype_headline</item>
+        <item>@string/evaluation_headline</item>
         <item>@string/settings</item>
         <item>@string/about</item>
         
@@ -16,8 +17,10 @@
         <item>drawable/ic_menu_assistent</item>
         <item>drawable/ic_menu_edit</item>
         <item>drawable/ic_menu_prototype</item>
+        <item>drawable/ic_menu_about</item>
         <item>drawable/ic_menu_settings_2</item>
         <item>drawable/ic_menu_about</item>
+        
         
     </string-array>
     

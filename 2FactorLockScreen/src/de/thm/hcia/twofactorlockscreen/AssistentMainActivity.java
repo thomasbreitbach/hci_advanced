@@ -3,11 +3,8 @@ package de.thm.hcia.twofactorlockscreen;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.MenuItem;
 
-import de.thm.hcia.twofactorlockscreen.fragments.AboutFragment;
-
 import android.net.Uri;
 import android.os.Bundle;
-import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
 import android.view.Menu;

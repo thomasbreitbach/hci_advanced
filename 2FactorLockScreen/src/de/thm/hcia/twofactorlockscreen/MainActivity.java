@@ -48,7 +48,12 @@ public class MainActivity extends SlidingFragmentActivity {
 	private static String 				mAppVersion;
 	private static char[] 				savedPattern = null;
 	private ArrayList<String> 			matches;
+	
+	/*
+	 * Variablen für Zurück, Menü-Button
+	 */
 	private boolean						isSlideMenue	= false;
+	private boolean						isHomescreen	= true;
 	
 		
 	@Override
@@ -259,7 +264,28 @@ public class MainActivity extends SlidingFragmentActivity {
 	    }
 	    if(keyCode == KeyEvent.KEYCODE_BACK)
 	    {
-	    	
+	    	if(!mMenu.isMenuShowing())
+	    	{
+	    		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(mContext);
+	    		alertDialogBuilder.setTitle(R.string.dialog_title);
+	    		alertDialogBuilder
+					.setMessage(R.string.dialog_message)
+					.setCancelable(false)
+					.setPositiveButton("Beenden",new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog,int id) {
+							MainActivity.this.finish();
+						}
+					  })
+					.setNegativeButton("Abbrechen",new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog,int id) {
+							dialog.cancel();
+						}
+					});
+					AlertDialog alertDialog = alertDialogBuilder.create();
+					alertDialog.show();
+	    	}else{
+	    		toggle();
+	    	}
 	    }
 	//----------------------------------------------------------------
 	    return true;

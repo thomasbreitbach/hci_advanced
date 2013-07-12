@@ -66,5 +66,7 @@
     <string name="main_activity_abort">Assistenten abbrechen</string>
     <string name="title_activity_assistent_patter_input">AssistentPatterInput</string>
     <string name="title_activity_prototype_start">PrototypeStart</string>
+    <string name="dialog_title">2FactorLockScreen</string>
+    <string name="dialog_message">Möchten Sie wirklich den Prototyp beenden?</string>
 
 </resources>

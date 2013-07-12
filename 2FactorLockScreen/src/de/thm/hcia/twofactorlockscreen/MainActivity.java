@@ -25,6 +25,7 @@ import android.os.Handler;
 import android.speech.RecognizerIntent;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
@@ -243,6 +244,19 @@ public class MainActivity extends SlidingFragmentActivity {
 	
 	public static String getAppVersion(){
 		return mAppVersion;
+	}
+	
+	//----------------------------------------------------------------
+	// Die Funktion die den Button abfragt
+	//----------------------------------------------------------------
+	  @Override
+	    public boolean onKeyUp(int keyCode, KeyEvent event) {
+	    if ((keyCode == KeyEvent.KEYCODE_BACK)) 
+	    {
+	    	getSlidingMenu().showMenu();
+	    }
+	//----------------------------------------------------------------
+	    return true;
 	}
 }
  

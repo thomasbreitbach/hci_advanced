@@ -65,5 +65,6 @@
     <!-- Submenue MainActivity 3.2 -->
     <string name="main_activity_abort">Assistenten abbrechen</string>
     <string name="title_activity_assistent_patter_input">AssistentPatterInput</string>
+    <string name="title_activity_prototype_start">PrototypeStart</string>
 
 </resources>

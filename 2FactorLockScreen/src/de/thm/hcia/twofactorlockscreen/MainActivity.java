@@ -38,16 +38,18 @@ public class MainActivity extends SlidingFragmentActivity {
 	public static final int REQ_CODE_CREATE_PATTERN 	= 1;
 	public static final int REQ_CODE_COMPARE_PATTERN 	= 2;
 	public static final int REQ_CODE_CREATE_VOICE 	= 3; 
+	public static CheckBox 				mDontShowAgain;
 	
+	SharedPreferences.Editor 			mPrefEditor; 
+	private static SlidingMenu 			mMenu;
 	private static Fragment 			mContent;
 	private static SharedPreferences 	mSettings;
-	SharedPreferences.Editor 			mPrefEditor; 
-	private static SlidingMenu 		mMenu;
-	public static CheckBox 			mDontShowAgain;
-	private static Context 			mContext;
+	private static Context 				mContext;
 	private static String 				mAppVersion;
-	private static char[] 			savedPattern = null;
+	private static char[] 				savedPattern = null;
 	private ArrayList<String> 			matches;
+	private boolean						isSlideMenue	= false;
+	
 		
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -253,7 +255,13 @@ public class MainActivity extends SlidingFragmentActivity {
 	    public boolean onKeyUp(int keyCode, KeyEvent event) {
 	    if ((keyCode == KeyEvent.KEYCODE_BACK)) 
 	    {
-	    	getSlidingMenu().showMenu();
+	    	if(isSlideMenue)
+	    	{
+	    		
+	    		isSlideMenue = true;
+	    	}else{
+	    		getSlidingMenu().showMenu();
+	    	}
 	    }
 	//----------------------------------------------------------------
 	    return true;

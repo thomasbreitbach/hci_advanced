@@ -253,15 +253,13 @@ public class MainActivity extends SlidingFragmentActivity {
 	//----------------------------------------------------------------
 	  @Override
 	    public boolean onKeyUp(int keyCode, KeyEvent event) {
-	    if ((keyCode == KeyEvent.KEYCODE_BACK)) 
+	    if ((keyCode == KeyEvent.KEYCODE_MENU)) 
 	    {
-	    	if(isSlideMenue)
-	    	{
-	    		
-	    		isSlideMenue = true;
-	    	}else{
-	    		getSlidingMenu().showMenu();
-	    	}
+	    	toggle();
+	    }
+	    if(keyCode == KeyEvent.KEYCODE_BACK)
+	    {
+	    	
 	    }
 	//----------------------------------------------------------------
 	    return true;

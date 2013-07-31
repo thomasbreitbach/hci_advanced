@@ -230,13 +230,13 @@ public class MainActivity extends SlidingFragmentActivity {
 		    case REQ_CODE_CREATE_PATTERN:
 		        if(resultCode == RESULT_OK){
 		            savedPattern = data.getCharArrayExtra(LockPatternActivity.EXTRA_PATTERN);
-		            
 		            /*
 		    		 * Speichern der Pattern in "prefs"
 		    		 */
-		        	mPrefEditor.putString("savedPattern", savedPattern.toString());
+		            saveToSharedPreferences("savedPattern", savedPattern.toString());
 		            if(mPrefEditor.commit()){
 		            	Toast.makeText(mContext, R.string.pattern_recorded, Toast.LENGTH_SHORT).show();
+		            	Log.d("TEST", loadStringFromSharedPreferences("savedPattern").toString());
 		            }else{
 		            	Toast.makeText(mContext, R.string.writing_prefs_error_01, Toast.LENGTH_SHORT).show();
 		            }      
@@ -250,14 +250,13 @@ public class MainActivity extends SlidingFragmentActivity {
 		    	Log.d(TAG, "REQ_CODE_CREATE_VOICE");
 		    	if (resultCode == RESULT_OK)
 		        { 
-		    		
 		            matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-		            saveToSharedPreferences(mSettings, "savedRecord", matches);
+		            saveToSharedPreferences("savedRecord", matches);
 		            
 		            if(mPrefEditor.commit())
 		            {		   
 		            	Toast.makeText(mContext, R.string.speech_recorded, Toast.LENGTH_SHORT).show();
-		            	Log.d("TEST", loadFromSharedPreferences("savedRecord").toString());
+		            	Log.d("TEST", loadArrayFromSharedPreferences("savedRecord").toString());
 		            }else{
 		            	Toast.makeText(mContext, R.string.writing_prefs_error_01, Toast.LENGTH_SHORT).show();
 		            }     
@@ -332,7 +331,7 @@ public class MainActivity extends SlidingFragmentActivity {
 	  //	Funktionen zum Laden und Speichern
 	  //----------------------------------------------------------------
 	  
-	  public Boolean saveToSharedPreferences(SharedPreferences sPref, String key, ArrayList<String> aList)
+	  public Boolean saveToSharedPreferences(String key, ArrayList<String> aList)
 	  {
 		  Set<String> stList = new HashSet<String>();
 		  
@@ -345,8 +344,18 @@ public class MainActivity extends SlidingFragmentActivity {
         	  return false;
           }
 	  }
+	  public Boolean saveToSharedPreferences(String key, String value)
+	  {	    
+          mPrefEditor.putString(key, value);
+          if(mPrefEditor.commit())
+          {
+        	  return true;
+          }else{
+        	  return false;
+          }
+	  }
 	  
-	  public ArrayList<String> loadFromSharedPreferences(String key)
+	  public ArrayList<String> loadArrayFromSharedPreferences(String key)
 	  {
 		  Set<String> aSList 		= new HashSet<String>();
           aSList 					= mSettings.getStringSet(key, null);
@@ -354,6 +363,11 @@ public class MainActivity extends SlidingFragmentActivity {
           aList.addAll(aSList);
           
 		  return  aList;
+	  }
+	  
+	  public String loadStringFromSharedPreferences(String key)
+	  {         
+		  return  mSettings.getString(key, null);
 	  }
 }
  

@@ -46,6 +46,10 @@
             android:name="de.thm.hcia.twofactorlockscreen.PrototypeStart"
             android:label="@string/title_activity_prototype_start" >
         </activity>
+        <activity
+            android:name="de.thm.hcia.twofactorlockscreen.fragments.EvaluationFragment"
+            android:label="@string/title_activity_evaluation_fragment" >
+        </activity>
     </application>
 
 </manifest>

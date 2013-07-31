@@ -70,5 +70,6 @@
     <string name="dialog_title">2FactorLockScreen</string>
     <string name="dialog_message">Möchten Sie wirklich den Prototyp beenden?</string>
     <string name="evaluation_headline">Prototyp evaluieren</string>
+    <string name="title_activity_evaluation_fragment">EvaluationFragment</string>
 
 </resources>

@@ -1,6 +1,9 @@
 package de.thm.hcia.twofactorlockscreen;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 import group.pals.android.lib.ui.lockpattern.LockPatternActivity;
 
@@ -9,6 +12,7 @@ import com.actionbarsherlock.view.MenuItem;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 
+import de.thm.hcia.twofactorlockscreen.R.string;
 import de.thm.hcia.twofactorlockscreen.fragments.AboutFragment;
 import de.thm.hcia.twofactorlockscreen.fragments.MainFragment;
 import de.thm.hcia.twofactorlockscreen.fragments.MenuFragment;
@@ -35,9 +39,9 @@ public class MainActivity extends SlidingFragmentActivity {
 
 	private static final String TAG = "MainActivity";
 	
-	public static final int REQ_CODE_CREATE_PATTERN 	= 1;
-	public static final int REQ_CODE_COMPARE_PATTERN 	= 2;
-	public static final int REQ_CODE_CREATE_VOICE 	= 3; 
+	public static final int 			REQ_CODE_CREATE_PATTERN 	= 1;
+	public static final int 			REQ_CODE_COMPARE_PATTERN 	= 2;
+	public static final int 			REQ_CODE_CREATE_VOICE 	= 3; 
 	public static CheckBox 				mDontShowAgain;
 	
 	SharedPreferences.Editor 			mPrefEditor; 
@@ -213,40 +217,58 @@ public class MainActivity extends SlidingFragmentActivity {
 		return true;
 	}
 	
+	
+	//HIER AM ARBEITEN
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data){
 		Log.i(TAG, "onActivityResult");
-		switch(requestCode) {
-	    case REQ_CODE_CREATE_PATTERN:
-	        if(resultCode == RESULT_OK){
-	            savedPattern = data.getCharArrayExtra(LockPatternActivity.EXTRA_PATTERN);
-	            
-	            /*
-	    		 * Speichern der Pattern in "prefs"
-	    		 */
-	        	mPrefEditor.putString("savedPattern", savedPattern.toString());
-	            if(mPrefEditor.commit()){
-	            	Toast.makeText(mContext, R.string.pattern_recorded, Toast.LENGTH_SHORT).show();
-	            }else{
-	            	Toast.makeText(mContext, R.string.writing_prefs_error_01, Toast.LENGTH_SHORT).show();
-	            }      
-	        }
-	        break;
-	    case REQ_CODE_CREATE_VOICE:
-	    	Log.d(TAG, "REQ_CODE_CREATE_VOICE");
-	    	if (resultCode == RESULT_OK)
-	        {  	
-	            matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-	            Toast.makeText(this, matches.toString(), Toast.LENGTH_LONG).show();
-	            Log.d(TAG, matches.toString());
-	        }
-	        
-	        if(resultCode == RecognizerIntent.RESULT_NO_MATCH){
-	        	Toast.makeText(this, R.string.voice_no_match, Toast.LENGTH_LONG).show();
-	        }
-	    	break;
+		switch(requestCode) 
+		{
+			/*
+			 * Speichern der Pattern in "prefs"
+			 */
+		    case REQ_CODE_CREATE_PATTERN:
+		        if(resultCode == RESULT_OK){
+		            savedPattern = data.getCharArrayExtra(LockPatternActivity.EXTRA_PATTERN);
+		            
+		            /*
+		    		 * Speichern der Pattern in "prefs"
+		    		 */
+		        	mPrefEditor.putString("savedPattern", savedPattern.toString());
+		            if(mPrefEditor.commit()){
+		            	Toast.makeText(mContext, R.string.pattern_recorded, Toast.LENGTH_SHORT).show();
+		            }else{
+		            	Toast.makeText(mContext, R.string.writing_prefs_error_01, Toast.LENGTH_SHORT).show();
+		            }      
+		        }
+		        break;
+		        
+	        /*
+    		 * Speichern der Sprache in "prefs"
+    		 */
+		    case REQ_CODE_CREATE_VOICE:
+		    	Log.d(TAG, "REQ_CODE_CREATE_VOICE");
+		    	if (resultCode == RESULT_OK)
+		        { 
+		    		
+		            matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+		            saveToSharedPreferences(mSettings, "savedRecord", matches);
+		            
+		            if(mPrefEditor.commit())
+		            {		   
+		            	Toast.makeText(mContext, R.string.speech_recorded, Toast.LENGTH_SHORT).show();
+		            	Log.d("TEST", loadFromSharedPreferences("savedRecord").toString());
+		            }else{
+		            	Toast.makeText(mContext, R.string.writing_prefs_error_01, Toast.LENGTH_SHORT).show();
+		            }     
+		            
+		        }
+		        
+		        if(resultCode == RecognizerIntent.RESULT_NO_MATCH){
+		        	Toast.makeText(this, R.string.voice_no_match, Toast.LENGTH_LONG).show();
+		        }
+		    	break;
 		}
-		
 	} 
 	
 	public static String getAppVersion(){
@@ -290,5 +312,48 @@ public class MainActivity extends SlidingFragmentActivity {
 	//----------------------------------------------------------------
 	    return true;
 	}
+	  //----------------------------------------------------------------
+	  //	Spezial Funktionen
+	  //----------------------------------------------------------------
+	  public Set<String> replaceToLowercase(Set<String> strings)
+	  {
+	      String[] stringsArray = strings.toArray(new String[0]);
+	      for (int i=0; i<stringsArray.length; ++i)
+	      {
+	          stringsArray[i] = stringsArray[i].toLowerCase();
+	      }
+	      strings.clear();
+	      strings.addAll(Arrays.asList(stringsArray));
+	      
+	      return strings;
+	  }
+	  
+	  //----------------------------------------------------------------
+	  //	Funktionen zum Laden und Speichern
+	  //----------------------------------------------------------------
+	  
+	  public Boolean saveToSharedPreferences(SharedPreferences sPref, String key, ArrayList<String> aList)
+	  {
+		  Set<String> stList = new HashSet<String>();
+		  
+          stList.addAll(aList);		    
+          mPrefEditor.putStringSet(key, replaceToLowercase(stList));
+          if(mPrefEditor.commit())
+          {
+        	  return true;
+          }else{
+        	  return false;
+          }
+	  }
+	  
+	  public ArrayList<String> loadFromSharedPreferences(String key)
+	  {
+		  Set<String> aSList 		= new HashSet<String>();
+          aSList 					= mSettings.getStringSet(key, null);
+          ArrayList<String> aList 	= new ArrayList<String>();
+          aList.addAll(aSList);
+          
+		  return  aList;
+	  }
 }
  

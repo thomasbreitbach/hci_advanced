@@ -25,6 +25,7 @@
     <string name="start_speech_input">Spache aufzeichnen</string>
     <string name="start_pattern_input">Muster aufzeichnen</string>
     <string name="pattern_recorded">Ihr Muster wurde gespeichert!</string>
+    <string name="speech_recorded">Ihr Spracheingabe wurde gespeichert!</string>
     <string name="voice_prompt">Voice recognition Demo…</string>
     <string name="voice_no_match">Keine Spracheingabe erkannt!</string>
     <string name="no_speech">Leider unterstützt dein Gerät keine Spracherkennung!</string>

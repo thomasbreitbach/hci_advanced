@@ -71,5 +71,6 @@
     <string name="dialog_message">Möchten Sie wirklich den Prototyp beenden?</string>
     <string name="evaluation_headline">Prototyp evaluieren</string>
     <string name="title_activity_evaluation_fragment">EvaluationFragment</string>
+    <string name="title_activity_assistent_speech_input">AssistentSpeechInputActivity</string>
 
 </resources>

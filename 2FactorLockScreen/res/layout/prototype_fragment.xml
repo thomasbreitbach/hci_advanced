@@ -16,7 +16,7 @@
         android:textSize="@dimen/txt_headline_size" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/txtSpeech"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_headline"
@@ -31,7 +31,7 @@
         android:id="@+id/btn_startProto"
         android:layout_width="@dimen/element_size"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
+        android:layout_alignLeft="@+id/txtSpeech"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="@dimen/element_margin_bottom"
         android:text="Button" />

@@ -24,22 +24,6 @@
         android:layout_centerHorizontal="true"
         android:src="@drawable/img_3_2_pattern" />
 
-    <Button
-        android:id="@+id/btn_cancel"
-        android:layout_width="140dip"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:text="@string/main_assistent_abort" />
-
-    <Button
-        android:id="@+id/btn_next"
-        android:layout_width="140dip"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:text="@string/main_assistent_next" />
-
     <TextView
         android:id="@+id/tv_description"
         android:layout_width="@dimen/element_size"
@@ -48,5 +32,23 @@
         android:layout_centerHorizontal="true"
         android:text="@string/assistent_start_pattern_description"
         android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/btn_cancel"
+        android:layout_width="140dip"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_description"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
+        android:text="@string/main_assistent_abort" />
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="140dip"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btn_cancel"
+        android:layout_alignBottom="@+id/btn_cancel"
+        android:layout_alignRight="@+id/tv_description"
+        android:text="@string/main_assistent_next" />
 
 </RelativeLayout>

@@ -12,6 +12,7 @@ import com.actionbarsherlock.view.MenuItem;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 
+import de.thm.hci.twofactorlockscreen.io.SharedPreferenceIO;
 import de.thm.hcia.twofactorlockscreen.R.string;
 import de.thm.hcia.twofactorlockscreen.fragments.AboutFragment;
 import de.thm.hcia.twofactorlockscreen.fragments.MainFragment;
@@ -37,11 +38,11 @@ import android.widget.Toast;
 
 public class MainActivity extends SlidingFragmentActivity {
 
-	private static final String TAG = "MainActivity";
+	private static final String 		TAG 						= "MainActivity";
 	
 	public static final int 			REQ_CODE_CREATE_PATTERN 	= 1;
 	public static final int 			REQ_CODE_COMPARE_PATTERN 	= 2;
-	public static final int 			REQ_CODE_CREATE_VOICE 	= 3; 
+	public static final int 			REQ_CODE_CREATE_VOICE 		= 3; 
 	public static CheckBox 				mDontShowAgain;
 	
 	SharedPreferences.Editor 			mPrefEditor; 
@@ -59,6 +60,7 @@ public class MainActivity extends SlidingFragmentActivity {
 	private boolean						isSlideMenue	= false;
 	private boolean						isHomescreen	= true;
 	
+	//private SharedPreferenceIO 			sPiO;
 		
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -67,12 +69,15 @@ public class MainActivity extends SlidingFragmentActivity {
 		setTitle(R.string.app_name);
 		
 		setContentView(R.layout.responsive_content_frame);		
+		/*AUSLAGERN -->!!!<--
+			/*
+			 * Vorbereiten für das lokale Speichern von Einstellungen
+			 *
+		*/
+			mSettings 	= getSharedPreferences("AppPrefs", MODE_PRIVATE);
+			mPrefEditor = mSettings.edit();
 		
-		/*
-		 * Vorbereiten für das lokale Speichern von Einstellungen
-		 */
-		mSettings = getSharedPreferences("AppPrefs", MODE_PRIVATE);
-		mPrefEditor = mSettings.edit();
+		//sPiO = new SharedPreferenceIO();
 		
 		/*
 		 * Holen der Versionsnummer über die PackageInfo

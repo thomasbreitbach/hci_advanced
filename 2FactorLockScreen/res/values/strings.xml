@@ -61,8 +61,10 @@
     <string name="hello_world">Hello world!</string>
 
     <!-- Assistent String 3.3 -->
-
-
+	<string name="assistent_speech_next">Weiter</string>
+	<string name="assistent_speech_abort">Abbrechen</string>
+	<string name="assistent_speech_text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores </string>
+	
     <!-- Submenue MainActivity 3.2 -->
     <string name="main_activity_abort">Assistenten abbrechen</string>
     <string name="title_activity_assistent_patter_input">AssistentPatterInput</string>

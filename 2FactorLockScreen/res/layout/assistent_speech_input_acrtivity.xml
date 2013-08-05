@@ -8,9 +8,41 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".AssistentSpeechInputActivity" >
 
+    <Button
+        android:id="@+id/bttnSpeechNext"
+        android:layout_width="140dip"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="@string/assistent_speech_next" />
+
     <TextView
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_above="@+id/bttnSpeechNext"
+        android:layout_alignLeft="@+id/bttnSpeechAbort"
+        android:layout_marginBottom="18dp"
+        android:text="@string/assistent_speech_text"
+        android:textAppearance="?android:attr/textAppearanceMedium" 
+        android:gravity="center_vertical|center_horizontal"/>
+
+    <Button
+        android:id="@+id/bttnSpeechAbort"
+        android:layout_width="140dip"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:text="@string/assistent_speech_abort" />
+
+    <TextView
+        android:id="@+id/txtResults"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="@string/assistent_speech_text"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>

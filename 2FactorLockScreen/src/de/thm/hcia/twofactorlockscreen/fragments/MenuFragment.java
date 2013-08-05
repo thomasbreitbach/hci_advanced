@@ -3,7 +3,9 @@ package de.thm.hcia.twofactorlockscreen.fragments;
 import de.thm.hcia.twofactorlockscreen.MainActivity;
 import de.thm.hcia.twofactorlockscreen.R;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources.Theme;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
@@ -74,7 +76,8 @@ public class MenuFragment extends ListFragment {
 			newContent = new PrototypeFragment();
 			break;
 		case 4:
-			newContent = new EvaluationFragment();
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://de.surveymonkey.com/s/5JZ69Q8"));
+			startActivity(browserIntent);
 			break;
 		case 5:
 			newContent = new SettingsFragment();

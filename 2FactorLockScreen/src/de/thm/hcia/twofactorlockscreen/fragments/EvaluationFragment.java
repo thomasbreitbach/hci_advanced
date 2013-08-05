@@ -22,6 +22,8 @@ public class EvaluationFragment extends SherlockFragment {
 		mContext = getActivity();
 		View v = inflater.inflate(R.layout.evaluation_fragment, null); 
 		
+		
+		
 		return v;
 	}
 }

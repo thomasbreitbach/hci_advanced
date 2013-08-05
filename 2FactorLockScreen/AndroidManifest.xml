@@ -7,7 +7,6 @@
     <uses-sdk
         android:minSdkVersion="10"
         android:targetSdkVersion="17" />
-    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -50,6 +49,10 @@
         <activity
             android:name="de.thm.hcia.twofactorlockscreen.fragments.EvaluationFragment"
             android:label="@string/title_activity_evaluation_fragment" >
+        </activity>
+        <activity
+            android:name="de.thm.hcia.twofactorlockscreen.AssistentSpeechActivity"
+            android:label="@string/title_activity_assistent_speech_input" >
         </activity>
     </application>
 

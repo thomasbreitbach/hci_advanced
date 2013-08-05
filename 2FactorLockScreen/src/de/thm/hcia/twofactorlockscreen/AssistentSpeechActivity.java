@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.speech.RecognitionListener;
@@ -21,6 +22,7 @@ public class AssistentSpeechActivity extends SherlockActivity implements OnClick
 {
 	private SpeechRecognizer 	sr;
 	private Button 				bttnNext, bttnAbord;
+	private ImageButton			iBttnRecord;
 	private Context 			mContext;	   
 	private static final String	TAG = "SpeechTAG_ERRORs";
 	private TextView 			txtResult;
@@ -36,21 +38,30 @@ public class AssistentSpeechActivity extends SherlockActivity implements OnClick
 		
 		mContext = this;
 		
-		bttnNext = (Button) findViewById(R.id.bttnSpeechNext);
+		bttnNext	= (Button) findViewById(R.id.bttnSpeechNext);
+		bttnAbord 	= (Button) findViewById(R.id.bttnSpeechAbort);
+		iBttnRecord = (ImageButton) findViewById(R.id.iBttnRecord);
+		
+		iBttnRecord.setOnClickListener(this);
 		bttnNext.setOnClickListener(this);
+		bttnAbord.setOnClickListener(this);
 	}
 	   public void onClick(View v) 
 	   {
-	            if (v.getId() == R.id.bttnSpeechNext) 
-	            {
-	                Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);        
-	                intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-	                intent.putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE,"voice.recognition.test");
+		   if (v.getId() == R.id.iBttnRecord) 
+           {
+               Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);        
+               intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+               intent.putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE,"voice.recognition.test");
 
-	                intent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS,5); 
-	                sr.startListening(intent);
-	                Log.i("111111","11111111");
-	            }
+               intent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS,5); 
+               sr.startListening(intent);
+               Log.i("111111","11111111");
+           }
+		   if (v.getId() == R.id.bttnSpeechAbort) 
+           {
+               this.finish();
+           }
 	   }
 
 	   class RecordListener implements RecognitionListener          

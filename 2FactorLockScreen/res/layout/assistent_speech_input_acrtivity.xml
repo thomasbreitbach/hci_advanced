@@ -17,7 +17,7 @@
         android:text="@string/assistent_speech_next" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/txtInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/bttnSpeechNext"
@@ -37,12 +37,21 @@
 
     <TextView
         android:id="@+id/txtResults"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:gravity="center_vertical|center_horizontal"
-        android:text="@string/assistent_speech_text"
+        android:text="..."
         android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <ImageButton
+        android:id="@+id/iBttnRecord"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_above="@+id/txtInfo"
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/microphone_512" />
 
 </RelativeLayout>

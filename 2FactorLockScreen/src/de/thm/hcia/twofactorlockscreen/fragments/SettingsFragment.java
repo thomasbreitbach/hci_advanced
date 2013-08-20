@@ -28,8 +28,8 @@ public class SettingsFragment extends SherlockFragment implements OnClickListene
 		btnSpeechActivation = (Button) v.findViewById(R.id.SpeechActivationBtn);
 		
 		
-		btnPatternActivation.setBackgroundResource(R.drawable.switch_in_active);
-		btnSpeechActivation.setBackgroundResource(R.drawable.switch_in_active);
+		btnPatternActivation.setBackgroundResource(R.drawable.sa_off);
+		btnSpeechActivation.setBackgroundResource(R.drawable.sa_off);
 		
 		
 		isPatternActive = false;
@@ -84,18 +84,17 @@ public class SettingsFragment extends SherlockFragment implements OnClickListene
 		if(!isSpeechActive){
 			
 			isSpeechActive = true;
-			btnSpeechActivation.setBackgroundResource(R.drawable.switch_active);
+			btnSpeechActivation.setBackgroundResource(R.drawable.sa_on);
 			
 			
-			CharSequence toastText =(CharSequence) getString(R.string.tst_muster_on);
+			CharSequence toastText =(CharSequence) getString(R.string.tst_speech_on);
 			Toast.makeText(mContext,  toastText , Toast.LENGTH_SHORT).show();
 		}
 		else{
 			isSpeechActive = false;
-			btnSpeechActivation.setBackgroundResource(R.drawable.switch_in_active);
-			
-			CharSequence toastText =(CharSequence) getString(R.string.tst_speech_off);
-			Toast.makeText(mContext,  toastText , Toast.LENGTH_SHORT).show();
+			btnSpeechActivation.setBackgroundResource(R.drawable.sa_off);
+		
+			Toast.makeText(mContext,  R.string.tst_speech_off , Toast.LENGTH_SHORT).show();
 		}
 		
 	}
@@ -104,7 +103,7 @@ public class SettingsFragment extends SherlockFragment implements OnClickListene
 		if(!isPatternActive){
 			
 			isPatternActive = true;
-			btnPatternActivation.setBackgroundResource(R.drawable.switch_active);
+			btnPatternActivation.setBackgroundResource(R.drawable.sa_on);
 			
 			
 			CharSequence toastText =(CharSequence) getString(R.string.tst_muster_on);
@@ -112,7 +111,7 @@ public class SettingsFragment extends SherlockFragment implements OnClickListene
 		}
 		else{
 			isPatternActive = false;
-			btnPatternActivation.setBackgroundResource(R.drawable.switch_in_active);
+			btnPatternActivation.setBackgroundResource(R.drawable.sa_off);
 			
 			
 			CharSequence toastText =(CharSequence) getString(R.string.tst_muster_off);

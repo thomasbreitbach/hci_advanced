@@ -1,38 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/settings_fragment"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="top|fill_vertical"
-    android:gravity="top"
-    android:orientation="vertical" >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_fragment"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent" >
 
-    <!-- Headline -->
     <TextView
-	    android:id="@+id/tv_headline"
-	    android:layout_width="fill_parent"
-	    android:layout_height="50dip"
-	    android:gravity="center"
-	    android:layout_gravity="top"
-	    android:text="@string/settings"
-	    android:background="@color/abs__background_holo_light"
-	    android:textSize="@dimen/txt_headline_size"/>
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tv_statement"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="144dp"
+        android:text="@string/muster_Activation_LBL"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-	<ScrollView
-	    android:id="@+id/scrollView1"
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content" >
+    <Button
+        android:id="@+id/SpeechActivationBtn"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/musterActivationBtn"
+        android:layout_below="@+id/tv_statement"
+        android:layout_marginTop="21dp"
+        android:background="@drawable/switch_in_active" />
 
-	    <LinearLayout
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:orientation="vertical"
-	        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-    		android:layout_marginRight="@dimen/activity_horizontal_margin">
-	        
-		<!-- Content here! -->
-	        
-	    </LinearLayout>
-	</ScrollView>
-	
-</LinearLayout>
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/SpeechActivationBtn"
+        android:layout_alignBottom="@+id/SpeechActivationBtn"
+        android:layout_alignLeft="@+id/textView1"
+        android:text="@string/speech_Activation_LBL"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/musterActivationBtn"
+        android:layout_width="132dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView1"
+        android:layout_alignBottom="@+id/textView1"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="18dp"
+        android:background="@drawable/switch_active" />
+
+    <TextView
+        android:id="@+id/tv_statement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/Einstellungen_Lbl" />
+
+</RelativeLayout>

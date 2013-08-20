@@ -78,4 +78,16 @@
     <!-- Prototype Testing -->
     <string name="prototype_information_text">Nach dem Sie nun die Zwei Sicherheitsmeschanismen eingestellt haben, können Sie nun den Prototypen testen. Am Ende des Testens, können Sie direkt im Anschluss eine Evaluation durchführen.\n\n Klicken Sie auf "Meschanismen testen", wenn Sie bereit sind!</string>
 	<string name="prototype_bttn_start">Meschanismen testen</string>
+	
+	
+		<string name="speech_Activation_LBL">Spracherkennung</string>
+	<string name="muster_Activation_LBL">Mustererkennung</string>
+	<string name="tst_speech_on">Spracherkennung wurde aktiviert</string>
+	<string name="tst_speech_off">Spracherkennung wurde deaktiviert</string>
+	<string name="tst_muster_on">Mustererkennung wurde aktiviert</string>
+	<string name="tst_muster_off">Mustererkennung wurde deaktiviert</string>
+		<string name="Einstellungen_Lbl">Einstellungen</string>
+	<string name="an_BTN_LBL">AN</string>
+	<string name="aus_BTN_LBL">AUS</string>
+	
 </resources>

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -50,16 +51,18 @@ public class AssistentSpeechActivity extends SherlockActivity implements OnClick
 	   {
 		   if (v.getId() == R.id.iBttnRecord) 
            {
+			   iBttnRecord.setBackgroundColor(Color.RED);
                Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);        
                intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
                intent.putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE,"voice.recognition.test");
 
                intent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS,5); 
                sr.startListening(intent);
-               Log.i("111111","11111111");
+               
            }
 		   if (v.getId() == R.id.bttnSpeechAbort) 
            {
+			   iBttnRecord.setBackgroundColor(Color.GRAY);
                this.finish();
            }
 	   }
@@ -80,9 +83,11 @@ public class AssistentSpeechActivity extends SherlockActivity implements OnClick
 	            
 	            public void onResults(Bundle results)                   
 	            {
+	            	iBttnRecord.setBackgroundColor(Color.argb(255, 0, 200, 0));
 	            	/*Filtern der Ergebnisse auch für später zum Vergleichen */
+	            	
 					String str = new String();
-					Log.d(TAG, "onResults " + results);
+					Log.d(TAG, "onResults: " + results);
 					ArrayList data = results.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
 					for (int i = 0; i < data.size(); i++)
 					{

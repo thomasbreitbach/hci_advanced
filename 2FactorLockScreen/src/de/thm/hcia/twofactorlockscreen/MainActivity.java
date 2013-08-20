@@ -2,7 +2,6 @@ package de.thm.hcia.twofactorlockscreen;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Set;
 
 import group.pals.android.lib.ui.lockpattern.LockPatternActivity;
@@ -12,11 +11,10 @@ import com.actionbarsherlock.view.MenuItem;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 
-import de.thm.hci.twofactorlockscreen.io.SharedPreferenceIO;
-import de.thm.hcia.twofactorlockscreen.R.string;
 import de.thm.hcia.twofactorlockscreen.fragments.AboutFragment;
 import de.thm.hcia.twofactorlockscreen.fragments.MainFragment;
 import de.thm.hcia.twofactorlockscreen.fragments.MenuFragment;
+import de.thm.hcia.twofactorlockscreen.network.NetInfo;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -43,19 +41,19 @@ public class MainActivity extends SlidingFragmentActivity {
 	public static final int 			REQ_CODE_CREATE_PATTERN 	= 1;
 	public static final int 			REQ_CODE_COMPARE_PATTERN 	= 2;
 	public static final int 			REQ_CODE_CREATE_VOICE 		= 3; 
-	public static CheckBox 				mDontShowAgain;
+	public static CheckBox 			mDontShowAgain;
 	
 	SharedPreferences.Editor 			mPrefEditor; 
-	private static SlidingMenu 			mMenu;
+	private static SlidingMenu 		mMenu;
 	private static Fragment 			mContent;
 	private static SharedPreferences 	mSettings;
-	private static Context 				mContext;
+	private static Context 			mContext;
 	private static String 				mAppVersion;
-	private static char[] 				savedPattern = null;
+	private static char[] 			savedPattern = null;
 	private ArrayList<String> 			matches;
 	
 	/*
-	 * Variablen fŸr ZurŸck, MenŸ-Button
+	 * Variablen fï¿½r Zurï¿½ck, Menï¿½-Button
 	 */
 	private boolean						isSlideMenue	= false;
 	private boolean						isHomescreen	= true;
@@ -66,9 +64,16 @@ public class MainActivity extends SlidingFragmentActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		mContext = this;
-		setTitle(R.string.app_name);
+		setTitle(R.string.app_name);		
+		setContentView(R.layout.responsive_content_frame);
 		
-		setContentView(R.layout.responsive_content_frame);		
+		//check for inet connection
+		if(NetInfo.inetAvailable(mContext)){
+			Toast.makeText(mContext, "inet ist da", Toast.LENGTH_SHORT).show();
+		}else{
+			Toast.makeText(mContext, "inet ist nicht da", Toast.LENGTH_SHORT).show();
+		}
+		
 		/*AUSLAGERN -->!!!<--
 			/*
 			 * Vorbereiten fÃ¼r das lokale Speichern von Einstellungen
@@ -256,12 +261,12 @@ public class MainActivity extends SlidingFragmentActivity {
 		    	if (resultCode == RESULT_OK)
 		        { 
 		            matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-		            saveToSharedPreferences("savedRecord", matches);
+//		            saveToSharedPreferences("savedRecord", matches);
 		            
 		            if(mPrefEditor.commit())
 		            {		   
 		            	Toast.makeText(mContext, R.string.speech_recorded, Toast.LENGTH_SHORT).show();
-		            	Log.d("TEST", loadArrayFromSharedPreferences("savedRecord").toString());
+//		            	Log.d("TEST", loadArrayFromSharedPreferences("savedRecord").toString());
 		            }else{
 		            	Toast.makeText(mContext, R.string.writing_prefs_error_01, Toast.LENGTH_SHORT).show();
 		            }     
@@ -336,19 +341,20 @@ public class MainActivity extends SlidingFragmentActivity {
 	  //	Funktionen zum Laden und Speichern
 	  //----------------------------------------------------------------
 	  
-	  public Boolean saveToSharedPreferences(String key, ArrayList<String> aList)
-	  {
-		  Set<String> stList = new HashSet<String>();
-		  
-          stList.addAll(aList);		    
-          mPrefEditor.putStringSet(key, replaceToLowercase(stList));
-          if(mPrefEditor.commit())
-          {
-        	  return true;
-          }else{
-        	  return false;
-          }
-	  }
+//	  public Boolean saveToSharedPreferences(String key, ArrayList<String> aList)
+//	  {
+//		  Set<String> stList = new HashSet<String>();
+//		  
+//          stList.addAll(aList);		    
+//          mPrefEditor.putStringSet(key, replaceToLowercase(stList));
+//          if(mPrefEditor.commit())
+//          {
+//        	  return true;
+//          }else{
+//        	  return false;
+//          }
+//	  }
+	  
 	  public Boolean saveToSharedPreferences(String key, String value)
 	  {	    
           mPrefEditor.putString(key, value);
@@ -360,15 +366,15 @@ public class MainActivity extends SlidingFragmentActivity {
           }
 	  }
 	  
-	  public ArrayList<String> loadArrayFromSharedPreferences(String key)
-	  {
-		  Set<String> aSList 		= new HashSet<String>();
-          aSList 					= mSettings.getStringSet(key, null);
-          ArrayList<String> aList 	= new ArrayList<String>();
-          aList.addAll(aSList);
-          
-		  return  aList;
-	  }
+//	  public ArrayList<String> loadArrayFromSharedPreferences(String key)
+//	  {
+//		  Set<String> aSList 		= new HashSet<String>();
+//          aSList 					= mSettings.getStringSet(key, null);
+//          ArrayList<String> aList 	= new ArrayList<String>();
+//          aList.addAll(aSList);
+//          
+//		  return  aList;
+//	  }
 	  
 	  public String loadStringFromSharedPreferences(String key)
 	  {         

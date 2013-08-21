@@ -1,54 +1,70 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/assistent_main_activity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="top|center"
-    tools:context=".AssistentMainActivity" >
+    android:layout_gravity="top|fill_vertical"
+    android:gravity="top"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_headline"
-        android:layout_width="fill_parent"
-        android:layout_height="50dip"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:background="@color/abs__background_holo_light"
-        android:gravity="center"
-        android:text="@string/main_assistent_headline"
-        android:textSize="@dimen/txt_headline_size" />
+    <!-- Headline -->
+	<TextView
+	    android:id="@+id/tv_headline"
+	    android:layout_width="fill_parent"
+	    android:layout_height="50dip"
+	    android:gravity="center"
+	    android:layout_gravity="top"
+	    android:text="@string/start_pattern_input"
+	    android:background="@color/abs__background_holo_light"
+	    android:textSize="@dimen/txt_headline_size"/>
 
-    <ImageView
-        android:id="@+id/img_pattern"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_headline"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/img_3_2_pattern" />
+	<ScrollView
+	    android:id="@+id/scrollView1"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content" >
 
-    <TextView
-        android:id="@+id/tv_description"
-        android:layout_width="@dimen/element_size"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/img_pattern"
-        android:layout_centerHorizontal="true"
-        android:text="@string/assistent_start_pattern_description"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <Button
-        android:id="@+id/btn_cancel"
-        android:layout_width="140dip"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tv_description"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="15dp"
-        android:text="@string/main_assistent_abort" />
-
-    <Button
-        android:id="@+id/btn_next"
-        android:layout_width="140dip"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/btn_cancel"
-        android:layout_alignBottom="@+id/btn_cancel"
-        android:layout_alignRight="@+id/tv_description"
-        android:text="@string/main_assistent_next" />
-
-</RelativeLayout>
+	    <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+	        android:layout_marginRight="@dimen/activity_horizontal_margin"
+	        android:gravity="center_horizontal"
+	        android:orientation="vertical" >
+	        
+	        <ImageView
+		        android:id="@+id/img_pattern"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:src="@drawable/img_3_2_pattern" />
+	        
+	         <TextView
+		        android:id="@+id/tv_description"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="@string/assistent_start_pattern_description"
+		        android:textAppearance="?android:attr/textAppearanceMedium" />	         
+	         
+			<LinearLayout 
+			    android:id="@+id/navigationLayout"
+			    android:layout_width="match_parent"
+	        	android:layout_height="wrap_content"
+	        	android:layout_marginTop="20dip"
+	        	android:orientation="horizontal"
+	        	android:gravity="center">
+			    <Button
+			        android:id="@+id/btn_cancel"
+			        android:layout_width="0dip"
+			        android:layout_height="wrap_content"
+			        android:layout_weight="1"
+			        android:text="@string/main_assistent_abort" />
+			
+			    <Button
+			        android:id="@+id/btn_next"
+			        android:layout_width="0dip"
+			        android:layout_height="wrap_content"
+			        android:layout_weight="1"
+			        android:text="@string/main_assistent_next" />
+			</LinearLayout>
+		</LinearLayout>
+	</ScrollView>
+</LinearLayout>

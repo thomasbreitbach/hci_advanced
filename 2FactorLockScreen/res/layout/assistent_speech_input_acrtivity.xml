@@ -1,57 +1,89 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/assistent_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".AssistentSpeechInputActivity" >
+    android:layout_gravity="top|fill_vertical"
+    android:gravity="top"
+    android:orientation="vertical"
+    >
 
-    <Button
-        android:id="@+id/bttnSpeechNext"
-        android:layout_width="140dip"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:text="@string/assistent_speech_next" />
+    <!-- Headline -->
+	<TextView
+	    android:id="@+id/tv_headline"
+	    android:layout_width="fill_parent"
+	    android:layout_height="50dip"
+	    android:gravity="center"
+	    android:layout_gravity="top"
+	    android:text="@string/start_speech_input"
+	    android:background="@color/abs__background_holo_light"
+	    android:textSize="@dimen/txt_headline_size"/>
 
-    <TextView
-        android:id="@+id/txtInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/bttnSpeechNext"
-        android:layout_alignLeft="@+id/bttnSpeechAbort"
-        android:layout_marginBottom="18dp"
-        android:text="@string/assistent_speech_text"
-        android:textAppearance="?android:attr/textAppearanceMedium" 
-        android:gravity="center_vertical|center_horizontal"/>
+	<ScrollView
+	    android:id="@+id/scrollView1"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content" >
 
-    <Button
-        android:id="@+id/bttnSpeechAbort"
-        android:layout_width="140dip"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:text="@string/assistent_speech_abort" />
+	    <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    		android:layout_marginRight="@dimen/activity_horizontal_margin"
+    		android:gravity="center_horizontal"
+    		android:orientation="vertical">        
+	        
+	        <TextView
+		        android:id="@+id/txtResults"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:gravity="center_vertical|center_horizontal"
+		        android:text=""
+		        android:textAppearance="?android:attr/textAppearanceMedium" />
+	        
+	        <ImageButton
+		        android:id="@+id/iBttnRecord"
+		        android:layout_width="match_parent"
+		        android:layout_height="150dp"
+		        android:scaleType="fitCenter"
+		        android:background="@android:color/transparent"
+		        android:src="@drawable/microphone_512" />
 
-    <TextView
-        android:id="@+id/txtResults"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:gravity="center_vertical|center_horizontal"
-        android:text="..."
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <ImageButton
-        android:id="@+id/iBttnRecord"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_above="@+id/txtInfo"
-        android:layout_centerHorizontal="true"
-        android:scaleType="fitCenter"
-        android:src="@drawable/microphone_512" />
-
-</RelativeLayout>
+	        <ProgressBar
+	            android:id="@+id/dbProgressBar"
+	            style="@android:style/Widget.ProgressBar.Horizontal"
+	            android:layout_width="match_parent"
+	            android:layout_height="10dip" />
+	        
+	        <TextView
+		        android:id="@+id/txtInfo"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginTop="10dip"
+		        android:text="@string/assistent_start_speech_input_description"
+		        android:textAppearance="?android:attr/textAppearanceMedium" />
+	       
+			<LinearLayout 
+			    android:id="@+id/navigationLayout"
+			    android:layout_width="match_parent"
+	        	android:layout_height="wrap_content"
+	        	android:layout_marginTop="15dip"
+	        	android:orientation="horizontal"
+	        	android:gravity="center">
+		        <Button
+			        android:id="@+id/bttnSpeechAbort"
+			        android:layout_width="0dip"
+			        android:layout_weight="1"
+			        android:layout_height="wrap_content"
+			        android:text="@string/assistent_speech_abort" />
+		        
+				<Button
+			        android:id="@+id/bttnSpeechNext"
+			        android:layout_width="0dip"
+			        android:layout_weight="1"
+			        android:layout_height="wrap_content"
+			        android:text="@string/assistent_speech_next" />
+			</LinearLayout>	
+			
+		</LinearLayout>
+	</ScrollView>
+</LinearLayout>

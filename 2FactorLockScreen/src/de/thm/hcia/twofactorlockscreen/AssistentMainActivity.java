@@ -26,7 +26,7 @@ public class AssistentMainActivity extends SherlockActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setTitle(R.string.app_name);
+		setTitle(R.string.main_assistent_headline);
 		setContentView(R.layout.assistent_main_activity);
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		

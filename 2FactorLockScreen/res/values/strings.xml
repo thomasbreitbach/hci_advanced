@@ -1,25 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+	<string name="hello_world">Hallo Welt!</string>
     <string name="app_name">2FactorLockscreen</string>
     <string name="action_settings">Einstellungen</string>
     <string name="app_explanation_head">Information</string>
     <string name="app_explanation_txt">Herzlich Willkommen und vielen Dank,  dass Sie an der Evaluation dieser APP teilnehmen. Mit dieser APP soll herausgefunden werden, ob man zwei Sicherheitsmechanismen im täglichen Gebrauch verwenden kann.</string>
     <string name="quick_start_statement">Sie haben noch keine Einrichtung vorgenommen. Nutzen Sie den Lock-Assistenten für eine einfache Konfiguration.</string>
     <string name="about_info_txt">Dieser Prototyp entstand in der Veranstaltung „Fortgeschrittene Mensch-Maschine-Interaktion“ der Technischen Hochschule Fiedberg. In dieser App geht es darum zu Evaluieren, ob man im täglichen Gebrauch mehr als nur eine Sicherheitsabfrage für ein Android-Smartphone verwenden sollte. </string>
-    <string name="assistent_explanation">Der Lock Assistent führt Sie bequem und einfach durch diese App und erklärt Ihnen die einzelnen Optionen und Einstellungsmöglichkeiten. \n\nDauer: ca. 3 Minuten!</string>
+    
     <!-- assistenten strings -->
+    <string name="assistent_explanation">Der Lock Assistent führt Sie bequem und einfach durch diese App und erklärt Ihnen die einzelnen Optionen und Einstellungsmöglichkeiten. \n\nDauer: ca. 3 Minuten!</string>
     <string name="start_assistent">Assistent starten</string>
     <string name="quickstart_assistent">Zum Assistenten</string>
     <string name="assistent">Assistent</string>
-    <string name="assistent_start_pattern_description">Zeichnen Sie mit einem Finger ein beliebiges Muster Ihrer Wahl. Die einzelnen Punkte können mehrfach selektiert werden, um komplexere Muster zu ermöglichen.</string>
+    <string name="assistent_start_pattern_description">Zeichnen Sie im nächsten Schritt mit einem Finger ein beliebiges Muster Ihrer Wahl. Die einzelnen Punkte können mehrfach selektiert werden, um komplexere Muster zu ermöglichen.</string>
     <string name="assistent_pattern_record_description">Bitte zeichnen Sie ein beliebiges Muster Ihrer Wahl und Bestätigen Sie Ihre Eingabe anschließend mit „OK“.</string>
     <string name="assistent_pattern_record_description_repeat">Bitte wiederholen Sie Ihr eingegebenes Muster und bestätigen Sie dann mit „OK“.</string>
-    <string name="assistent_start_speech_input_description">Sprechen Sie Ihren Entsperrbefehl mit mindestens einem Wort, klar und deutlich in Ihr mobiles Endgerät.\nHalten sie Ihr Gerät dabei etwa 20-30cm von Ihrem Mund entfernt.\nDie Anzeige unterhalb des Mikrofons hilft Ihnen die bestmögliche Aufnahme zu erzielen. Der grüne Bereich des Balkens steht dabei für hervorragende Qualität. Im roten Bereich ist die Qualität nicht ausreichend.</string>
     <string name="assistent_speech_input_record_description">Sprechen Sie jetzt ihren Entsperrbefehl in das Mikrofon und bestätigen Sie Ihre Aufnahme anschließend mit „OK“.</string>
     <string name="assistent_speech_input_record_description_repeat">Wiederholen Sie den von Ihnen eingesprochenen Entsperrbefehl und bestätigen Sie diesen dann mit „OK“.</string>
     <string name="app_evaluation_start_description">Zeichnen Sie nun das von Ihnen gewählte  Muster und sprechen Sie gleichzeitig Ihren Entsperrbefehl in das mobile Endgerät ein. Bei richtiger Authentifizierung erhalten Sie eine Bestätigung.</string>
-    <string name="app_evaluation_success_input">Gratulation !  Sie haben soeben erfolgreich ihre Entsperrungskombination eingerichtet und damit das Sicherheitslevel ihres mobilen Endgerätes erhöht.</string>
+    <string name="app_evaluation_success_input">Gratulation! Sie haben soeben erfolgreich ihre Entsperrungskombination eingerichtet und damit das Sicherheitslevel ihres mobilen Endgerätes erhöht.</string>
+    <!-- Assistent Strings 3.2 -->
+    <string name="main_assistent_headline">Lockscreen Assistent</string>
+    <string name="main_assistent_next">Weiter</string>
+    <string name="main_assistent_abort">Abbrechen</string>
+    
     <string name="manual_input">Manuelle Eingabe</string>
     <string name="manual_input_explanation">Mit Hilfe der manuellen Eingabe können Sie …</string>
     <string name="start_speech_input">Spache aufzeichnen</string>
@@ -29,6 +34,7 @@
     <string name="voice_prompt">Voice recognition Demo…</string>
     <string name="voice_no_match">Keine Spracheingabe erkannt!</string>
     <string name="no_speech">Leider unterstützt dein Gerät keine Spracherkennung!</string>
+    
     <!-- Slidemenü -->
     <string name="about">Über diese App</string>
     <string name="home">Hauptmenü</string>
@@ -44,9 +50,9 @@
 
     <!-- Fehlertext -->
     <string name="writing_prefs_error_01">Speichern der Einstellung nicht möglich!</string>
-    <string name="title_activity_prototype_fragment">PrototypeFragment</string>
 
     <!-- Strings for the PrototypeFragmentView -->
+    <string name="title_activity_prototype_fragment">PrototypeFragment</string>
     <string name="prototype_headline">Prototyp testen</string>
     <string name="prototype_start_description">Teste den Prototyp</string>
 
@@ -54,16 +60,10 @@
     <string name="ok">OK</string>
     <string name="title_activity_assistent_main">AssistentMainActivity</string>
 
-    <!-- Assistent Strings 3.2 -->
-    <string name="main_assistent_headline">Lockscreen Assistent</string>
-    <string name="main_assistent_next">Weiter</string>
-    <string name="main_assistent_abort">Abbrechen</string>
-    <string name="hello_world">Hello world!</string>
-
     <!-- Assistent String 3.3 -->
 	<string name="assistent_speech_next">Weiter</string>
 	<string name="assistent_speech_abort">Abbrechen</string>
-	<string name="assistent_speech_text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores </string>
+	<string name="assistent_start_speech_input_description">Tippen Sie auf das Mikrofon und sprechen Sie Ihren Entsperrbefehl mit mindestens einem Wort, klar und deutlich in Ihr mobiles Endgerät.\nHalten sie Ihr Gerät dabei etwa 20–30cm von Ihrem Mund entfernt.</string>
 	
     <!-- Submenue MainActivity 3.2 -->
     <string name="main_activity_abort">Assistenten abbrechen</string>
@@ -80,13 +80,13 @@
 	<string name="prototype_bttn_start">Meschanismen testen</string>
 	
 	
-		<string name="speech_Activation_LBL">Spracherkennung</string>
+	<string name="speech_Activation_LBL">Spracherkennung</string>
 	<string name="muster_Activation_LBL">Mustererkennung</string>
 	<string name="tst_speech_on">Spracherkennung wurde aktiviert</string>
 	<string name="tst_speech_off">Spracherkennung wurde deaktiviert</string>
 	<string name="tst_muster_on">Mustererkennung wurde aktiviert</string>
 	<string name="tst_muster_off">Mustererkennung wurde deaktiviert</string>
-		<string name="Einstellungen_Lbl">Einstellungen</string>
+	<string name="Einstellungen_Lbl">Einstellungen</string>
 	<string name="an_BTN_LBL">AN</string>
 	<string name="aus_BTN_LBL">AUS</string>
 	

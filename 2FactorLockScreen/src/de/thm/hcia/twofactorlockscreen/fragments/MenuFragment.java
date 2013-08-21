@@ -76,8 +76,9 @@ public class MenuFragment extends ListFragment {
 			newContent = new PrototypeFragment();
 			break;
 		case 4:
-			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://de.surveymonkey.com/s/5JZ69Q8"));
-			startActivity(browserIntent);
+			newContent = new EvaluationFragment();
+//			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://de.surveymonkey.com/s/5JZ69Q8"));
+//			startActivity(browserIntent);
 			break;
 		case 5:
 			newContent = new SettingsFragment();

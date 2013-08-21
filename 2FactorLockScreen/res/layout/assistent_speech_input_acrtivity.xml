@@ -58,7 +58,7 @@
 		        android:id="@+id/txtInfo"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
-		        android:layout_marginTop="10dip"
+		        android:layout_marginTop="15dip"
 		        android:text="@string/assistent_start_speech_input_description"
 		        android:textAppearance="?android:attr/textAppearanceMedium" />
 	       

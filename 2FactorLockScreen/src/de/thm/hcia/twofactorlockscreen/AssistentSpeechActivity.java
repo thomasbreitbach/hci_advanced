@@ -97,8 +97,7 @@ public class AssistentSpeechActivity extends SherlockActivity implements OnClick
 		public void onRmsChanged(float rmsdB) {
 			Log.d(TAG, "onRmsChanged: " + rmsdB);
 			int progress = (int) rmsdB;
-			mDbBar.setProgress(progress);
-			
+			mDbBar.setProgress(progress);		
 		}
 
 		public void onBufferReceived(byte[] buffer) {

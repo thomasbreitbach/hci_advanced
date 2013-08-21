@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.TextView;
 
 import com.actionbarsherlock.app.SherlockFragment;
@@ -16,13 +17,16 @@ import de.thm.hcia.twofactorlockscreen.R;
 public class EvaluationFragment extends SherlockFragment {
 
 	private static Context mContext;
+	private static String url = "http://de.surveymonkey.com/s/5JZ69Q8";
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		mContext = getActivity();
 		View v = inflater.inflate(R.layout.evaluation_fragment, null); 
+		WebView wv = (WebView) v.findViewById(R.id.webView1);
 		
-		
+		wv.getSettings().setJavaScriptEnabled(true);
+		wv.loadUrl(url);
 		
 		return v;
 	}

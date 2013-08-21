@@ -27,11 +27,14 @@
 
     <TextView
         android:id="@+id/tv_statement"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+	    android:layout_width="fill_parent"
+	    android:layout_height="50dip"
+	   	android:gravity="center"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:text="@string/Einstellungen_Lbl" />
+        android:text="@string/Einstellungen_Lbl"
+       	android:background="@color/abs__background_holo_light"
+        android:textSize="@dimen/txt_headline_size"/>
 
     <Button
         android:id="@+id/SpeechActivationBtn"

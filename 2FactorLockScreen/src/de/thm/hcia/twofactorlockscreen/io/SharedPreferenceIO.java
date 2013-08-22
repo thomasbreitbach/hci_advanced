@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -13,20 +14,17 @@ import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 
 import de.thm.hcia.twofactorlockscreen.R;
 
-public class SharedPreferenceIO extends SlidingFragmentActivity{
+public class SharedPreferenceIO{
 
 	SharedPreferences.Editor 			mPrefEditor; 
 	private static SlidingMenu 			mMenu;
 	private static SharedPreferences 	mSettings;
+	private Context						mCont;
 	
-	@Override
-	public void onCreate(Bundle savedInstanceState) 
+	public SharedPreferenceIO(Context mContext)
 	{
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.assistent_speech_input_acrtivity);
-		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-		
-		mSettings 	= getSharedPreferences("AppPrefs", MODE_PRIVATE);
+		mCont 		= mContext;
+		mSettings 	= mCont.getSharedPreferences("AppPrefs", mCont.MODE_PRIVATE);
 		mPrefEditor = mSettings.edit();
 	}
 	//----------------------------------------------------------------
@@ -62,9 +60,20 @@ public class SharedPreferenceIO extends SlidingFragmentActivity{
       	  return false;
         }
 	}
-	public Boolean saveToSharedPreferences(String key, String value)
+	public Boolean putString(String key, String value)
 	{	    
 		mPrefEditor.putString(key, value);
+        if(mPrefEditor.commit())
+        {
+      	  return true;
+        }else{
+      	  return false;
+        }
+	}
+	
+	public Boolean butBoolean(String key, Boolean value)
+	{	    
+		mPrefEditor.putBoolean(key, value);
         if(mPrefEditor.commit())
         {
       	  return true;
@@ -83,8 +92,14 @@ public class SharedPreferenceIO extends SlidingFragmentActivity{
 		  return  aList;
 	}
 	  
-	public String loadStringFromSharedPreferences(String key)
+	public String getString(String key)
 	{         
 		return  mSettings.getString(key, null);
+	}
+	
+	public boolean getBoolean(String key)
+	{
+		return mSettings.getBoolean(key, false);
+	
 	}
 }

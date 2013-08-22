@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.actionbarsherlock.app.SherlockFragment;
 
 import de.thm.hcia.twofactorlockscreen.R;
+import de.thm.hcia.twofactorlockscreen.io.SharedPreferenceIO;
 
 public class SettingsFragment extends SherlockFragment implements OnClickListener{
 
@@ -23,6 +24,7 @@ public class SettingsFragment extends SherlockFragment implements OnClickListene
 	private static 	Context 		mContext;
 	private 		Button			btnPatternActivation, btnSpeechActivation, bttnInfoDialog; 
 	private			boolean			isPatternActive, isSpeechActive, isInfoDialog;
+	private 		SharedPreferenceIO sIo;
 
 	private static SharedPreferences 	mSettings;
 	
@@ -30,7 +32,9 @@ public class SettingsFragment extends SherlockFragment implements OnClickListene
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		mContext = getActivity();
 		View v = inflater.inflate(R.layout.settings_fragment, null); 
-		
+
+		sIo = new SharedPreferenceIO(mContext);
+			
 		/*btnPatternActivation 	= (Button) v.findViewById(R.id.musterActivationBtn);
 		btnSpeechActivation 	= (Button) v.findViewById(R.id.SpeechActivationBtn);*/
 		bttnInfoDialog 			= (Button) v.findViewById(R.id.bttn_infoDialog);
@@ -46,11 +50,11 @@ public class SettingsFragment extends SherlockFragment implements OnClickListene
 		setupOnClickListeners();
 		
 		
-		mSettings 	= mContext.getSharedPreferences("AppPrefs", mContext.MODE_PRIVATE);
-		mPrefEditor = mSettings.edit();
+		//mSettings 	= mContext.getSharedPreferences("AppPrefs", mContext.MODE_PRIVATE);
+		//mPrefEditor = mSettings.edit();
 		
 		
-		if(mSettings.getBoolean("informationRead", false))
+		if(sIo.getBoolean("informationRead"))
 		{
 			isInfoDialog			= false;
 			bttnInfoDialog.setBackgroundResource(R.drawable.sa_off);
@@ -169,9 +173,7 @@ public class SettingsFragment extends SherlockFragment implements OnClickListene
 			Toast.makeText(mContext,  "InfoDialog-OFF" , Toast.LENGTH_SHORT).show();
 			isReaded = true;
 		}
-		mPrefEditor.putBoolean("informationRead", isReaded);
-        mPrefEditor.commit();
-		
+		sIo.butBoolean("informationRead", isReaded);		
 	}
 	
 	public Boolean getSpeechStatus(){

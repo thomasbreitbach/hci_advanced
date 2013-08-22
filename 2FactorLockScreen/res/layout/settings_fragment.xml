@@ -1,77 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/main_fragment"
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent" >
-
-    <TextView
-        android:id="@+id/TextView01"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/SpeechActivationBtn"
-        android:layout_alignBottom="@+id/SpeechActivationBtn"
-        android:layout_alignLeft="@+id/textView1"
-        android:text="@string/speech_Activation_LBL"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
 
     <TextView
         android:id="@+id/tv_statement"
         android:layout_width="fill_parent"
         android:layout_height="50dip"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
         android:background="@color/abs__background_holo_light"
         android:gravity="center"
         android:text="@string/Einstellungen_Lbl"
         android:textSize="@dimen/txt_headline_size" />
 
-    <Button
-        android:id="@+id/SpeechActivationBtn"
-        android:layout_width="130dp"
-        android:layout_height="40dp"
-        android:layout_below="@+id/tv_statement"
-        android:layout_marginLeft="14dp"
-        android:layout_marginTop="22dp"
-        android:layout_toRightOf="@+id/TextView01"
-        android:background="@drawable/sa_on" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin">
 
-    <Button
-        android:id="@+id/bttn_infoDialog"
-        android:layout_width="132dp"
-        android:layout_height="40dp"
-        android:layout_alignLeft="@+id/musterActivationBtn"
-        android:layout_below="@+id/musterActivationBtn"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/sa_on" />
+        <TextView
+            android:id="@+id/TextView02"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/info_Activation_LBL"
+            android:textAppearance="?android:attr/textAppearanceMedium" 
+            android:layout_weight="1.5"/>
 
-    <TextView
-        android:id="@+id/TextView02"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/bttn_infoDialog"
-        android:layout_alignBottom="@+id/bttn_infoDialog"
-        android:layout_toLeftOf="@+id/SpeechActivationBtn"
-        android:text="@string/info_Activation_LBL"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        <Button
+            android:id="@+id/bttn_infoDialog"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:background="@drawable/sa_on" 
+            android:layout_weight="1"/>
 
-    <Button
-        android:id="@+id/musterActivationBtn"
-        android:layout_width="132dp"
-        android:layout_height="40dp"
-        android:layout_alignLeft="@+id/SpeechActivationBtn"
-        android:layout_below="@+id/SpeechActivationBtn"
-        android:layout_marginTop="21dp"
-        android:background="@drawable/sa_on" />
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/musterActivationBtn"
-        android:layout_alignBottom="@+id/musterActivationBtn"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="24dp"
-        android:text="@string/muster_Activation_LBL"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-</RelativeLayout>
+</LinearLayout>

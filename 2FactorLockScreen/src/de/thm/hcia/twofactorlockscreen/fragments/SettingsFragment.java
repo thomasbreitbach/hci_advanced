@@ -31,12 +31,12 @@ public class SettingsFragment extends SherlockFragment implements OnClickListene
 		mContext = getActivity();
 		View v = inflater.inflate(R.layout.settings_fragment, null); 
 		
-		btnPatternActivation 	= (Button) v.findViewById(R.id.musterActivationBtn);
-		btnSpeechActivation 	= (Button) v.findViewById(R.id.SpeechActivationBtn);
+		/*btnPatternActivation 	= (Button) v.findViewById(R.id.musterActivationBtn);
+		btnSpeechActivation 	= (Button) v.findViewById(R.id.SpeechActivationBtn);*/
 		bttnInfoDialog 			= (Button) v.findViewById(R.id.bttn_infoDialog);
 		
-		btnPatternActivation.setBackgroundResource(R.drawable.sa_off);
-		btnSpeechActivation.setBackgroundResource(R.drawable.sa_off);
+		/*btnPatternActivation.setBackgroundResource(R.drawable.sa_off);
+		btnSpeechActivation.setBackgroundResource(R.drawable.sa_off);*/
 		bttnInfoDialog.setBackgroundResource(R.drawable.sa_off);
 		
 		isPatternActive 		= false;
@@ -64,7 +64,7 @@ public class SettingsFragment extends SherlockFragment implements OnClickListene
 	
 	private void setupOnClickListeners() {
 		
-		btnPatternActivation.setOnClickListener(new OnClickListener() {
+		/*btnPatternActivation.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
@@ -80,7 +80,7 @@ public class SettingsFragment extends SherlockFragment implements OnClickListene
 				speechActivation();
 				
 			}
-		});
+		});*/
 
 		bttnInfoDialog.setOnClickListener(new OnClickListener() {
 			
@@ -111,7 +111,7 @@ public class SettingsFragment extends SherlockFragment implements OnClickListene
 		}*/
 	}
 
-	private void speechActivation() {
+	/* private void speechActivation() {
 		if(!isSpeechActive){
 			
 			isSpeechActive = true;
@@ -150,6 +150,7 @@ public class SettingsFragment extends SherlockFragment implements OnClickListene
 		}
 		
 	}
+	*/
 	private void infoDialogActivation() 
 	{
 		boolean isReaded = false;
@@ -181,7 +182,7 @@ public class SettingsFragment extends SherlockFragment implements OnClickListene
 		return isPatternActive;
 	}
 	
-	public void setSpeechStatus(Boolean s){
+	/*public void setSpeechStatus(Boolean s){
 		isSpeechActive = s;
 		speechActivation();
 	}
@@ -189,7 +190,7 @@ public class SettingsFragment extends SherlockFragment implements OnClickListene
 	public void setMusterStatus(Boolean m){
 		isPatternActive = m;
 		patternActivation();
-	}
+	}*/
 
 	
 }

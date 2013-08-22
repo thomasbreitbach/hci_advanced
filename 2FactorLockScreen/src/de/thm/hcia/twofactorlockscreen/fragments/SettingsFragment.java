@@ -16,24 +16,25 @@ import de.thm.hcia.twofactorlockscreen.R;
 public class SettingsFragment extends SherlockFragment implements OnClickListener{
 
 	private static 	Context 		mContext;
-	private 		Button			btnPatternActivation, btnSpeechActivation; 
-	private			boolean			isPatternActive, isSpeechActive;
+	private 		Button			btnPatternActivation, btnSpeechActivation, bttnInfoDialog; 
+	private			boolean			isPatternActive, isSpeechActive, isInfoDialog;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		mContext = getActivity();
 		View v = inflater.inflate(R.layout.settings_fragment, null); 
 		
-		btnPatternActivation = (Button) v.findViewById(R.id.musterActivationBtn);
-		btnSpeechActivation = (Button) v.findViewById(R.id.SpeechActivationBtn);
-		
+		btnPatternActivation 	= (Button) v.findViewById(R.id.musterActivationBtn);
+		btnSpeechActivation 	= (Button) v.findViewById(R.id.SpeechActivationBtn);
+		bttnInfoDialog 			= (Button) v.findViewById(R.id.bttn_infoDialog);
 		
 		btnPatternActivation.setBackgroundResource(R.drawable.sa_off);
 		btnSpeechActivation.setBackgroundResource(R.drawable.sa_off);
+		bttnInfoDialog.setBackgroundResource(R.drawable.sa_off);
 		
-		
-		isPatternActive = false;
-		isSpeechActive = false;
+		isPatternActive 	= false;
+		isSpeechActive 		= false;
+		isInfoDialog		= false;
 		
 		setupOnClickListeners();
 		
@@ -56,6 +57,15 @@ public class SettingsFragment extends SherlockFragment implements OnClickListene
 			@Override
 			public void onClick(View v) {
 				speechActivation();
+				
+			}
+		});
+
+		bttnInfoDialog.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				infoDialogActivation();
 				
 			}
 		});
@@ -116,6 +126,22 @@ public class SettingsFragment extends SherlockFragment implements OnClickListene
 			
 			CharSequence toastText =(CharSequence) getString(R.string.tst_muster_off);
 			Toast.makeText(mContext,  toastText , Toast.LENGTH_SHORT).show();
+		}
+		
+	}
+	private void infoDialogActivation() {
+		if(!isInfoDialog){
+			
+			isInfoDialog = true;
+			bttnInfoDialog.setBackgroundResource(R.drawable.sa_on);
+			
+			Toast.makeText(mContext,  "InfoDialog-ON" , Toast.LENGTH_SHORT).show();
+		}
+		else{
+			isInfoDialog = false;
+			bttnInfoDialog.setBackgroundResource(R.drawable.sa_off);
+			
+			Toast.makeText(mContext,  "InfoDialog-OFF" , Toast.LENGTH_SHORT).show();
 		}
 		
 	}

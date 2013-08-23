@@ -1,20 +1,11 @@
 package de.thm.hcia.twofactorlockscreen;
 
+import group.pals.android.lib.ui.lockpattern.LockPatternActivity;
+import group.pals.android.lib.ui.lockpattern.prefs.SecurityPrefs;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Set;
-
-import group.pals.android.lib.ui.lockpattern.LockPatternActivity;
-
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
-import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
-import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
-
-import de.thm.hcia.twofactorlockscreen.fragments.AboutFragment;
-import de.thm.hcia.twofactorlockscreen.fragments.MainFragment;
-import de.thm.hcia.twofactorlockscreen.fragments.MenuFragment;
-import de.thm.hcia.twofactorlockscreen.network.NetInfo;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -33,6 +24,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.Toast;
+
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
+import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
+
+import de.thm.hcia.twofactorlockscreen.fragments.AboutFragment;
+import de.thm.hcia.twofactorlockscreen.fragments.MainFragment;
+import de.thm.hcia.twofactorlockscreen.fragments.MenuFragment;
+import de.thm.hcia.twofactorlockscreen.network.NetInfo;
+import de.thm.hcia.twofactorlockscreen.security.LPEncrypter;
 
 public class MainActivity extends SlidingFragmentActivity {
 
@@ -66,6 +68,10 @@ public class MainActivity extends SlidingFragmentActivity {
 		mContext = this;
 		setTitle(R.string.app_name);		
 		setContentView(R.layout.responsive_content_frame);
+		
+		//Zum Speichern des Pattern Ÿber die AutoSave-Funktion der Lib.
+		SecurityPrefs.setEncrypterClass(mContext, LPEncrypter.class);
+		SecurityPrefs.setAutoSavePattern(mContext, true);
 		
 		//check for inet connection
 		if(NetInfo.inetAvailable(mContext)){

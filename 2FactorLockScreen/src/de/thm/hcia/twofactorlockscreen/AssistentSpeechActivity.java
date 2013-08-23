@@ -8,6 +8,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.speech.RecognitionListener;
+import android.speech.RecognizerIntent;
+import android.speech.SpeechRecognizer;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -16,12 +19,11 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.speech.RecognitionListener;
-import android.speech.RecognizerIntent;
-import android.speech.SpeechRecognizer;
 
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.MenuItem;
+
+import de.thm.hcia.twofactorlockscreen.io.SharedPreferenceIO;
 
 public class AssistentSpeechActivity extends SherlockActivity implements OnClickListener {
 	private static final String TAG = "AssistentSpeechActivity";
@@ -30,11 +32,13 @@ public class AssistentSpeechActivity extends SherlockActivity implements OnClick
 	private Button 				bttnNext, bttnAbord;
 	private ImageButton 		iBttnRecord;
 	private ProgressBar			mDbBar;
-	private boolean			mIsRecording = false;;
+	private boolean			mIsRecording = false;
+	private boolean				isSetResult = false;	
 	private Context 			mContext;
 	private TextView 			txtResult;
 	private Intent 				recordingIntent;
 	private int 				mChoicePosition;
+	private SharedPreferenceIO	sIo;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -42,12 +46,13 @@ public class AssistentSpeechActivity extends SherlockActivity implements OnClick
 		setContentView(R.layout.assistent_speech_input_activity);
 		setTitle(R.string.main_assistent_headline);
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+		
 		sr = SpeechRecognizer.createSpeechRecognizer(this);
 		sr.setRecognitionListener(new RecordListener());
 
 		mContext = this;
-
+		sIo = new SharedPreferenceIO(mContext);
+		
 		bttnNext = (Button) findViewById(R.id.bttnSpeechNext);
 		bttnAbord = (Button) findViewById(R.id.bttnSpeechAbort);
 		iBttnRecord = (ImageButton) findViewById(R.id.iBttnRecord);
@@ -92,6 +97,18 @@ public class AssistentSpeechActivity extends SherlockActivity implements OnClick
 			//cancel recognition
 			iBttnRecord.setBackgroundColor(Color.GRAY);
 			this.finish();
+		}
+		if (v.getId() == R.id.bttnSpeechNext) {
+			//ACHTUNG ! <- weg machen
+			if(!isSetResult)
+			{
+				Intent intent = new Intent();
+	            intent.setClass(this.getApplicationContext(), AssistentFinishActivity.class);
+	            startActivity(intent);
+
+			}else{
+				Toast.makeText(mContext, "Sie haben noch nichts Aufgenommen!", Toast.LENGTH_LONG).show();
+			}
 		}
 	}
 
@@ -164,9 +181,10 @@ public class AssistentSpeechActivity extends SherlockActivity implements OnClick
 				public void onClick(DialogInterface dialog, int which) {					
 					Log.i(TAG, "ChiocePosition: " + mChoicePosition);
 					SpeechResult spResult = speechResults.get(mChoicePosition);
+
+					sIo.putString("speechResult", spResult.getResult());
+					isSetResult = true;
 					
-					//Toast user choice
-					Toast.makeText(mContext, spResult.getResult(), Toast.LENGTH_SHORT).show();
 				}    			
     		})
     		.setSingleChoiceItems(rAdapter, -1, new DialogInterface.OnClickListener(){

@@ -1,5 +1,7 @@
 package de.thm.hcia.twofactorlockscreen.io;
 
+import group.pals.android.lib.ui.lockpattern.prefs.SecurityPrefs;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -7,15 +9,11 @@ import java.util.Set;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.os.Bundle;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
-import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
-
-import de.thm.hcia.twofactorlockscreen.R;
 
 public class SharedPreferenceIO{
-
+	
 	SharedPreferences.Editor 			mPrefEditor; 
 	private static SlidingMenu 			mMenu;
 	private static SharedPreferences 	mSettings;
@@ -81,7 +79,8 @@ public class SharedPreferenceIO{
       	  return false;
         }
 	}
-	  
+	
+	
 	public ArrayList<String> loadArrayFromSharedPreferences(String key)
 	{
 		Set<String> aSList 		= new HashSet<String>();
@@ -101,5 +100,9 @@ public class SharedPreferenceIO{
 	{
 		return mSettings.getBoolean(key, false);
 	
+	}
+	public char[] getPatter()
+	{
+		return SecurityPrefs.getPattern(mCont);
 	}
 }

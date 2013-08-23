@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="hello_world">Hallo Welt!</string>
+
+    <string name="hello_world">Hallo Welt!</string>
     <string name="app_name">2FactorLockscreen</string>
     <string name="action_settings">Einstellungen</string>
     <string name="app_explanation_head">Information</string>
     <string name="app_explanation_txt">Herzlich Willkommen und vielen Dank,  dass Sie an der Evaluation dieser APP teilnehmen. Mit dieser APP soll herausgefunden werden, ob man zwei Sicherheitsmechanismen im täglichen Gebrauch verwenden kann.</string>
     <string name="quick_start_statement">Sie haben noch keine Einrichtung vorgenommen. Nutzen Sie den Lock-Assistenten für eine einfache Konfiguration.</string>
-    <string name="about_info_txt">
-        Dieser Prototyp entstand in der Veranstaltung „Fortgeschrittene Mensch-Maschine-Interaktion“ 
+    <string name="about_info_txt">        Dieser Prototyp entstand in der Veranstaltung „Fortgeschrittene Mensch-Maschine-Interaktion“ 
         der Technischen Hochschule Fiedberg. In dieser App geht es darum zu Evaluieren, ob man im täglichen 
         Gebrauch mehr als nur eine Sicherheitsabfrage für ein Android-Smartphone verwenden sollte.\n\n
         Hierzu verwenden wir die Mustereingabe von Android und gleichzeitig die 
@@ -18,8 +18,8 @@
         André Wißner\n
         Julius Jay Butler\n
         Natalie Göpfert
-    </string>
-    
+</string>
+
     <!-- assistenten strings -->
     <string name="assistent_explanation">Der Lock Assistent führt Sie bequem und einfach durch diese App und erklärt Ihnen die einzelnen Optionen und Einstellungsmöglichkeiten. \n\nDauer: ca. 3 Minuten!</string>
     <string name="start_assistent">Assistent starten</string>
@@ -36,7 +36,6 @@
     <string name="main_assistent_headline">Lockscreen Assistent</string>
     <string name="main_assistent_next">Weiter</string>
     <string name="main_assistent_abort">Abbrechen</string>
-    
     <string name="manual_input">Manuelle Eingabe</string>
     <string name="manual_input_explanation">Mit Hilfe der manuellen Eingabe können Sie …</string>
     <string name="start_speech_input">Spache aufzeichnen</string>
@@ -46,6 +45,11 @@
     <string name="voice_prompt">Voice recognition Demo…</string>
     <string name="voice_no_match">Keine Spracheingabe erkannt!</string>
     <string name="no_speech">Leider unterstützt dein Gerät keine Spracherkennung!</string>
+
+    <string name="asisstent_finish_title">Herlichen Glückwunsch!</string>
+    <string name="assistent_finish_information">Dummy Text</string>
+    <string name="assistent_finish_test_button">Jetzt testen!</string>
+    <string name="assistent_finish_later_button">Später testen</string>
     
     <!-- Slidemenü -->
     <string name="about">Über diese App</string>
@@ -73,11 +77,11 @@
     <string name="title_activity_assistent_main">AssistentMainActivity</string>
 
     <!-- Assistent String 3.3 -->
-	<string name="assistent_speech_next">Weiter</string>
-	<string name="assistent_speech_abort">Abbrechen</string>
-	<string name="assistent_start_speech_input_description">Tippen Sie auf das Mikrofon und sprechen Sie Ihren Entsperrbefehl mit mindestens einem Wort, klar und deutlich in Ihr mobiles Endgerät.\n\nHalten sie Ihr Gerät dabei etwa 20–30cm von Ihrem Mund entfernt.</string>
-	<string name="assistent_speech_select_result">Wähle deine Spracheingabe</string>
-	
+    <string name="assistent_speech_next">Weiter</string>
+    <string name="assistent_speech_abort">Abbrechen</string>
+    <string name="assistent_start_speech_input_description">Tippen Sie auf das Mikrofon und sprechen Sie Ihren Entsperrbefehl mit mindestens einem Wort, klar und deutlich in Ihr mobiles Endgerät.\n\nHalten sie Ihr Gerät dabei etwa 20–30cm von Ihrem Mund entfernt.</string>
+    <string name="assistent_speech_select_result">Wähle deine Spracheingabe</string>
+
     <!-- Submenue MainActivity 3.2 -->
     <string name="main_activity_abort">Assistenten abbrechen</string>
     <string name="title_activity_assistent_patter_input">AssistentPatterInput</string>
@@ -87,21 +91,20 @@
     <string name="evaluation_headline">Prototyp evaluieren</string>
     <string name="title_activity_evaluation_fragment">EvaluationFragment</string>
     <string name="title_activity_assistent_speech_input">AssistentSpeechInputActivity</string>
-    
+
     <!-- Prototype Testing -->
-    <string name="prototype_information_text">Nachdem Sie nun die zwei Sicherheitsmeschanismen eingestellt haben, können Sie nun den Prototypen testen. Am Ende des Testens, können Sie direkt im Anschluss eine Evaluation durchführen.</string>
-	<string name="prototype_bttn_start">Meschanismen testen</string>
-	
-	
-	<string name="speech_Activation_LBL">Spracheingabe</string>
-	<string name="muster_Activation_LBL">Mustereingabe</string>
-	<string name="info_Activation_LBL">Informationsdialog</string>
-	<string name="tst_speech_on">Spracherkennung wurde aktiviert</string>
-	<string name="tst_speech_off">Spracherkennung wurde deaktiviert</string>
-	<string name="tst_muster_on">Mustererkennung wurde aktiviert</string>
-	<string name="tst_muster_off">Mustererkennung wurde deaktiviert</string>
-	<string name="Einstellungen_Lbl">Einstellungen</string>
-	<string name="an_BTN_LBL">AN</string>
-	<string name="aus_BTN_LBL">AUS</string>
-	
+    <string name="prototype_information_text">Nach dem Sie nun die Zwei Sicherheitsmeschanismen eingestellt haben, können Sie nun den Prototypen testen. Am Ende des Testens, können Sie direkt im Anschluss eine Evaluation durchführen.\n\n Klicken Sie auf "Meschanismen testen", wenn Sie bereit sind!</string>
+    <string name="prototype_bttn_start">Meschanismen testen</string>
+    <string name="speech_Activation_LBL">Spracheingabe</string>
+    <string name="muster_Activation_LBL">Mustereingabe</string>
+    <string name="info_Activation_LBL">Informationsdialog</string>
+    <string name="tst_speech_on">Spracherkennung wurde aktiviert</string>
+    <string name="tst_speech_off">Spracherkennung wurde deaktiviert</string>
+    <string name="tst_muster_on">Mustererkennung wurde aktiviert</string>
+    <string name="tst_muster_off">Mustererkennung wurde deaktiviert</string>
+    <string name="Einstellungen_Lbl">Einstellungen</string>
+    <string name="an_BTN_LBL">AN</string>
+    <string name="aus_BTN_LBL">AUS</string>
+    <string name="title_activity_assistent__finish_">Assistent_Finish_Activity</string>
+
 </resources>

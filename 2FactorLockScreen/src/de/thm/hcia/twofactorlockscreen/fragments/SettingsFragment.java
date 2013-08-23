@@ -1,7 +1,11 @@
 package de.thm.hcia.twofactorlockscreen.fragments;
 
+import android.R.bool;
+import android.R.string;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -12,37 +16,59 @@ import android.widget.Toast;
 import com.actionbarsherlock.app.SherlockFragment;
 
 import de.thm.hcia.twofactorlockscreen.R;
+import de.thm.hcia.twofactorlockscreen.io.SharedPreferenceIO;
 
 public class SettingsFragment extends SherlockFragment implements OnClickListener{
 
+	SharedPreferences.Editor		mPrefEditor; 
 	private static 	Context 		mContext;
-	private 		Button			btnPatternActivation, btnSpeechActivation; 
-	private			boolean			isPatternActive, isSpeechActive;
+	private 		Button			btnPatternActivation, btnSpeechActivation, bttnInfoDialog; 
+	private			boolean			isPatternActive, isSpeechActive, isInfoDialog;
+	private 		SharedPreferenceIO sIo;
 
+	private static SharedPreferences 	mSettings;
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		mContext = getActivity();
 		View v = inflater.inflate(R.layout.settings_fragment, null); 
+
+		sIo = new SharedPreferenceIO(mContext);
+			
+		/*btnPatternActivation 	= (Button) v.findViewById(R.id.musterActivationBtn);
+		btnSpeechActivation 	= (Button) v.findViewById(R.id.SpeechActivationBtn);*/
+		bttnInfoDialog 			= (Button) v.findViewById(R.id.bttn_infoDialog);
 		
-		btnPatternActivation = (Button) v.findViewById(R.id.musterActivationBtn);
-		btnSpeechActivation = (Button) v.findViewById(R.id.SpeechActivationBtn);
+		/*btnPatternActivation.setBackgroundResource(R.drawable.sa_off);
+		btnSpeechActivation.setBackgroundResource(R.drawable.sa_off);*/
+		bttnInfoDialog.setBackgroundResource(R.drawable.sa_off);
 		
-		
-		btnPatternActivation.setBackgroundResource(R.drawable.sa_off);
-		btnSpeechActivation.setBackgroundResource(R.drawable.sa_off);
-		
-		
-		isPatternActive = false;
-		isSpeechActive = false;
+		isPatternActive 		= false;
+		isSpeechActive 			= false;
+		isInfoDialog			= false;
 		
 		setupOnClickListeners();
+		
+		
+		//mSettings 	= mContext.getSharedPreferences("AppPrefs", mContext.MODE_PRIVATE);
+		//mPrefEditor = mSettings.edit();
+		
+		
+		if(sIo.getBoolean("informationRead"))
+		{
+			isInfoDialog			= false;
+			bttnInfoDialog.setBackgroundResource(R.drawable.sa_off);
+		}else{
+			isInfoDialog			= true;
+			bttnInfoDialog.setBackgroundResource(R.drawable.sa_on);
+		}
 		
 		return v;
 	}
 	
 	private void setupOnClickListeners() {
 		
-		btnPatternActivation.setOnClickListener(new OnClickListener() {
+		/*btnPatternActivation.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
@@ -56,6 +82,15 @@ public class SettingsFragment extends SherlockFragment implements OnClickListene
 			@Override
 			public void onClick(View v) {
 				speechActivation();
+				
+			}
+		});*/
+
+		bttnInfoDialog.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				infoDialogActivation();
 				
 			}
 		});
@@ -80,7 +115,7 @@ public class SettingsFragment extends SherlockFragment implements OnClickListene
 		}*/
 	}
 
-	private void speechActivation() {
+	/* private void speechActivation() {
 		if(!isSpeechActive){
 			
 			isSpeechActive = true;
@@ -119,6 +154,27 @@ public class SettingsFragment extends SherlockFragment implements OnClickListene
 		}
 		
 	}
+	*/
+	private void infoDialogActivation() 
+	{
+		boolean isReaded = false;
+		if(!isInfoDialog){
+			
+			isInfoDialog = true;
+			bttnInfoDialog.setBackgroundResource(R.drawable.sa_on);
+			isReaded = false;
+			
+			Toast.makeText(mContext,  "InfoDialog-ON" , Toast.LENGTH_SHORT).show();
+		}
+		else{
+			isInfoDialog = false;
+			bttnInfoDialog.setBackgroundResource(R.drawable.sa_off);
+			
+			Toast.makeText(mContext,  "InfoDialog-OFF" , Toast.LENGTH_SHORT).show();
+			isReaded = true;
+		}
+		sIo.butBoolean("informationRead", isReaded);		
+	}
 	
 	public Boolean getSpeechStatus(){
 		return isSpeechActive;
@@ -128,7 +184,7 @@ public class SettingsFragment extends SherlockFragment implements OnClickListene
 		return isPatternActive;
 	}
 	
-	public void setSpeechStatus(Boolean s){
+	/*public void setSpeechStatus(Boolean s){
 		isSpeechActive = s;
 		speechActivation();
 	}
@@ -136,7 +192,7 @@ public class SettingsFragment extends SherlockFragment implements OnClickListene
 	public void setMusterStatus(Boolean m){
 		isPatternActive = m;
 		patternActivation();
-	}
+	}*/
 
 	
 }

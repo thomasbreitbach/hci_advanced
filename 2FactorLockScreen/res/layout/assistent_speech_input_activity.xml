@@ -30,15 +30,7 @@
 	        android:layout_marginLeft="@dimen/activity_horizontal_margin"
     		android:layout_marginRight="@dimen/activity_horizontal_margin"
     		android:gravity="center_horizontal"
-    		android:orientation="vertical">        
-	        
-	        <TextView
-		        android:id="@+id/txtResults"
-		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content"
-		        android:gravity="center_vertical|center_horizontal"
-		        android:text=""
-		        android:textAppearance="?android:attr/textAppearanceMedium" />
+    		android:orientation="vertical">
 	        
 	        <ImageButton
 		        android:id="@+id/iBttnRecord"

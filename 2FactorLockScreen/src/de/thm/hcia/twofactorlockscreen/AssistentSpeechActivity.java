@@ -39,7 +39,7 @@ public class AssistentSpeechActivity extends SherlockActivity implements OnClick
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.assistent_speech_input_acrtivity);
+		setContentView(R.layout.assistent_speech_input_activity);
 		setTitle(R.string.main_assistent_headline);
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -138,15 +138,11 @@ public class AssistentSpeechActivity extends SherlockActivity implements OnClick
 			mIsRecording = false;
 			
 			/* Filtern der Ergebnisse auch für später zum Vergleichen */
-			StringBuffer str = new StringBuffer();
 			final ArrayList<SpeechResult> speechResults = new ArrayList<SpeechResult>();
 			ArrayList<String> data = results.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
 			for (int i = 0; i < data.size(); i++) {
 				speechResults.add(new SpeechResult(data.get(i)));
-				str.append(data.get(i));
 			}
-			txtResult = (TextView) findViewById(R.id.txtResults);
-			txtResult.setText(str.toString());
 
 //			Toast.makeText(mContext, "results: " + String.valueOf(data.size()),Toast.LENGTH_LONG).show();	
 			

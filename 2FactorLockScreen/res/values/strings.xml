@@ -76,6 +76,7 @@
 	<string name="assistent_speech_next">Weiter</string>
 	<string name="assistent_speech_abort">Abbrechen</string>
 	<string name="assistent_start_speech_input_description">Tippen Sie auf das Mikrofon und sprechen Sie Ihren Entsperrbefehl mit mindestens einem Wort, klar und deutlich in Ihr mobiles Endgerät.\n\nHalten sie Ihr Gerät dabei etwa 20–30cm von Ihrem Mund entfernt.</string>
+	<string name="assistent_speech_select_result">Wähle deine Spracheingabe</string>
 	
     <!-- Submenue MainActivity 3.2 -->
     <string name="main_activity_abort">Assistenten abbrechen</string>

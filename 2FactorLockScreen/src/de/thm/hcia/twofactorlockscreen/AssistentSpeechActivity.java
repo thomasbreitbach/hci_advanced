@@ -2,7 +2,9 @@ package de.thm.hcia.twofactorlockscreen;
 
 import java.util.ArrayList;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -28,8 +30,11 @@ public class AssistentSpeechActivity extends SherlockActivity implements OnClick
 	private Button 				bttnNext, bttnAbord;
 	private ImageButton 		iBttnRecord;
 	private ProgressBar			mDbBar;
+	private boolean			mIsRecording = false;;
 	private Context 			mContext;
 	private TextView 			txtResult;
+	private Intent 				recordingIntent;
+	private int 				mChoicePosition;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -66,14 +71,22 @@ public class AssistentSpeechActivity extends SherlockActivity implements OnClick
 
 	public void onClick(View v){
 		if (v.getId() == R.id.iBttnRecord) {
-			//Start speech recognition
-			iBttnRecord.setBackgroundColor(Color.RED);
-			Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-			intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);	
-			intent.putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE,"voice.recognition.test");
-			intent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 5);
-			
-			sr.startListening(intent);
+
+			if(!mIsRecording){
+				//Start speech recognition
+				mIsRecording = true;
+				iBttnRecord.setBackgroundColor(Color.RED);
+				recordingIntent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+				recordingIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);	
+				recordingIntent.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_COMPLETE_SILENCE_LENGTH_MILLIS, Long.valueOf(2000));
+				recordingIntent.putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE,"voice.recognition.test");
+				recordingIntent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 5);
+				
+				sr.startListening(recordingIntent);
+			}else{
+				//TODO!
+				//cancel recording intent
+			}
 		}
 		if (v.getId() == R.id.bttnSpeechAbort) {
 			//cancel recognition
@@ -82,8 +95,10 @@ public class AssistentSpeechActivity extends SherlockActivity implements OnClick
 		}
 	}
 
-	/*
-	 * inner class
+	/**
+	 * Inner Class RescordListener
+	 *
+	 * Computes the returned values of google speech recognition
 	 */
 	class RecordListener implements RecognitionListener {
 		public void onReadyForSpeech(Bundle params) {
@@ -94,8 +109,11 @@ public class AssistentSpeechActivity extends SherlockActivity implements OnClick
 			Log.d(TAG, "onBeginningOfSpeech");
 		}
 
+		/**
+		 * update value of progress bar
+		 */
 		public void onRmsChanged(float rmsdB) {
-			Log.d(TAG, "onRmsChanged: " + rmsdB);
+			//set progress bar
 			int progress = (int) rmsdB;
 			mDbBar.setProgress(progress);		
 		}
@@ -112,21 +130,56 @@ public class AssistentSpeechActivity extends SherlockActivity implements OnClick
 			Log.d(TAG, "onEndofSpeech");
 		}
 
+		/**
+		 * compute speech recognition recognition
+		 */
 		public void onResults(Bundle results) {
 			iBttnRecord.setBackgroundColor(Color.argb(255, 0, 200, 0));
+			mIsRecording = false;
+			
 			/* Filtern der Ergebnisse auch für später zum Vergleichen */
-
-			String str = new String();
-			Log.d(TAG, "onResults: " + results);
+			StringBuffer str = new StringBuffer();
+			final ArrayList<SpeechResult> speechResults = new ArrayList<SpeechResult>();
 			ArrayList<String> data = results.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
 			for (int i = 0; i < data.size(); i++) {
-				Log.d(TAG, "result " + data.get(i));
-				str += data.get(i);
+				speechResults.add(new SpeechResult(data.get(i)));
+				str.append(data.get(i));
 			}
 			txtResult = (TextView) findViewById(R.id.txtResults);
-			txtResult.setText(str);
+			txtResult.setText(str.toString());
 
-			Toast.makeText(mContext, "results: " + String.valueOf(data.size()),Toast.LENGTH_LONG).show();
+//			Toast.makeText(mContext, "results: " + String.valueOf(data.size()),Toast.LENGTH_LONG).show();	
+			
+			final ResultAdapter rAdapter = new ResultAdapter(mContext, speechResults);
+    		
+    		/*
+    		 * CONSTRUCT ALERT DIALOG
+    		 * to display matching speech results
+    		 */
+    		new  AlertDialog.Builder(mContext)
+    		.setTitle(R.string.assistent_speech_select_result)
+    		.setNegativeButton(R.string.main_assistent_abort, new DialogInterface.OnClickListener()
+    		{
+    			public void onClick(DialogInterface dialog, int which) {
+    				dialog.dismiss();
+    			}
+    		})
+    		.setPositiveButton(R.string.main_assistent_next, new DialogInterface.OnClickListener(){
+				public void onClick(DialogInterface dialog, int which) {					
+					Log.i(TAG, "ChiocePosition: " + mChoicePosition);
+					SpeechResult spResult = speechResults.get(mChoicePosition);
+					
+					//Toast user choice
+					Toast.makeText(mContext, spResult.getResult(), Toast.LENGTH_SHORT).show();
+				}    			
+    		})
+    		.setSingleChoiceItems(rAdapter, -1, new DialogInterface.OnClickListener(){
+				public void onClick(DialogInterface dialog, int which) {
+					mChoicePosition = which;
+					rAdapter.setCheckedPosition(which);
+				}
+    		}).show();
+			//alert dialog end
 		}
 
 		public void onPartialResults(Bundle partialResults) {
@@ -137,5 +190,6 @@ public class AssistentSpeechActivity extends SherlockActivity implements OnClick
 			Log.d(TAG, "onEvent " + eventType);
 		}
 	}
+	
 
 }

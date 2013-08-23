@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<de.thm.hcia.twofactorlockscreen.widget.CheckableLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="#FFFFFFFF"
+    android:paddingTop="1dip"
+    android:paddingBottom="1dip"
+    android:clickable="false">    
+
+    <CheckedTextView android:id="@+id/list_tv_speech_result"
+        android:textSize="15sp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5sp"
+        android:textColor="#FF000000"
+        android:singleLine="false"
+        android:checkMark="?android:attr/listChoiceIndicatorSingle"
+        android:clickable="false"
+    />
+</de.thm.hcia.twofactorlockscreen.widget.CheckableLinearLayout>

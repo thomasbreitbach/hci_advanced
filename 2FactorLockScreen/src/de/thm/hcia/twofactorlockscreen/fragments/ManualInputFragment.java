@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.actionbarsherlock.app.SherlockFragment;
 
+import de.thm.hcia.twofactorlockscreen.AssistentSpeechActivity;
 import de.thm.hcia.twofactorlockscreen.MainActivity;
 import de.thm.hcia.twofactorlockscreen.R;
 
@@ -74,11 +75,20 @@ public class ManualInputFragment extends SherlockFragment {
 			
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);    
-		        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-		        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, R.string.voice_prompt);
-		        
-		        getActivity().startActivityForResult(intent, MainActivity.REQ_CODE_CREATE_VOICE);
+				/*
+				 * ALTER CODE 
+				 */
+//				Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);    
+//		        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+//		        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, R.string.voice_prompt);
+//		        
+//		        getActivity().startActivityForResult(intent, MainActivity.REQ_CODE_CREATE_VOICE);
+				
+				
+				//neue Activity
+				Intent aIntent = new Intent();
+				aIntent.setClass(mContext, AssistentSpeechActivity.class);
+	            startActivity(aIntent);
 			}
 		});
 	}

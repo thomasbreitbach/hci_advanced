@@ -23,6 +23,8 @@ import android.speech.SpeechRecognizer;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.MenuItem;
 
+import de.thm.hcia.twofactorlockscreen.io.SharedPreferenceIO;
+
 public class AssistentSpeechActivity extends SherlockActivity implements OnClickListener {
 	private static final String TAG = "AssistentSpeechActivity";
 
@@ -35,6 +37,7 @@ public class AssistentSpeechActivity extends SherlockActivity implements OnClick
 	private TextView 			txtResult;
 	private Intent 				recordingIntent;
 	private int 				mChoicePosition;
+	private SharedPreferenceIO	sIo;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -43,6 +46,8 @@ public class AssistentSpeechActivity extends SherlockActivity implements OnClick
 		setTitle(R.string.main_assistent_headline);
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+		sIo = new SharedPreferenceIO(mContext);
+		
 		sr = SpeechRecognizer.createSpeechRecognizer(this);
 		sr.setRecognitionListener(new RecordListener());
 
@@ -166,7 +171,12 @@ public class AssistentSpeechActivity extends SherlockActivity implements OnClick
 					SpeechResult spResult = speechResults.get(mChoicePosition);
 					
 					//Toast user choice
-					Toast.makeText(mContext, spResult.getResult(), Toast.LENGTH_SHORT).show();
+					//Toast.makeText(mContext, spResult.getResult(), Toast.LENGTH_SHORT).show();
+					
+					//HIER
+					sIo.putString("speechResult", spResult.getResult());
+					Toast.makeText(mContext, sIo.getString("speechResult"), Toast.LENGTH_SHORT).show();
+					
 				}    			
     		})
     		.setSingleChoiceItems(rAdapter, -1, new DialogInterface.OnClickListener(){

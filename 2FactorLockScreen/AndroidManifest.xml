@@ -7,9 +7,11 @@
     <uses-sdk
         android:minSdkVersion="10"
         android:targetSdkVersion="17" />
-	<uses-permission android:name="android.permission.INTERNET" />
-	<uses-permission android:name="android.permission.RECORD_AUDIO"/>
-	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_logo_lock"
@@ -56,6 +58,10 @@
             android:name="de.thm.hcia.twofactorlockscreen.AssistentSpeechActivity"
             android:label="@string/title_activity_assistent_speech_input"
             android:theme="@style/Theme.Sherlock.Light.DarkActionBar" >
+        </activity>
+        <activity
+            android:name="de.thm.hcia.twofactorlockscreen.Assistent_Finish_Activity"
+            android:label="@string/title_activity_assistent__finish_" >
         </activity>
     </application>
 

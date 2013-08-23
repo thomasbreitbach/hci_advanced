@@ -32,7 +32,8 @@ public class AssistentSpeechActivity extends SherlockActivity implements OnClick
 	private Button 				bttnNext, bttnAbord;
 	private ImageButton 		iBttnRecord;
 	private ProgressBar			mDbBar;
-	private boolean			mIsRecording = false;;
+	private boolean			mIsRecording = false;
+	private boolean				isSetResult = false;	
 	private Context 			mContext;
 	private TextView 			txtResult;
 	private Intent 				recordingIntent;
@@ -96,6 +97,18 @@ public class AssistentSpeechActivity extends SherlockActivity implements OnClick
 			//cancel recognition
 			iBttnRecord.setBackgroundColor(Color.GRAY);
 			this.finish();
+		}
+		if (v.getId() == R.id.bttnSpeechNext) {
+			//ACHTUNG ! <- weg machen
+			if(!isSetResult)
+			{
+				Intent intent = new Intent();
+	            intent.setClass(this.getApplicationContext(), AssistentFinishActivity.class);
+	            startActivity(intent);
+
+			}else{
+				Toast.makeText(mContext, "Sie haben noch nichts Aufgenommen!", Toast.LENGTH_LONG).show();
+			}
 		}
 	}
 
@@ -170,7 +183,7 @@ public class AssistentSpeechActivity extends SherlockActivity implements OnClick
 					SpeechResult spResult = speechResults.get(mChoicePosition);
 
 					sIo.putString("speechResult", spResult.getResult());
-					
+					isSetResult = true;
 					
 				}    			
     		})

@@ -1,39 +1,59 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/about_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PrototypeFragment" >
+    android:layout_gravity="top|fill_vertical"
+    android:gravity="top"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_headline"
-        android:layout_width="fill_parent"
-        android:layout_height="50dip"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:background="@color/abs__background_holo_light"
-        android:gravity="center"
-        android:text="@string/prototype_headline"
-        android:textSize="@dimen/txt_headline_size" />
+    <!-- Headline -->
+	<TextView
+	    android:id="@+id/tv_headline"
+	    android:layout_width="fill_parent"
+	    android:layout_height="50dip"
+	    android:gravity="center"
+	    android:layout_gravity="top"
+	    android:text="@string/prototype_headline"
+	    android:background="@color/abs__background_holo_light"
+	    android:textSize="@dimen/txt_headline_size"/>
 
-    <TextView
-        android:id="@+id/txtSpeech"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_headline"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp"
-        android:height="250dp"
-        android:text="@string/prototype_start_description"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:width="@dimen/element_size" />
+	<ScrollView
+	    android:id="@+id/scrollView1"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content" >
 
-    <Button
-        android:id="@+id/btn_startProto"
-        android:layout_width="@dimen/element_size"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/txtSpeech"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="@dimen/element_margin_bottom"
-        android:text="Button" />
+	   <LinearLayout
+	       android:layout_width="match_parent"
+	       android:layout_height="wrap_content"
+	       android:layout_marginLeft="@dimen/activity_horizontal_margin"
+	       android:layout_marginRight="@dimen/activity_horizontal_margin"
+	       android:gravity="center_vertical|center_horizontal"
+	       android:orientation="vertical">
 
-</RelativeLayout>
+	       <!-- Content here! -->
+
+			<!-- bereits eingerichtet -->
+	       <TextView
+			android:id="@+id/txtSpeech"
+			android:layout_width="wrap_content"
+			android:layout_height="0dp"
+			android:layout_marginTop="@dimen/activity_vertical_margin"
+			android:layout_weight="1"
+			android:text="@string/prototype_information_text"
+			android:textAppearance="?android:attr/textAppearanceMedium"/>
+	       
+	       <Button 
+	           android:id="@+id/btn_startProto"
+	           android:layout_width="match_parent"
+	           android:layout_height="wrap_content"
+	           android:layout_gravity="bottom"
+	           android:layout_weight="0"
+	           android:text="@string/prototype_bttn_start"/>
+	       
+	       <!-- noch nichts eingerichted -> verweis auf Assistent -->
+	       <include android:id="@+id/quick_start" layout="@layout/quick_start"/> 
+	       
+	   </LinearLayout>
+	</ScrollView>	
+</LinearLayout>

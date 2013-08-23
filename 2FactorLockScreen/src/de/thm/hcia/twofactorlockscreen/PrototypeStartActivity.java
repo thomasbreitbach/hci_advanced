@@ -15,7 +15,7 @@ public class PrototypeStartActivity extends SherlockActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setTitle(R.string.app_name);
-		setContentView(R.layout.prototype_start);
+		setContentView(R.layout.prototype_start_activity);
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 	
 	}

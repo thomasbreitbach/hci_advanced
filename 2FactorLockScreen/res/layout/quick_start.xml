@@ -10,7 +10,8 @@
 	  	    android:id="@+id/tv_statement"
 	  	    android:layout_width="265dp"
 	  	    android:layout_height="wrap_content"
-	  	    android:text="@string/quick_start_statement" />
+	  	    android:text="@string/quick_start_statement" 
+	  	    android:textAppearance="?android:attr/textAppearanceMedium"/>
 
 	  	<Button
 	  	    android:id="@+id/btn_start_assistent"

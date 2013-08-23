@@ -89,7 +89,7 @@
     <string name="title_activity_assistent_speech_input">AssistentSpeechInputActivity</string>
     
     <!-- Prototype Testing -->
-    <string name="prototype_information_text">Nach dem Sie nun die Zwei Sicherheitsmeschanismen eingestellt haben, können Sie nun den Prototypen testen. Am Ende des Testens, können Sie direkt im Anschluss eine Evaluation durchführen.\n\n Klicken Sie auf "Meschanismen testen", wenn Sie bereit sind!</string>
+    <string name="prototype_information_text">Nachdem Sie nun die zwei Sicherheitsmeschanismen eingestellt haben, können Sie nun den Prototypen testen. Am Ende des Testens, können Sie direkt im Anschluss eine Evaluation durchführen.</string>
 	<string name="prototype_bttn_start">Meschanismen testen</string>
 	
 	

@@ -8,6 +8,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.speech.RecognitionListener;
+import android.speech.RecognizerIntent;
+import android.speech.SpeechRecognizer;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -16,9 +19,6 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.speech.RecognitionListener;
-import android.speech.RecognizerIntent;
-import android.speech.SpeechRecognizer;
 
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.MenuItem;
@@ -45,14 +45,13 @@ public class AssistentSpeechActivity extends SherlockActivity implements OnClick
 		setContentView(R.layout.assistent_speech_input_activity);
 		setTitle(R.string.main_assistent_headline);
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-		sIo = new SharedPreferenceIO(mContext);
 		
 		sr = SpeechRecognizer.createSpeechRecognizer(this);
 		sr.setRecognitionListener(new RecordListener());
 
 		mContext = this;
-
+		sIo = new SharedPreferenceIO(mContext);
+		
 		bttnNext = (Button) findViewById(R.id.bttnSpeechNext);
 		bttnAbord = (Button) findViewById(R.id.bttnSpeechAbort);
 		iBttnRecord = (ImageButton) findViewById(R.id.iBttnRecord);
@@ -169,13 +168,9 @@ public class AssistentSpeechActivity extends SherlockActivity implements OnClick
 				public void onClick(DialogInterface dialog, int which) {					
 					Log.i(TAG, "ChiocePosition: " + mChoicePosition);
 					SpeechResult spResult = speechResults.get(mChoicePosition);
-					
-					//Toast user choice
-					//Toast.makeText(mContext, spResult.getResult(), Toast.LENGTH_SHORT).show();
-					
-					//HIER
+
 					sIo.putString("speechResult", spResult.getResult());
-					Toast.makeText(mContext, sIo.getString("speechResult"), Toast.LENGTH_SHORT).show();
+					
 					
 				}    			
     		})

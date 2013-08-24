@@ -33,6 +33,7 @@ import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 import de.thm.hcia.twofactorlockscreen.fragments.AboutFragment;
 import de.thm.hcia.twofactorlockscreen.fragments.MainFragment;
 import de.thm.hcia.twofactorlockscreen.fragments.MenuFragment;
+import de.thm.hcia.twofactorlockscreen.io.SharedPreferenceIO;
 import de.thm.hcia.twofactorlockscreen.network.NetInfo;
 import de.thm.hcia.twofactorlockscreen.security.LPEncrypter;
 
@@ -44,6 +45,10 @@ public class MainActivity extends SlidingFragmentActivity {
 	public static final int 			REQ_CODE_COMPARE_PATTERN 	= 2;
 	public static final int 			REQ_CODE_CREATE_VOICE 		= 3; 
 	public static CheckBox 			mDontShowAgain;
+	
+	
+	private static boolean			speechInstalled = false;
+	private static boolean			patternInstalled = false;
 	
 	SharedPreferences.Editor 			mPrefEditor; 
 	private static SlidingMenu 		mMenu;
@@ -60,7 +65,7 @@ public class MainActivity extends SlidingFragmentActivity {
 	private boolean						isSlideMenue	= false;
 	private boolean						isHomescreen	= true;
 	
-	//private SharedPreferenceIO 			sPiO;
+	private SharedPreferenceIO 			sPiO;
 		
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -69,9 +74,11 @@ public class MainActivity extends SlidingFragmentActivity {
 		setTitle(R.string.app_name);		
 		setContentView(R.layout.responsive_content_frame);
 		
-		//Zum Speichern des Pattern Ÿber die AutoSave-Funktion der Lib.
+		//Zum Speichern des Pattern ï¿½ber die AutoSave-Funktion der Lib.
 		SecurityPrefs.setEncrypterClass(mContext, LPEncrypter.class);
 		SecurityPrefs.setAutoSavePattern(mContext, true);
+		
+		sPiO = new SharedPreferenceIO(mContext);
 		
 		//check for inet connection
 		if(NetInfo.inetAvailable(mContext)){
@@ -79,6 +86,11 @@ public class MainActivity extends SlidingFragmentActivity {
 		}else{
 			Toast.makeText(mContext, "inet ist nicht da", Toast.LENGTH_SHORT).show();
 		}
+		
+		//check if pattern and speech are installed
+		if(sPiO.getPatter() != null) patternInstalled = true;
+		if(!sPiO.getSpeech().equals("")) speechInstalled = true;
+		
 		
 		/*AUSLAGERN -->!!!<--
 			/*
@@ -88,7 +100,7 @@ public class MainActivity extends SlidingFragmentActivity {
 			mSettings 	= getSharedPreferences("AppPrefs", MODE_PRIVATE);
 			mPrefEditor = mSettings.edit();
 		
-		//sPiO = new SharedPreferenceIO();
+		
 		
 		/*
 		 * Holen der Versionsnummer Ã¼ber die PackageInfo
@@ -385,6 +397,14 @@ public class MainActivity extends SlidingFragmentActivity {
 	  public String loadStringFromSharedPreferences(String key)
 	  {         
 		  return  mSettings.getString(key, null);
+	  }
+	  
+	  public static boolean isSpeechInstalled(){
+		  return speechInstalled;
+	  }
+	  
+	  public static boolean isPatternInstalled(){
+		  return patternInstalled;
 	  }
 }
  

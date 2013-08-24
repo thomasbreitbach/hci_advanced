@@ -105,4 +105,10 @@ public class SharedPreferenceIO{
 	{
 		return SecurityPrefs.getPattern(mCont);
 	}
+	
+	//TODO
+	//Methode zum laden der abgespeicherten Spracheingabe
+	public String getSpeech(){
+		return " ";
+	}
 }

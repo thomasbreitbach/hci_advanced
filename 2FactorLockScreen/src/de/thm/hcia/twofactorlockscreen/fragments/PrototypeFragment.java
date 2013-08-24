@@ -1,5 +1,6 @@
 package de.thm.hcia.twofactorlockscreen.fragments;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
@@ -61,6 +62,21 @@ public class PrototypeFragment extends SherlockFragment {
 		 * Sprache und Pattern bereits eigerichet?
 		 * Disable bzw Enable jeweilige Views
 		 */
+		MainActivity mainAct = (MainActivity) getActivity();
+		if(mainAct.isPatternInstalled() && mainAct.isSpeechInstalled()){
+			//set prototype start invisible
+			//btnStartProto.setVisibility();
+		}
+		
+		if(mainAct.isPatternInstalled()){
+			if(mainAct.isSpeechInstalled()){
+				
+			}else{
+				
+			}
+		}else{
+			
+		}
 		
 		return v;
 	}

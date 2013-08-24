@@ -17,7 +17,7 @@ import de.thm.hcia.twofactorlockscreen.R;
 public class EvaluationFragment extends SherlockFragment {
 
 	private static Context mContext;
-	private static String url = "http://de.surveymonkey.com/s/5JZ69Q8";
+	private static String url = "http://goo.gl/UqwY7W";
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

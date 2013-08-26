@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/quick_start"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content" 
     android:gravity="center|top"
-    android:orientation="vertical" >
+    android:orientation="vertical" 
+    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    android:layout_marginRight="@dimen/activity_horizontal_margin">
  
 	  	<TextView
 	  	    android:id="@+id/tv_statement"
-	  	    android:layout_width="265dp"
+	  	    android:layout_width="match_parent"
 	  	    android:layout_height="wrap_content"
 	  	    android:text="@string/quick_start_statement" 
 	  	    android:textAppearance="?android:attr/textAppearanceMedium"/>
 
 	  	<Button
 	  	    android:id="@+id/btn_start_assistent"
-	  	    android:layout_width="280dp"
+	  	    android:layout_width="match_parent"
 	  	    android:layout_height="wrap_content"
+	  	    android:layout_marginTop="15dp"
 	  	    android:text="@string/quickstart_assistent" />
 
 </LinearLayout>

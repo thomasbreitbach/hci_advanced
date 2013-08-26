@@ -88,7 +88,7 @@ public class MainActivity extends SlidingFragmentActivity {
 		}
 		
 		//check if pattern and speech are installed
-		if(sPiO.getPatter() != null) patternInstalled = true;
+		if(sPiO.getPattern() != null) patternInstalled = true;
 		if(!sPiO.getSpeech().equals("")) speechInstalled = true;
 		
 		
@@ -223,7 +223,7 @@ public class MainActivity extends SlidingFragmentActivity {
 
 	/**
 	 * switches the fragment
-	 * @param fragment
+	 * @param fragment the target fragment
 	 */
 	public void switchContent(final Fragment fragment) {
 		mContent = fragment;
@@ -357,21 +357,7 @@ public class MainActivity extends SlidingFragmentActivity {
 	  
 	  //----------------------------------------------------------------
 	  //	Funktionen zum Laden und Speichern
-	  //----------------------------------------------------------------
-	  
-//	  public Boolean saveToSharedPreferences(String key, ArrayList<String> aList)
-//	  {
-//		  Set<String> stList = new HashSet<String>();
-//		  
-//          stList.addAll(aList);		    
-//          mPrefEditor.putStringSet(key, replaceToLowercase(stList));
-//          if(mPrefEditor.commit())
-//          {
-//        	  return true;
-//          }else{
-//        	  return false;
-//          }
-//	  }
+	  //----------------------------------------------------------------	 
 	  
 	  public Boolean saveToSharedPreferences(String key, String value)
 	  {	    
@@ -383,16 +369,6 @@ public class MainActivity extends SlidingFragmentActivity {
         	  return false;
           }
 	  }
-	  
-//	  public ArrayList<String> loadArrayFromSharedPreferences(String key)
-//	  {
-//		  Set<String> aSList 		= new HashSet<String>();
-//          aSList 					= mSettings.getStringSet(key, null);
-//          ArrayList<String> aList 	= new ArrayList<String>();
-//          aList.addAll(aSList);
-//          
-//		  return  aList;
-//	  }
 	  
 	  public String loadStringFromSharedPreferences(String key)
 	  {         

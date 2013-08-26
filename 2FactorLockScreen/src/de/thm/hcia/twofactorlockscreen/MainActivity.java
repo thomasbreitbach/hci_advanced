@@ -31,8 +31,13 @@ import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 
 import de.thm.hcia.twofactorlockscreen.fragments.AboutFragment;
+import de.thm.hcia.twofactorlockscreen.fragments.AssistentFragment;
+import de.thm.hcia.twofactorlockscreen.fragments.EvaluationFragment;
 import de.thm.hcia.twofactorlockscreen.fragments.MainFragment;
+import de.thm.hcia.twofactorlockscreen.fragments.ManualInputFragment;
 import de.thm.hcia.twofactorlockscreen.fragments.MenuFragment;
+import de.thm.hcia.twofactorlockscreen.fragments.PrototypeFragment;
+import de.thm.hcia.twofactorlockscreen.fragments.SettingsFragment;
 import de.thm.hcia.twofactorlockscreen.io.SharedPreferenceIO;
 import de.thm.hcia.twofactorlockscreen.network.NetInfo;
 import de.thm.hcia.twofactorlockscreen.security.LPEncrypter;
@@ -44,8 +49,15 @@ public class MainActivity extends SlidingFragmentActivity {
 	public static final int 			REQ_CODE_CREATE_PATTERN 	= 1;
 	public static final int 			REQ_CODE_COMPARE_PATTERN 	= 2;
 	public static final int 			REQ_CODE_CREATE_VOICE 		= 3; 
-	public static CheckBox 			mDontShowAgain;
+	public static final int			MAIN_FRAGMENT				= 10;
+	public static final int			ASSISTENT_FRAGMENT			= 11;
+	public static final int			MANUAL_INPUT_FRAGMENT		= 12;
+	public static final int			PROTOTYPE_FRAGMENT			= 13;
+	public static final int			EVALUATION_FRAGMENT			= 14;
+	public static final int			SETTINGS_FRAGMENT			= 15;
+	public static final int			ABOUT_FRAGMENT				= 16;	
 	
+	public static CheckBox 			mDontShowAgain;	
 	
 	private static boolean			speechInstalled = false;
 	private static boolean			patternInstalled = false;
@@ -180,6 +192,48 @@ public class MainActivity extends SlidingFragmentActivity {
         }      	
 	}
 	
+	public void onStart(){
+		super.onStart();
+		
+		//check for intent extras
+		Intent intent = getIntent();
+		Bundle extras = intent.getExtras();
+		
+		if(extras != null){
+			 int fragInt = extras.getInt("fragment");
+			 if(fragInt != 0){
+				 Fragment fragment = null;
+				 
+				 switch(fragInt){
+				 case MAIN_FRAGMENT:
+					 fragment = new MainFragment();
+					 break;
+				 case ASSISTENT_FRAGMENT:
+					 fragment = new AssistentFragment();
+					 break;
+				 case MANUAL_INPUT_FRAGMENT:
+					 fragment = new ManualInputFragment();
+					 break;
+				 case PROTOTYPE_FRAGMENT:
+					 fragment = new PrototypeFragment();
+					 break;
+				 case EVALUATION_FRAGMENT:
+					 fragment = new EvaluationFragment();
+					 break;
+				 case SETTINGS_FRAGMENT:
+					 fragment = new SettingsFragment();
+					 break;
+				 case ABOUT_FRAGMENT:
+					 fragment = new AboutFragment();
+					 break;
+				 }
+				 
+				 switchContent(fragment);
+			 }
+		}
+		
+	}
+	
 	@Override
 	public void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
@@ -259,15 +313,12 @@ public class MainActivity extends SlidingFragmentActivity {
 		        if(resultCode == RESULT_OK){
 		            savedPattern = data.getCharArrayExtra(LockPatternActivity.EXTRA_PATTERN);
 		            /*
-		    		 * Speichern der Pattern in "prefs"
+		    		 * Pattern wird über die Bibliothek automatisch gespeichert
 		    		 */
-		            saveToSharedPreferences("savedPattern", savedPattern.toString());
-		            if(mPrefEditor.commit()){
-		            	Toast.makeText(mContext, R.string.pattern_recorded, Toast.LENGTH_SHORT).show();
-		            	Log.d("TEST", loadStringFromSharedPreferences("savedPattern").toString());
-		            }else{
-		            	Toast.makeText(mContext, R.string.writing_prefs_error_01, Toast.LENGTH_SHORT).show();
-		            }      
+		            Toast.makeText(mContext, R.string.pattern_recorded, Toast.LENGTH_SHORT).show();              
+		        }else{
+		        	//TODO
+		        	//TOAST Fehlerausgabe
 		        }
 		        break;
 		        

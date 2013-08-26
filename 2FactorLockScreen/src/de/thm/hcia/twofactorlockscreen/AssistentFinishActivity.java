@@ -21,7 +21,6 @@ public class AssistentFinishActivity extends SherlockActivity {
 		bttnTesten = (Button) findViewById(R.id.bttnTesten);
 		
 		bttnAbort.setOnClickListener(new OnClickListener() {
-			
 			@Override
 			public void onClick(View v) {
 				//TODOs!!!!
@@ -30,6 +29,17 @@ public class AssistentFinishActivity extends SherlockActivity {
 	            intent.putExtra("fragment", MainActivity.MAIN_FRAGMENT);
 	            startActivity(intent);
 				finish();
+			}
+		});
+		bttnTesten.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent();
+	            intent.setClass(getApplicationContext(), MainActivity.class);
+	            intent.putExtra("fragment", MainActivity.PROTOTYPE_FRAGMENT);
+	            startActivity(intent);
+				finish();				
 			}
 		});
 	}

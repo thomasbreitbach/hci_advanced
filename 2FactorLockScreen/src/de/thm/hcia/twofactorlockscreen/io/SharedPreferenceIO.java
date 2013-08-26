@@ -12,6 +12,9 @@ import android.content.SharedPreferences;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
+/**
+ * Class for IO operations of sharedpreferences: mode is private!
+ */
 public class SharedPreferenceIO{
 	
 	SharedPreferences.Editor 			mPrefEditor; 
@@ -59,6 +62,12 @@ public class SharedPreferenceIO{
 //        }
 //	}
 	
+	/**
+	 * set a string in s prefs
+	 * @param key the name
+	 * @param value the new value
+	 * @return true if everything is ok, false if an error occurred
+	 */
 	public Boolean putString(String key, String value)
 	{	    
 		mPrefEditor.putString(key, value);
@@ -70,7 +79,13 @@ public class SharedPreferenceIO{
         }
 	}
 	
-	public Boolean butBoolean(String key, Boolean value)
+	/**
+	 * set a boolean value in s prefs
+	 * @param key the name
+	 * @param value true or false
+	 * @return true if everything is ok, false if an error occurred
+	 */
+	public Boolean putBoolean(String key, Boolean value)
 	{	    
 		mPrefEditor.putBoolean(key, value);
         if(mPrefEditor.commit())
@@ -94,7 +109,7 @@ public class SharedPreferenceIO{
 	  
 	public String getString(String key)
 	{         
-		return  mSettings.getString(key, null);
+		return  mSettings.getString(key, "");
 	}
 	
 	public boolean getBoolean(String key)
@@ -102,14 +117,21 @@ public class SharedPreferenceIO{
 		return mSettings.getBoolean(key, false);
 	
 	}
-	public char[] getPatter()
+	
+	/**
+	 * Gets the patterns
+	 * @return the pattern. Default is null
+	 */
+	public char[] getPattern()
 	{
 		return SecurityPrefs.getPattern(mCont);
 	}
 	
-	//TODO
-	//Methode zum laden der abgespeicherten Spracheingabe
+	/**
+	 * Methode zum laden der abgespeicherten Spracheingabe
+	 * @return the speech input as String or null
+	 */
 	public String getSpeech(){
-		return "";
+		return getString("speechResult");
 	}
 }

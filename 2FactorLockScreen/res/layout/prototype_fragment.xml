@@ -34,26 +34,61 @@
 	       <!-- Content here! -->
 
 			<!-- bereits eingerichtet -->
-	       <TextView
-			android:id="@+id/txtSpeech"
+			<LinearLayout 
+			    android:id="@+id/layout_prototype_start"
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:visibility="gone">
+		     	
+			    <TextView
+				android:id="@+id/tv_prototype_explanation"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/activity_vertical_margin"
+				android:text="@string/prototype_information_text"
+				android:textAppearance="?android:attr/textAppearanceMedium"/>
+		       
+		       <Button 
+		           android:id="@+id/btn_startProto"
+		           android:layout_width="match_parent"
+		           android:layout_height="wrap_content"
+		           android:layout_gravity="bottom"
+		           android:text="@string/prototype_bttn_start"/>	
+	       </LinearLayout>
+	       <!-- noch nichts eingerichted -> verweis auf Assistent -->
+	       <include 
+	           android:id="@+id/layout_quick_start" 
+	           layout="@layout/quick_start"
+	           android:visibility="gone"/>
+	       	
+           
+	       <!-- Entweder Sprache oder Pattern noch nicht eingerichtet -->
+           <TextView
+			android:id="@+id/tv_install_pattern_explanation"
 			android:layout_width="wrap_content"
-			android:layout_height="0dp"
+			android:layout_height="wrap_content"
 			android:layout_marginTop="@dimen/activity_vertical_margin"
-			android:layout_weight="1"
-			android:text="@string/prototype_information_text"
-			android:textAppearance="?android:attr/textAppearanceMedium"/>
+			android:text="@string/prototype_install_pattern"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:visibility="gone"/>
+           
+           <TextView
+			android:id="@+id/tv_install_speech_explanation"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/activity_vertical_margin"
+			android:text="@string/prototype_install_speech"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:visibility="gone"/>
 	       
 	       <Button 
-	           android:id="@+id/btn_startProto"
+	           android:id="@+id/btn_goto_manuel_input"
 	           android:layout_width="match_parent"
 	           android:layout_height="wrap_content"
 	           android:layout_gravity="bottom"
-	           android:layout_weight="0"
-	           android:text="@string/prototype_bttn_start"/>
-	       
-	       <!-- noch nichts eingerichted -> verweis auf Assistent -->
-	       <include android:id="@+id/quick_start" layout="@layout/quick_start"/> 
-	       
+	           android:text="@string/prototype_bttn_start"
+	           android:visibility="gone"/>
+
 	   </LinearLayout>
 	</ScrollView>	
 </LinearLayout>

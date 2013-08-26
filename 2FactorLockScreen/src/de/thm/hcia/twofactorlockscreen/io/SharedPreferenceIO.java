@@ -45,19 +45,20 @@ public class SharedPreferenceIO{
 	//	Funktionen zum Laden und Speichern
 	//----------------------------------------------------------------
 	  
-	public Boolean saveToSharedPreferences(String key, ArrayList<String> aList)
-	{
-		Set<String> stList = new HashSet<String>();
-		  
-        stList.addAll(aList);		    
-        mPrefEditor.putStringSet(key, replaceToLowercase(stList));
-        if(mPrefEditor.commit())
-        {
-      	  return true;
-        }else{
-      	  return false;
-        }
-	}
+//	public Boolean saveToSharedPreferences(String key, ArrayList<String> aList)
+//	{
+//		Set<String> stList = new HashSet<String>();
+//		  
+//        stList.addAll(aList);		    
+//        mPrefEditor.putStringSet(key, replaceToLowercase(stList));
+//        if(mPrefEditor.commit())
+//        {
+//      	  return true;
+//        }else{
+//      	  return false;
+//        }
+//	}
+	
 	public Boolean putString(String key, String value)
 	{	    
 		mPrefEditor.putString(key, value);
@@ -81,15 +82,15 @@ public class SharedPreferenceIO{
 	}
 	
 	
-	public ArrayList<String> loadArrayFromSharedPreferences(String key)
-	{
-		Set<String> aSList 		= new HashSet<String>();
-        aSList 					= mSettings.getStringSet(key, null);
-        ArrayList<String> aList 	= new ArrayList<String>();
-        aList.addAll(aSList);
-        
-		  return  aList;
-	}
+//	public ArrayList<String> loadArrayFromSharedPreferences(String key)
+//	{
+//		Set<String> aSList 		= new HashSet<String>();
+//        aSList 					= mSettings.getStringSet(key, null);
+//        ArrayList<String> aList 	= new ArrayList<String>();
+//        aList.addAll(aSList);
+//        
+//		  return  aList;
+//	}
 	  
 	public String getString(String key)
 	{         
@@ -109,6 +110,6 @@ public class SharedPreferenceIO{
 	//TODO
 	//Methode zum laden der abgespeicherten Spracheingabe
 	public String getSpeech(){
-		return " ";
+		return "";
 	}
 }

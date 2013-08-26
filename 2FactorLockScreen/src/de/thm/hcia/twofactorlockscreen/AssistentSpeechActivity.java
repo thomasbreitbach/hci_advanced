@@ -99,8 +99,7 @@ public class AssistentSpeechActivity extends SherlockActivity implements OnClick
 			this.finish();
 		}
 		if (v.getId() == R.id.bttnSpeechNext) {
-			//ACHTUNG ! <- weg machen
-			if(!isSetResult)
+			if(isSetResult)
 			{
 				Intent intent = new Intent();
 	            intent.setClass(this.getApplicationContext(), AssistentFinishActivity.class);

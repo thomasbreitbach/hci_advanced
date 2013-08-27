@@ -43,6 +43,10 @@
             android:theme="@style/Theme.Sherlock.Light.DarkActionBar" >
         </activity>
         <activity
+            android:name="de.thm.hcia.twofactorlockscreen.PrototypeStartActivity"
+            android:theme="@style/Theme.Sherlock.Light.DarkActionBar" >
+        </activity>
+        <activity
             android:name="de.thm.hcia.twofactorlockscreen.AssistentPatterInput"
             android:label="@string/title_activity_assistent_patter_input" >
         </activity>

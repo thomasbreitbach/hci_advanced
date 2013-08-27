@@ -32,8 +32,7 @@ public class AssistentMainActivity extends SherlockActivity {
 		
 		mBtnCancel 	= (Button) findViewById(R.id.btn_cancel);
 		mBtnNext 	= (Button) findViewById(R.id.btn_next);
-		
-		
+				
 		mContext = this;
 		
 		setOnClickListeners();

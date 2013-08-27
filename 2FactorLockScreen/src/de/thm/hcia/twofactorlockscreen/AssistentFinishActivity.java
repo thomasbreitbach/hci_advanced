@@ -15,7 +15,7 @@ public class AssistentFinishActivity extends SherlockActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.assistent__finish_activity);
+		setContentView(R.layout.assistent_finish_activity);
 		
 		bttnAbort = (Button) findViewById(R.id.bttnAbort);
 		bttnTesten = (Button) findViewById(R.id.bttnTesten);

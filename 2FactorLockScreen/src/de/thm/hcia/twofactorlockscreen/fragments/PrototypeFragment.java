@@ -26,7 +26,6 @@ public class PrototypeFragment extends SherlockFragment {
 	private TextView tvProtoExplanation;
 	private Button btnStartAssistent;
 	private LinearLayout quickStart;
-	private LinearLayout prototypeStart;
 	private Button btnGotoManualInput;
 	private TextView tvInstallSpeechExpl;
 	private TextView tvInstallPatternExpl;
@@ -36,7 +35,6 @@ public class PrototypeFragment extends SherlockFragment {
 		mContext = getActivity();
 		v = inflater.inflate(R.layout.prototype_fragment, null); 
 
-		prototypeStart = (LinearLayout) v.findViewById(R.id.layout_prototype_start);
 		quickStart = (LinearLayout) v.findViewById(R.id.layout_quick_start);
 		
 		tvProtoExplanation = (TextView) v.findViewById(R.id.tv_prototype_explanation);
@@ -50,20 +48,23 @@ public class PrototypeFragment extends SherlockFragment {
 		 * Sprache und Pattern bereits eigerichet?
 		 * Disable bzw Enable jeweilige Views
 		 */
-		if(!MainActivity.isPatternInstalled() && !MainActivity.isSpeechInstalled()){
+		MainActivity mainAct = (MainActivity) getActivity();
+		mainAct.checkInstallation();
+		if(!mainAct.isPatternInstalled() && !mainAct.isSpeechInstalled()){
 			//Nothing installed set prototype start invisible
 			quickStart.setVisibility(View.VISIBLE);
-		}else if(!MainActivity.isPatternInstalled() && MainActivity.isSpeechInstalled()){
+		}else if(!mainAct.isPatternInstalled() && mainAct.isSpeechInstalled()){
 			//Pattern not installed
 			btnGotoManualInput.setVisibility(View.VISIBLE);
 			tvInstallPatternExpl.setVisibility(View.VISIBLE);
-		}else if(!MainActivity.isSpeechInstalled() && MainActivity.isPatternInstalled()){
+		}else if(!mainAct.isSpeechInstalled() && mainAct.isPatternInstalled()){
 			//Speech not installed
 			btnGotoManualInput.setVisibility(View.VISIBLE);
 			tvInstallSpeechExpl.setVisibility(View.VISIBLE);
 		}else{
 			//Everything installed --> show start prototype
-			prototypeStart.setVisibility(View.VISIBLE);
+			tvProtoExplanation.setVisibility(View.VISIBLE);
+			btnStartProto.setVisibility(View.VISIBLE);
 		}
 		
 		

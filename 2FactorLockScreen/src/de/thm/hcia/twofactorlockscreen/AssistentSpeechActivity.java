@@ -106,7 +106,7 @@ public class AssistentSpeechActivity extends SherlockActivity implements OnClick
 	            startActivity(intent);
 
 			}else{
-				Toast.makeText(mContext, "Sie haben noch nichts Aufgenommen!", Toast.LENGTH_LONG).show();
+				Toast.makeText(mContext, R.string.nothing_recorded, Toast.LENGTH_LONG).show();
 			}
 		}
 	}
@@ -159,8 +159,6 @@ public class AssistentSpeechActivity extends SherlockActivity implements OnClick
 			for (int i = 0; i < data.size(); i++) {
 				speechResults.add(new SpeechResult(data.get(i)));
 			}
-
-//			Toast.makeText(mContext, "results: " + String.valueOf(data.size()),Toast.LENGTH_LONG).show();	
 			
 			final ResultAdapter rAdapter = new ResultAdapter(mContext, speechResults);
     		
@@ -180,10 +178,13 @@ public class AssistentSpeechActivity extends SherlockActivity implements OnClick
 				public void onClick(DialogInterface dialog, int which) {					
 					Log.i(TAG, "ChiocePosition: " + mChoicePosition);
 					SpeechResult spResult = speechResults.get(mChoicePosition);
-
-					sIo.putString("speechResult", spResult.getResult());
+					String choice = spResult.getResult();
+					
+					sIo.putString("speechResult", choice);
 					isSetResult = true;
 					
+					String message = mContext.getResources().getString(R.string.your_choice, choice);
+					Toast.makeText(mContext, message, Toast.LENGTH_LONG).show();
 				}    			
     		})
     		.setSingleChoiceItems(rAdapter, -1, new DialogInterface.OnClickListener(){

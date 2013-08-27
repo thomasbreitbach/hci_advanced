@@ -4,9 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content" 
     android:gravity="center|top"
-    android:orientation="vertical" 
-    android:layout_marginLeft="@dimen/activity_horizontal_margin"
-    android:layout_marginRight="@dimen/activity_horizontal_margin">
+    android:orientation="vertical"
+    android:layout_marginTop="@dimen/activity_vertical_margin"
+    >
  
 	  	<TextView
 	  	    android:id="@+id/tv_statement"
@@ -19,7 +19,7 @@
 	  	    android:id="@+id/btn_start_assistent"
 	  	    android:layout_width="match_parent"
 	  	    android:layout_height="wrap_content"
-	  	    android:layout_marginTop="15dp"
+	  	    android:layout_marginTop="@dimen/button_margin_vertical"
 	  	    android:text="@string/quickstart_assistent" />
 
 </LinearLayout>

@@ -87,7 +87,7 @@ public class MainActivity extends SlidingFragmentActivity {
 		setContentView(R.layout.responsive_content_frame);
 		
 		//Zum Speichern des Pattern �ber die AutoSave-Funktion der Lib.
-		SecurityPrefs.setEncrypterClass(mContext, LPEncrypter.class);
+//		SecurityPrefs.setEncrypterClass(mContext, LPEncrypter.class);
 		SecurityPrefs.setAutoSavePattern(mContext, true);
 		
 		sPiO = new SharedPreferenceIO(mContext);
@@ -100,8 +100,7 @@ public class MainActivity extends SlidingFragmentActivity {
 		}
 		
 		//check if pattern and speech are installed
-		if(sPiO.getPattern() != null) patternInstalled = true;
-		if(!sPiO.getSpeech().equals("")) speechInstalled = true;
+		checkInstallation();
 		
 		
 		/*AUSLAGERN -->!!!<--
@@ -191,7 +190,7 @@ public class MainActivity extends SlidingFragmentActivity {
 			.show();     	
         }      	
 	}
-	
+
 	public void onStart(){
 		super.onStart();
 		
@@ -426,12 +425,19 @@ public class MainActivity extends SlidingFragmentActivity {
 		  return  mSettings.getString(key, null);
 	  }
 	  
-	  public static boolean isSpeechInstalled(){
+	  public boolean isSpeechInstalled(){
 		  return speechInstalled;
 	  }
 	  
-	  public static boolean isPatternInstalled(){
+	  public boolean isPatternInstalled(){
 		  return patternInstalled;
+	  }
+	  
+	  public void checkInstallation(){
+		if(sPiO.getPattern() != null){
+			patternInstalled = true;
+		}
+		if(!sPiO.getSpeech().equals("")) speechInstalled = true;
 	  }
 }
  

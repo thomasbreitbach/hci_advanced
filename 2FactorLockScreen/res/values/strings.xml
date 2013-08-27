@@ -74,7 +74,8 @@
     <string name="prototype_start_description">Teste den Prototyp</string>
     <string name="prototype_install_pattern">Sie haben noch kein Entsperrmuster eingerichtet! Gehen Sie zur "Manuellen Eingabe" und richten Sie Ihr persönliches Muster ein, bevor Sie den Prototypen testen können.</string>
     <string name="prototype_install_speech">Sie haben noch kein Spracherkennung eingerichtet! Gehen Sie zur "Manuellen Eingabe" und richten Sie Ihr einen diese ein, bevor Sie den Prototypen testen können.</string>
-
+	<string name="manual_input_goto">Zur manuellen Eingabe</string>
+    
     <!-- menü strings -->
     <string name="ok">OK</string>
     <string name="title_activity_assistent_main">AssistentMainActivity</string>

@@ -28,6 +28,7 @@ public class EvaluationFragment extends SherlockFragment {
 	    // system browser. Overriding url loading allows the WebView  
 	    // to load the redirect into this screen.
 	    wv.setWebViewClient(new WebViewClient() {
+	    	
 	        public boolean shouldOverrideUrlLoading(WebView view, String url) {
 	            view.loadUrl(url);
 	            return false;

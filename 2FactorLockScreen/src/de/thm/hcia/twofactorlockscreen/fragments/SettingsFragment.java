@@ -173,7 +173,7 @@ public class SettingsFragment extends SherlockFragment implements OnClickListene
 			Toast.makeText(mContext,  "InfoDialog-OFF" , Toast.LENGTH_SHORT).show();
 			isReaded = true;
 		}
-		sIo.butBoolean("informationRead", isReaded);		
+		sIo.putBoolean("informationRead", isReaded);		
 	}
 	
 	public Boolean getSpeechStatus(){

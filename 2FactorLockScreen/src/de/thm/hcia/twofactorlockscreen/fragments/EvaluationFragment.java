@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import com.actionbarsherlock.app.SherlockFragment;
 
@@ -23,6 +24,15 @@ public class EvaluationFragment extends SherlockFragment {
 		WebView wv = (WebView) v.findViewById(R.id.webView1);
 		
 		wv.getSettings().setJavaScriptEnabled(true);
+		// By default, redirects cause jump from WebView to default
+	    // system browser. Overriding url loading allows the WebView  
+	    // to load the redirect into this screen.
+	    wv.setWebViewClient(new WebViewClient() {
+	        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+	            view.loadUrl(url);
+	            return false;
+	        }
+	    });
 		wv.loadUrl(url);
 		
 		return v;

@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,34 +23,82 @@ import de.thm.hcia.twofactorlockscreen.R;
 public class MainFragment extends SherlockFragment {
 
 	private static Context mContext;
+	private TextView mAppVersion;
+	private TextView mTvInstallSpeechExpl;
+	private TextView mTvInstallPatternExpl;
+	private LinearLayout quickStart;
+	private TableLayout dashboard;
+	private Button mBtnManualInput;
+	private Button mBtnStartAssistent;
+	
+	private MainActivity mMainActivity;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		mContext = getActivity();
+		mMainActivity = (MainActivity) getActivity();
 		
 		View v = inflater.inflate(R.layout.main_fragment, null); 
-		
-		Button b = (Button) v.findViewById(R.id.btn_start_assistent);
-		b.setOnClickListener(new OnClickListener() {
-			
-			/*
-			 * Nicht direkt zum Assistenten sondern zum Fragment
-			 */
-			@Override
-			public void onClick(View v) {
-				MainActivity activity = (MainActivity) getActivity();
-				activity.switchContent(new AssistentFragment());					
-			}
-		});
+		quickStart = (LinearLayout) v.findViewById(R.id.quick_start);
+		dashboard = (TableLayout) v.findViewById(R.id.dashboard);	
 		
 		//get app version from AndroidManifest
 		StringBuffer versionName = new StringBuffer().append(mContext.getString(R.string.app_version));
 		versionName.append(" ").append(MainActivity.getAppVersion());
 
-		TextView appVersion = (TextView) v.findViewById(R.id.tv_app_version);
-		appVersion.setText(versionName.toString());
+		mAppVersion = (TextView) v.findViewById(R.id.tv_app_version);
+		mAppVersion.setText(versionName.toString());
+		mTvInstallSpeechExpl = (TextView) v.findViewById(R.id.tv_install_speech_explanation);
+		mTvInstallPatternExpl = (TextView) v.findViewById(R.id.tv_install_pattern_explanation);
+		mBtnManualInput = (Button) v.findViewById(R.id.btn_goto_manuel_input);
+		mBtnStartAssistent = (Button) v.findViewById(R.id.btn_start_assistent);
+		
+		setUpOnClickListeners();
+		
+		
 			
 		return v;
+	}
+	
+	public void onStart(){
+		super.onStart(); 
+		mMainActivity.checkInstallation();
+		if(!mMainActivity.isPatternInstalled() && !mMainActivity.isSpeechInstalled()){
+			//Nothing installed set prototype start invisible
+			quickStart.setVisibility(View.VISIBLE);
+		}else if(!mMainActivity.isPatternInstalled() && mMainActivity.isSpeechInstalled()){
+			//Pattern not installed
+			mTvInstallPatternExpl.setVisibility(View.VISIBLE);
+			mBtnManualInput.setVisibility(View.VISIBLE);
+		}else if(!mMainActivity.isSpeechInstalled() && mMainActivity.isPatternInstalled()){
+			//Speech not installed
+			mTvInstallSpeechExpl.setVisibility(View.VISIBLE);
+			mBtnManualInput.setVisibility(View.VISIBLE);
+		}else{
+			//Everything installed --> show start prototype
+			dashboard.setVisibility(View.VISIBLE);
+		}
+	}
+	
+	/**
+	 * Set up all on click listeners
+	 */
+	private void setUpOnClickListeners(){
+		mBtnStartAssistent.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				mMainActivity.switchContent(new AssistentFragment());					
+			}
+		});
+		
+		mBtnManualInput.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				mMainActivity.switchContent(new ManualInputFragment());
+			}
+		});
 	}
 	
 	@Override

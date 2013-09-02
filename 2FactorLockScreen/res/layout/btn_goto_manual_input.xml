@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Button xmlns:android="http://schemas.android.com/apk/res/android"
+     android:id="@+id/btn_goto_manuel_input"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:text="@string/manual_input_goto"
+     android:layout_marginTop="@dimen/button_margin_vertical"/>

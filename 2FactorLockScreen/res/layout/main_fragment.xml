@@ -30,7 +30,7 @@
 	  	    android:layout_marginTop="0dip"/>
         
         <!-- App-Version, Statement, Button<start-assistent> -->
-        <include android:id="@+id/quick_start" layout="@layout/quick_start"/> 
+        <include android:id="@+id/quick_start" layout="@layout/quick_start" android:visibility="gone"/> 
 	  	
 	  	<!-- DASHBOARD -->
 
@@ -38,6 +38,19 @@
 	  	    android:id="@+id/dashboard"
 	  	    layout="@layout/dashboard"
 	  	    android:paddingTop="50dip" android:visibility="gone" />
+	  	
+	  	<include
+	           layout="@layout/tv_install_pattern_explanation"
+	           android:visibility="gone" />
+	  	
+	  	<include
+	           layout="@layout/tv_install_speech_explanation"
+	           android:visibility="gone" />
+
+	  	<include
+	           layout="@layout/btn_goto_manual_input"
+	           android:visibility="gone" />
+	
 
     </LinearLayout>
 </ScrollView>

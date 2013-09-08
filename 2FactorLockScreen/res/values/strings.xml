@@ -48,7 +48,7 @@
     <string name="your_choice">Ihre Wahl: %s</string>
 
     <string name="asisstent_finish_title">Herlichen Glückwunsch!</string>
-    <string name="assistent_finish_information">Dummy Text</string>
+    <string name="assistent_finish_information">Herzlichen Glückwunsch, Sie haben den Assistenten erfolgreich eingerichtet. Sie sind nun bereit, den Mechanismus dieser App zu testen. \n\n Klicken Sie auf "Jetzt testen", um den Mechanismus zu testen oder klicken Sie auf "Später testen".</string>
     <string name="assistent_finish_test_button">Jetzt testen!</string>
     <string name="assistent_finish_later_button">Später testen</string>
     

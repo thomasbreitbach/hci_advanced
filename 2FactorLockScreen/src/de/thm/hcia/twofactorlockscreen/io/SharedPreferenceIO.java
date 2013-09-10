@@ -24,6 +24,8 @@ public class SharedPreferenceIO{
 	
 	public static final String PREF_SPEECH_RESULT = "speechResult";
 	public static final String PREF_START_INFO_READ = "informationRead";
+	public static final String PREF_LOGINS_FAILED = "loginsFailed";
+	public static final String PREF_LOGINS_SUCCESSFUL = "loginsSuccessful";
 	
 	public SharedPreferenceIO(Context mContext)
 	{
@@ -135,5 +137,17 @@ public class SharedPreferenceIO{
 	 */
 	public String getSpeech(){
 		return getString(PREF_SPEECH_RESULT);
+	}
+	
+	public boolean incrementLoginsFailed(){
+		int fails = mSettings.getInt(PREF_LOGINS_FAILED, 0);
+		mPrefEditor.putInt(PREF_LOGINS_FAILED, fails++);
+		return mPrefEditor.commit();
+	}
+	
+	public boolean incrementLoginsSuccessful(){
+		int success = mSettings.getInt(PREF_LOGINS_SUCCESSFUL, 0);
+		mPrefEditor.putInt(PREF_LOGINS_SUCCESSFUL, success++);
+		return mPrefEditor.commit();
 	}
 }

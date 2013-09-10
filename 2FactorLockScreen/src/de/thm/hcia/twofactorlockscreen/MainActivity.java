@@ -287,24 +287,34 @@ public class MainActivity extends SlidingFragmentActivity {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data){
 		Log.i(TAG, "onActivityResult");
-		switch(requestCode) 
-		{
-			
-		    case REQ_CODE_COMPARE_PATTERN:
-		        switch (resultCode) {
-		        case RESULT_OK:
-		            // The user passed
-		        	//TODO
-		            break;
-		        case RESULT_CANCELED:
-		            // The user cancelled the task
-		        	//TODO
-		            break;
-		        case LockPatternActivity.RESULT_FAILED:
-		            // The user failed to enter the pattern
-		        	//TODO
-		            break;
-		        }	
+		switch(requestCode){
+		case MainActivity.REQ_CODE_CREATE_PATTERN:
+	        if(resultCode == RESULT_OK){            
+	            /*
+	    		 * Pattern wird über die Bibliothek automatisch gespeichert
+	    		 * 
+	    		 */
+	            Toast.makeText(mContext, R.string.pattern_recorded, Toast.LENGTH_LONG).show(); 
+	        }else{
+	        	//TODO
+	        	//TOAST Fehlerausgabe
+	        }
+	        break;			
+	    case REQ_CODE_COMPARE_PATTERN:
+	        switch(resultCode){
+	        case RESULT_OK:
+	            // The user passed
+	        	//TODO
+	            break;
+	        case RESULT_CANCELED:
+	            // The user cancelled the task
+	        	//TODO
+	            break;
+	        case LockPatternActivity.RESULT_FAILED:
+	            // The user failed to enter the pattern
+	        	//TODO
+	            break;
+	        }	
 		        
 	        /*
     		 * Speichern der Sprache in "prefs"

@@ -86,7 +86,7 @@ public class AssistentSpeechActivity extends SherlockActivity implements OnClick
 				recordingIntent.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_COMPLETE_SILENCE_LENGTH_MILLIS, Long.valueOf(2000));
 				recordingIntent.putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE,"voice.recognition.test");
 				recordingIntent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 5);
-				
+		
 				sr.startListening(recordingIntent);
 			}else{
 				//TODO!

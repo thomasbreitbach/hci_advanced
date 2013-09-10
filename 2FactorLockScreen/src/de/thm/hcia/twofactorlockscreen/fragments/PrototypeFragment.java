@@ -16,6 +16,7 @@ import com.actionbarsherlock.app.SherlockFragment;
 import de.thm.hcia.twofactorlockscreen.AssistentMainActivity;
 import de.thm.hcia.twofactorlockscreen.MainActivity;
 import de.thm.hcia.twofactorlockscreen.PrototypeStartActivity;
+import de.thm.hcia.twofactorlockscreen.PrototypeTestActivity;
 import de.thm.hcia.twofactorlockscreen.R;
 
 public class PrototypeFragment extends SherlockFragment {
@@ -85,7 +86,7 @@ public class PrototypeFragment extends SherlockFragment {
 				 * Start assistent
 				 */
 				Intent intent = new Intent();
-	            intent.setClass(mContext, PrototypeStartActivity.class);
+	            intent.setClass(mContext, PrototypeTestActivity.class);
 	            startActivity(intent);
 			}
 		});

@@ -23,6 +23,7 @@ public class SharedPreferenceIO{
 	private Context						mCont;
 	
 	public static final String PREF_SPEECH_RESULT = "speechResult";
+	public static final String PREF_START_INFO_READ = "informationRead";
 	
 	public SharedPreferenceIO(Context mContext)
 	{
@@ -98,6 +99,9 @@ public class SharedPreferenceIO{
         }
 	}
 	
+	public Boolean getBoolean(String key){
+		return mSettings.getBoolean(key, false);
+	}
 	
 //	public ArrayList<String> loadArrayFromSharedPreferences(String key)
 //	{
@@ -114,11 +118,7 @@ public class SharedPreferenceIO{
 		return  mSettings.getString(key, "");
 	}
 	
-	public boolean getBoolean(String key)
-	{
-		return mSettings.getBoolean(key, false);
 	
-	}
 	
 	/**
 	 * Gets the patterns

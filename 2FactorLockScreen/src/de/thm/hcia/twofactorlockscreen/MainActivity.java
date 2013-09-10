@@ -65,7 +65,6 @@ public class MainActivity extends SlidingFragmentActivity {
 	SharedPreferences.Editor 			mPrefEditor; 
 	private static SlidingMenu 		mMenu;
 	private static Fragment 			mContent;
-	private static SharedPreferences 	mSettings;
 	private static Context 			mContext;
 	private static String 				mAppVersion;
 	private static char[] 			savedPattern = null;
@@ -102,9 +101,7 @@ public class MainActivity extends SlidingFragmentActivity {
 		//check if pattern and speech are installed
 		checkInstallation();
 		
-		/*
-		 * Holen der Versionsnummer über die PackageInfo
-		 */
+		//get version number
 		try {
 			mAppVersion = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
 		} catch (NameNotFoundException e) {
@@ -156,7 +153,7 @@ public class MainActivity extends SlidingFragmentActivity {
         prepareSlidingMenu();  
         
         //Show explanation dialog (one time)   
-        if (savedInstanceState == null && mSettings.getBoolean("informationRead", false) == false){
+        if (savedInstanceState == null && sPiO.getBoolean(SharedPreferenceIO.PREF_START_INFO_READ) == false){
         	AlertDialog.Builder adb 	= new AlertDialog.Builder(this);
         	
 			LayoutInflater adbInflater 	= LayoutInflater.from(this);
@@ -171,8 +168,7 @@ public class MainActivity extends SlidingFragmentActivity {
 				@Override
 				public void onClick(DialogInterface dialog, int which) {					
 					if(mDontShowAgain.isChecked()){					
-			        	mPrefEditor.putBoolean("informationRead", true);
-			            mPrefEditor.commit();
+						sPiO.putBoolean(SharedPreferenceIO.PREF_START_INFO_READ, true);
 					}					
 				}
 			})

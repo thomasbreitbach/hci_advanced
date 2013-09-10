@@ -10,63 +10,31 @@ import java.util.Set;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
-
 /**
- * Class for IO operations of sharedpreferences: mode is private!
+ * Class for IO operations of shared preferences: mode is private!
  */
 public class SharedPreferenceIO{
 	
 	SharedPreferences.Editor 			mPrefEditor; 
-	private static SlidingMenu 			mMenu;
 	private static SharedPreferences 	mSettings;
 	private Context						mCont;
 	
-	public static final String PREF_SPEECH_RESULT = "speechResult";
-	public static final String PREF_START_INFO_READ = "informationRead";
-	public static final String PREF_LOGINS_FAILED = "loginsFailed";
-	public static final String PREF_LOGINS_SUCCESSFUL = "loginsSuccessful";
+	//PREF CONSTANTS
+	public static final String PREF_SPEECH_RESULT 		= "speechResult";
+	public static final String PREF_START_INFO_READ 		= "informationRead";
+	public static final String PREF_LOGINS_FAILED 		= "loginsFailed";
+	public static final String PREF_LOGINS_SUCCESSFUL 	= "loginsSuccessful";
 	
+	/**
+	 * constructor
+	 */
 	public SharedPreferenceIO(Context mContext)
 	{
 		mCont 		= mContext;
-		mSettings 	= mCont.getSharedPreferences("AppPrefs", mCont.MODE_PRIVATE);
+		mSettings 	= mCont.getSharedPreferences("AppPrefs", Context.MODE_PRIVATE);
 		mPrefEditor = mSettings.edit();
 	}
-	//----------------------------------------------------------------
-	//	Spezial Funktionen
-	//----------------------------------------------------------------
-	public Set<String> replaceToLowercase(Set<String> strings)
-	{
-	    String[] stringsArray = strings.toArray(new String[0]);
-	    for (int i=0; i<stringsArray.length; ++i)
-	    {
-	       stringsArray[i] = stringsArray[i].toLowerCase();
-	    }
-	    strings.clear();
-	    strings.addAll(Arrays.asList(stringsArray));
-	      
-	    return strings;
-	}
-	  
-	//----------------------------------------------------------------
-	//	Funktionen zum Laden und Speichern
-	//----------------------------------------------------------------
-	  
-//	public Boolean saveToSharedPreferences(String key, ArrayList<String> aList)
-//	{
-//		Set<String> stList = new HashSet<String>();
-//		  
-//        stList.addAll(aList);		    
-//        mPrefEditor.putStringSet(key, replaceToLowercase(stList));
-//        if(mPrefEditor.commit())
-//        {
-//      	  return true;
-//        }else{
-//      	  return false;
-//        }
-//	}
-	
+
 	/**
 	 * set a string in s prefs
 	 * @param key the name
@@ -82,6 +50,14 @@ public class SharedPreferenceIO{
         }else{
       	  return false;
         }
+	}
+	
+	/**
+	 * retrieve value of given key
+	 */
+	public String getString(String key)
+	{         
+		return mSettings.getString(key, "");
 	}
 	
 	/**
@@ -101,27 +77,13 @@ public class SharedPreferenceIO{
         }
 	}
 	
+	/**
+	 * Retrieve boolean value
+	 */
 	public Boolean getBoolean(String key){
 		return mSettings.getBoolean(key, false);
 	}
-	
-//	public ArrayList<String> loadArrayFromSharedPreferences(String key)
-//	{
-//		Set<String> aSList 		= new HashSet<String>();
-//        aSList 					= mSettings.getStringSet(key, null);
-//        ArrayList<String> aList 	= new ArrayList<String>();
-//        aList.addAll(aSList);
-//        
-//		  return  aList;
-//	}
-	  
-	public String getString(String key)
-	{         
-		return  mSettings.getString(key, "");
-	}
-	
-	
-	
+
 	/**
 	 * Gets the patterns
 	 * @return the pattern. Default is null
@@ -139,15 +101,66 @@ public class SharedPreferenceIO{
 		return getString(PREF_SPEECH_RESULT);
 	}
 	
+	/**
+	 * Increments value of PREF_LOGINS_FAILED
+	 */
 	public boolean incrementLoginsFailed(){
 		int fails = mSettings.getInt(PREF_LOGINS_FAILED, 0);
 		mPrefEditor.putInt(PREF_LOGINS_FAILED, fails++);
 		return mPrefEditor.commit();
 	}
 	
+	/**
+	 * Increments value of PREF_LOGINS_SUCCESSFUL
+	 */
 	public boolean incrementLoginsSuccessful(){
 		int success = mSettings.getInt(PREF_LOGINS_SUCCESSFUL, 0);
 		mPrefEditor.putInt(PREF_LOGINS_SUCCESSFUL, success++);
 		return mPrefEditor.commit();
 	}
+	
+	/**
+	 * replace strings to lower case
+	 */
+	public Set<String> replaceToLowercase(Set<String> strings)
+	{
+	    String[] stringsArray = strings.toArray(new String[0]);
+	    for (int i=0; i<stringsArray.length; ++i)
+	    {
+	       stringsArray[i] = stringsArray[i].toLowerCase();
+	    }
+	    strings.clear();
+	    strings.addAll(Arrays.asList(stringsArray));
+	      
+	    return strings;
+	}
+	
+	
+//	public ArrayList<String> loadArrayFromSharedPreferences(String key)
+//	{
+//		Set<String> aSList 		= new HashSet<String>();
+//        aSList 					= mSettings.getStringSet(key, null);
+//        ArrayList<String> aList 	= new ArrayList<String>();
+//        aList.addAll(aSList);
+//        
+//		  return  aList;
+//	}
+	
+	//----------------------------------------------------------------
+	//	Funktionen zum Laden und Speichern
+	//----------------------------------------------------------------
+	  
+//	public Boolean saveToSharedPreferences(String key, ArrayList<String> aList)
+//	{
+//		Set<String> stList = new HashSet<String>();
+//		  
+//        stList.addAll(aList);		    
+//        mPrefEditor.putStringSet(key, replaceToLowercase(stList));
+//        if(mPrefEditor.commit())
+//        {
+//      	  return true;
+//        }else{
+//      	  return false;
+//        }
+//	}
 }

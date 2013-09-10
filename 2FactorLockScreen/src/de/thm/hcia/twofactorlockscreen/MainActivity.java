@@ -102,17 +102,6 @@ public class MainActivity extends SlidingFragmentActivity {
 		//check if pattern and speech are installed
 		checkInstallation();
 		
-		
-		/*AUSLAGERN -->!!!<--
-			/*
-			 * Vorbereiten für das lokale Speichern von Einstellungen
-			 *
-		*/
-			mSettings 	= getSharedPreferences("AppPrefs", MODE_PRIVATE);
-			mPrefEditor = mSettings.edit();
-		
-		
-		
 		/*
 		 * Holen der Versionsnummer über die PackageInfo
 		 */

@@ -19,6 +19,7 @@
 	      android:id="@+id/iv_logo"
 	      android:layout_width="190dp"
 	      android:layout_height="254dp"
+	      android:contentDescription="lock icon"
 	      android:src="@drawable/logo_lock" />
         
         <TextView
@@ -37,7 +38,7 @@
 	  	<include
 	  	    android:id="@+id/dashboard"
 	  	    layout="@layout/dashboard"
-	  	    android:paddingTop="50dip" android:visibility="gone" />
+	  	    android:paddingTop="50dip" android:visibility="visible" />
 	  	
 	  	<include
 	           layout="@layout/tv_install_pattern_explanation"

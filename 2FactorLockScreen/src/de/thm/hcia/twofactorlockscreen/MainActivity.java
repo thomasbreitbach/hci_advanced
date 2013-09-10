@@ -176,46 +176,45 @@ public class MainActivity extends SlidingFragmentActivity {
         }      	
 	}
 
-	public void onStart(){
-		super.onStart();
-		
+	@Override
+	public void onNewIntent(Intent intent){
 		//check for intent extras
-		Intent intent = getIntent();
-		Bundle extras = intent.getExtras();
-		
-		if(extras != null){
-			 int fragInt = extras.getInt("fragment");
-			 if(fragInt != 0){
-				 Fragment fragment = null;
-				 
-				 switch(fragInt){
-				 case MAIN_FRAGMENT:
-					 fragment = new MainFragment();
-					 break;
-				 case ASSISTENT_FRAGMENT:
-					 fragment = new AssistentFragment();
-					 break;
-				 case MANUAL_INPUT_FRAGMENT:
-					 fragment = new ManualInputFragment();
-					 break;
-				 case PROTOTYPE_FRAGMENT:
-					 fragment = new PrototypeFragment();
-					 break;
-				 case EVALUATION_FRAGMENT:
-					 fragment = new EvaluationFragment();
-					 break;
-				 case SETTINGS_FRAGMENT:
-					 fragment = new SettingsFragment();
-					 break;
-				 case ABOUT_FRAGMENT:
-					 fragment = new AboutFragment();
-					 break;
+		if(intent!=null){
+			Bundle extras = intent.getExtras();
+			
+			if(extras != null){
+				int fragInt = extras.getInt("fragment", MAIN_FRAGMENT);
+				 if(fragInt != 0){
+					 Fragment fragment = null;
+					 
+					 switch(fragInt){
+					 case MAIN_FRAGMENT:
+						 fragment = new MainFragment();
+						 break;
+					 case ASSISTENT_FRAGMENT:
+						 fragment = new AssistentFragment();
+						 break;
+					 case MANUAL_INPUT_FRAGMENT:
+						 fragment = new ManualInputFragment();
+						 break;
+					 case PROTOTYPE_FRAGMENT:
+						 fragment = new PrototypeFragment();
+						 break;
+					 case EVALUATION_FRAGMENT:
+						 fragment = new EvaluationFragment();
+						 break;
+					 case SETTINGS_FRAGMENT:
+						 fragment = new SettingsFragment();
+						 break;
+					 case ABOUT_FRAGMENT:
+						 fragment = new AboutFragment();
+						 break;
+					 }
+					 
+					 switchContent(fragment);
 				 }
-				 
-				 switchContent(fragment);
-			 }
-		}
-		
+			}
+		}	
 	}
 	
 	@Override
@@ -268,7 +267,7 @@ public class MainActivity extends SlidingFragmentActivity {
 		getSupportFragmentManager()
 		.beginTransaction()
 		.replace(R.id.content_frame, fragment)
-		.commit();
+		.commitAllowingStateLoss();
 		Handler h = new Handler();
 		h.postDelayed(new Runnable() {
 			public void run() {

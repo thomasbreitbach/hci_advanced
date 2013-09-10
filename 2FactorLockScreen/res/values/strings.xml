@@ -110,5 +110,6 @@
     <string name="aus_BTN_LBL">AUS</string>
     <string name="title_activity_assistent__finish_">Assistent_Finish_Activity</string>
     <string name="title_activity_prototype_test">PrototypeTestActivity</string>
+    <string name="no_inet_connection">Achtung: Bitte stellen Sie sicher, dass Sie mit dem Internet verbunden sind!</string>
 
 </resources>

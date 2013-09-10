@@ -22,6 +22,8 @@ public class SharedPreferenceIO{
 	private static SharedPreferences 	mSettings;
 	private Context						mCont;
 	
+	public static final String PREF_SPEECH_RESULT = "speechResult";
+	
 	public SharedPreferenceIO(Context mContext)
 	{
 		mCont 		= mContext;
@@ -132,6 +134,6 @@ public class SharedPreferenceIO{
 	 * @return the speech input as String or null
 	 */
 	public String getSpeech(){
-		return getString("speechResult");
+		return getString(PREF_SPEECH_RESULT);
 	}
 }

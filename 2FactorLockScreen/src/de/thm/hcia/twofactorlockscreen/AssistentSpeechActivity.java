@@ -180,7 +180,7 @@ public class AssistentSpeechActivity extends SherlockActivity implements OnClick
 					SpeechResult spResult = speechResults.get(mChoicePosition);
 					String choice = spResult.getResult();
 					
-					sIo.putString("speechResult", choice);
+					sIo.putString(SharedPreferenceIO.PREF_SPEECH_RESULT, choice);
 					isSetResult = true;
 					
 					String message = mContext.getResources().getString(R.string.your_choice, choice);

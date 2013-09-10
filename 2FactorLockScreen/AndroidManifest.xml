@@ -22,7 +22,7 @@
             android:name="de.thm.hcia.twofactorlockscreen.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:launchMode="singleInstance" >
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

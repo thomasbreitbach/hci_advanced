@@ -53,9 +53,7 @@ public class PrototypeTestActivity extends SherlockActivity
 		recordingIntent.putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE,"voice.recognition.test");
 		recordingIntent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 5);
 
-		sr.startListening(recordingIntent);
-		
-		
+		sr.startListening(recordingIntent);	
 	}
 	
 	private boolean checkSpeechInput(ArrayList<String> theList)

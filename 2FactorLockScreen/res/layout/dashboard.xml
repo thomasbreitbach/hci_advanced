@@ -6,46 +6,6 @@
     android:gravity="center|top">
 
       <TableRow
-          android:id="@+id/tableRow1"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content" >
-
-          <TextView
-              android:id="@+id/tv_pattern"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="@string/pattern" />
-          
-          <ImageButton 
-              android:id="@+id/imgb_pattern"
-              android:background="@drawable/ic_red_light"
-              android:layout_width="20dip"
-              android:layout_height="20dip"
-              android:contentDescription="status lamp"/>
-
-      </TableRow>
-
-      <TableRow
-          android:id="@+id/tableRow2"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content" >
-
-          <TextView
-              android:id="@+id/tv_speech_recognition"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="@string/speech_recognition" />
-          
-          <ImageButton 
-              android:id="@+id/imgb_speech_recognition"
-              android:background="@drawable/ic_red_light"
-              android:layout_width="20dip"
-              android:layout_height="20dip"
-              android:contentDescription="status lamp"/>
-
-      </TableRow>
-
-      <TableRow
           android:id="@+id/tableRow3"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content" >

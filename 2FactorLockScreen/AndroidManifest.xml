@@ -16,9 +16,9 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_logo_lock"
         android:label="@string/app_name"
+        android:launchMode="singleInstance"
         android:theme="@style/TwoFactorTheme"
-        android:uiOptions="none" 
-         android:launchMode="singleInstance">
+        android:uiOptions="none" >
         <activity
             android:name="de.thm.hcia.twofactorlockscreen.MainActivity"
             android:label="@string/app_name"
@@ -67,6 +67,10 @@
         <activity
             android:name="de.thm.hcia.twofactorlockscreen.AssistentFinishActivity"
             android:label="@string/title_activity_assistent__finish_" >
+        </activity>
+        <activity
+            android:name="de.thm.hcia.twofactorlockscreen.PrototypeTestActivity"
+            android:label="@string/title_activity_prototype_test" >
         </activity>
     </application>
 

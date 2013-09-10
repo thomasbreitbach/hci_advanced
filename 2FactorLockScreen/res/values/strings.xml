@@ -17,8 +17,7 @@
         Thomas Breitbach\n
         André Wißner\n
         Julius Jay Butler\n
-        Natalie Göpfert
-</string>
+        Natalie Göpfert</string>
 
     <!-- assistenten strings -->
     <string name="assistent_explanation">Der Lock Assistent führt Sie bequem und einfach durch diese App und erklärt Ihnen die einzelnen Optionen und Einstellungsmöglichkeiten. \n\nDauer: ca. 3 Minuten!</string>
@@ -46,12 +45,11 @@
     <string name="voice_no_match">Keine Spracheingabe erkannt!</string>
     <string name="no_speech">Leider unterstützt dein Gerät keine Spracherkennung!</string>
     <string name="your_choice">Ihre Wahl: %s</string>
-
     <string name="asisstent_finish_title">Herlichen Glückwunsch!</string>
     <string name="assistent_finish_information">Herzlichen Glückwunsch, Sie haben den Assistenten erfolgreich eingerichtet. Sie sind nun bereit, den Mechanismus dieser App zu testen. \n\n Klicken Sie auf "Jetzt testen", um den Mechanismus zu testen oder klicken Sie auf "Später testen".</string>
     <string name="assistent_finish_test_button">Jetzt testen</string>
     <string name="assistent_finish_later_button">Später testen</string>
-    
+
     <!-- Slidemenü -->
     <string name="about">Über diese App</string>
     <string name="home">Hauptmenü</string>
@@ -74,8 +72,8 @@
     <string name="prototype_start_description">Teste den Prototyp</string>
     <string name="prototype_install_pattern">Sie haben noch kein Entsperrmuster eingerichtet! Gehen Sie zur "Manuellen Eingabe" und richten Sie Ihr persönliches Muster ein, bevor Sie den Prototypen testen können.</string>
     <string name="prototype_install_speech">Sie haben noch kein Spracherkennung eingerichtet! Gehen Sie zur "Manuellen Eingabe" und richten Sie Ihr einen diese ein, bevor Sie den Prototypen testen können.</string>
-	<string name="manual_input_goto">Zur manuellen Eingabe</string>
-    
+    <string name="manual_input_goto">Zur manuellen Eingabe</string>
+
     <!-- menü strings -->
     <string name="ok">OK</string>
     <string name="title_activity_assistent_main">AssistentMainActivity</string>
@@ -111,6 +109,6 @@
     <string name="an_BTN_LBL">AN</string>
     <string name="aus_BTN_LBL">AUS</string>
     <string name="title_activity_assistent__finish_">Assistent_Finish_Activity</string>
-    
+    <string name="title_activity_prototype_test">PrototypeTestActivity</string>
 
 </resources>

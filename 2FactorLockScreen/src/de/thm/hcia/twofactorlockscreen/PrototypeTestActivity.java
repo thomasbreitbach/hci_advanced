@@ -55,6 +55,7 @@ public class PrototypeTestActivity extends SherlockActivity
 
 		sr.startListening(recordingIntent);
 		
+		
 	}
 	
 	private boolean checkSpeechInput(ArrayList<String> theList)

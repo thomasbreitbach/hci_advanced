@@ -14,9 +14,12 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 public class AssistentMainActivity extends SherlockActivity {
+	
+	private static final String TAG = "AssistentMainActivity";
 	
 	private Context mContext;
 	private Button mBtnCancel;
@@ -47,6 +50,36 @@ public class AssistentMainActivity extends SherlockActivity {
 		return super.onOptionsItemSelected(item);
 	}
 	
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data){
+		Log.i(TAG, "onActivityResult");
+		switch(requestCode) 
+		{
+			/*
+			 * Speichern der Pattern in "prefs"
+			 */
+		    case MainActivity.REQ_CODE_CREATE_PATTERN:
+		        if(resultCode == RESULT_OK){
+		            
+		            /*
+		    		 * Pattern wird über die Bibliothek automatisch gespeichert
+		    		 */
+		            Toast.makeText(mContext, R.string.pattern_recorded, Toast.LENGTH_LONG).show(); 
+		            
+		            //start speech input activity
+					Intent aIntent = new Intent();
+					aIntent.setClass(getBaseContext(), AssistentSpeechActivity.class);
+		            startActivity(aIntent);
+		        }else{
+		        	//TODO
+		        	//TOAST Fehlerausgabe
+		        }
+		        break;
+		}
+	} 
+	
+	
 	/**
 	 * sets all required onClickListeners
 	 */
@@ -63,9 +96,9 @@ public class AssistentMainActivity extends SherlockActivity {
 			
 			@Override
 			public void onClick(View v) {			
-				Intent aIntent = new Intent();
-				aIntent.setClass(getBaseContext(), AssistentSpeechActivity.class);
-	            startActivity(aIntent);
+//				Intent aIntent = new Intent();
+//				aIntent.setClass(getBaseContext(), AssistentSpeechActivity.class);
+//	            startActivity(aIntent);
 	            
 	            Intent lpIntent = new Intent(LockPatternActivity.ACTION_CREATE_PATTERN, null, mContext, LockPatternActivity.class);
 				startActivityForResult(lpIntent, MainActivity.REQ_CODE_CREATE_PATTERN);
@@ -73,5 +106,6 @@ public class AssistentMainActivity extends SherlockActivity {
 		});
 
 	}
+	
 	
 }

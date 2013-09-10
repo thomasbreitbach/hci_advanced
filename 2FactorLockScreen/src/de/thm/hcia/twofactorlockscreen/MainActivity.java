@@ -88,7 +88,7 @@ public class MainActivity extends SlidingFragmentActivity {
 		
 		//Zum Speichern des Pattern �ber die AutoSave-Funktion der Lib.
 //		SecurityPrefs.setEncrypterClass(mContext, LPEncrypter.class); <-- TODO!
-		SecurityPrefs.setAutoSavePattern(mContext, true);
+		//SecurityPrefs.setAutoSavePattern(mContext, true);
 		
 		sPiO = new SharedPreferenceIO(mContext);
 		
@@ -314,37 +314,57 @@ public class MainActivity extends SlidingFragmentActivity {
 		            /*
 		    		 * Pattern wird über die Bibliothek automatisch gespeichert
 		    		 */
-		            Toast.makeText(mContext, R.string.pattern_recorded, Toast.LENGTH_SHORT).show();              
+		            Toast.makeText(mContext, R.string.pattern_recorded, Toast.LENGTH_SHORT).show(); 
+		            
+		            //start speech input activity
+					Intent aIntent = new Intent();
+					aIntent.setClass(getBaseContext(), AssistentSpeechActivity.class);
+		            startActivity(aIntent);
 		        }else{
 		        	//TODO
 		        	//TOAST Fehlerausgabe
 		        }
 		        break;
+		    case REQ_CODE_COMPARE_PATTERN:
+		        switch (resultCode) {
+		        case RESULT_OK:
+		            // The user passed
+		        	//TODO
+		            break;
+		        case RESULT_CANCELED:
+		            // The user cancelled the task
+		        	//TODO
+		            break;
+		        case LockPatternActivity.RESULT_FAILED:
+		            // The user failed to enter the pattern
+		        	//TODO
+		            break;
+		        }	
 		        
 	        /*
     		 * Speichern der Sprache in "prefs"
     		 */
-		    case REQ_CODE_CREATE_VOICE:
-		    	Log.d(TAG, "REQ_CODE_CREATE_VOICE");
-		    	if (resultCode == RESULT_OK)
-		        { 
-		            matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-//		            saveToSharedPreferences("savedRecord", matches);
-		            
-		            if(mPrefEditor.commit())
-		            {		   
-		            	Toast.makeText(mContext, R.string.speech_recorded, Toast.LENGTH_SHORT).show();
-//		            	Log.d("TEST", loadArrayFromSharedPreferences("savedRecord").toString());
-		            }else{
-		            	Toast.makeText(mContext, R.string.writing_prefs_error_01, Toast.LENGTH_SHORT).show();
-		            }     
-		            
-		        }
+//		    case REQ_CODE_CREATE_VOICE:
+//		    	Log.d(TAG, "REQ_CODE_CREATE_VOICE");
+//		    	if (resultCode == RESULT_OK)
+//		        { 
+//		            matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+////		            saveToSharedPreferences("savedRecord", matches);
+//		            
+//		            if(mPrefEditor.commit())
+//		            {		   
+//		            	Toast.makeText(mContext, R.string.speech_recorded, Toast.LENGTH_SHORT).show();
+////		            	Log.d("TEST", loadArrayFromSharedPreferences("savedRecord").toString());
+//		            }else{
+//		            	Toast.makeText(mContext, R.string.writing_prefs_error_01, Toast.LENGTH_SHORT).show();
+//		            }     
+//		            
+//		        }
 		        
-		        if(resultCode == RecognizerIntent.RESULT_NO_MATCH){
-		        	Toast.makeText(this, R.string.voice_no_match, Toast.LENGTH_LONG).show();
-		        }
-		    	break;
+//		        if(resultCode == RecognizerIntent.RESULT_NO_MATCH){
+//		        	Toast.makeText(this, R.string.voice_no_match, Toast.LENGTH_LONG).show();
+//		        }
+//		    	break;
 		}
 	} 
 	

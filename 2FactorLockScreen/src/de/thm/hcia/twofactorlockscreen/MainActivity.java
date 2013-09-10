@@ -88,7 +88,7 @@ public class MainActivity extends SlidingFragmentActivity {
 		
 		//Zum Speichern des Pattern �ber die AutoSave-Funktion der Lib.
 //		SecurityPrefs.setEncrypterClass(mContext, LPEncrypter.class); <-- TODO!
-		//SecurityPrefs.setAutoSavePattern(mContext, true);
+		SecurityPrefs.setAutoSavePattern(mContext, true);
 		
 		sPiO = new SharedPreferenceIO(mContext);
 		
@@ -305,26 +305,7 @@ public class MainActivity extends SlidingFragmentActivity {
 		Log.i(TAG, "onActivityResult");
 		switch(requestCode) 
 		{
-			/*
-			 * Speichern der Pattern in "prefs"
-			 */
-		    case REQ_CODE_CREATE_PATTERN:
-		        if(resultCode == RESULT_OK){
-		            savedPattern = data.getCharArrayExtra(LockPatternActivity.EXTRA_PATTERN);
-		            /*
-		    		 * Pattern wird über die Bibliothek automatisch gespeichert
-		    		 */
-		            Toast.makeText(mContext, R.string.pattern_recorded, Toast.LENGTH_SHORT).show(); 
-		            
-		            //start speech input activity
-					Intent aIntent = new Intent();
-					aIntent.setClass(getBaseContext(), AssistentSpeechActivity.class);
-		            startActivity(aIntent);
-		        }else{
-		        	//TODO
-		        	//TOAST Fehlerausgabe
-		        }
-		        break;
+			
 		    case REQ_CODE_COMPARE_PATTERN:
 		        switch (resultCode) {
 		        case RESULT_OK:
@@ -375,9 +356,9 @@ public class MainActivity extends SlidingFragmentActivity {
 	//----------------------------------------------------------------
 	// Die Funktion die den Button abfragt
 	//----------------------------------------------------------------
-	  @Override
-	    public boolean onKeyUp(int keyCode, KeyEvent event) {
-	    if ((keyCode == KeyEvent.KEYCODE_MENU)) 
+	@Override
+	public boolean onKeyUp(int keyCode, KeyEvent event) {
+		if ((keyCode == KeyEvent.KEYCODE_MENU)) 
 	    {
 	    	toggle();
 	    }
@@ -406,44 +387,9 @@ public class MainActivity extends SlidingFragmentActivity {
 	    		toggle();
 	    	}
 	    }
-	//----------------------------------------------------------------
 	    return true;
-	}
-	  //----------------------------------------------------------------
-	  //	Spezial Funktionen
-	  //----------------------------------------------------------------
-	  public Set<String> replaceToLowercase(Set<String> strings)
-	  {
-	      String[] stringsArray = strings.toArray(new String[0]);
-	      for (int i=0; i<stringsArray.length; ++i)
-	      {
-	          stringsArray[i] = stringsArray[i].toLowerCase();
-	      }
-	      strings.clear();
-	      strings.addAll(Arrays.asList(stringsArray));
-	      
-	      return strings;
 	  }
 	  
-	  //----------------------------------------------------------------
-	  //	Funktionen zum Laden und Speichern
-	  //----------------------------------------------------------------	 
-	  
-	  public Boolean saveToSharedPreferences(String key, String value)
-	  {	    
-          mPrefEditor.putString(key, value);
-          if(mPrefEditor.commit())
-          {
-        	  return true;
-          }else{
-        	  return false;
-          }
-	  }
-	  
-	  public String loadStringFromSharedPreferences(String key)
-	  {         
-		  return  mSettings.getString(key, null);
-	  }
 	  
 	  public boolean isSpeechInstalled(){
 		  return speechInstalled;

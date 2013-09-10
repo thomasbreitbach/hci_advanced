@@ -87,7 +87,7 @@ public class MainActivity extends SlidingFragmentActivity {
 		setContentView(R.layout.responsive_content_frame);
 		
 		//Zum Speichern des Pattern �ber die AutoSave-Funktion der Lib.
-//		SecurityPrefs.setEncrypterClass(mContext, LPEncrypter.class);
+//		SecurityPrefs.setEncrypterClass(mContext, LPEncrypter.class); <-- TODO!
 		SecurityPrefs.setAutoSavePattern(mContext, true);
 		
 		sPiO = new SharedPreferenceIO(mContext);

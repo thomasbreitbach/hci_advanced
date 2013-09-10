@@ -32,7 +32,7 @@ public class AssistentSpeechActivity extends SherlockActivity implements OnClick
 	private Button 				bttnNext, bttnAbord;
 	private ImageButton 		iBttnRecord;
 	private ProgressBar			mDbBar;
-	private boolean			mIsRecording = false;
+	private boolean				mIsRecording = false;
 	private boolean				isSetResult = false;	
 	private Context 			mContext;
 	private TextView 			txtResult;

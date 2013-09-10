@@ -95,7 +95,7 @@ public class MainActivity extends SlidingFragmentActivity {
 		if(NetInfo.inetAvailable(mContext)){
 			Toast.makeText(mContext, "inet ist da", Toast.LENGTH_SHORT).show();
 		}else{
-			Toast.makeText(mContext, "inet ist nicht da", Toast.LENGTH_SHORT).show();
+			Toast.makeText(mContext, R.string.no_inet_connection, Toast.LENGTH_SHORT).show();
 		}
 		
 		//check if pattern and speech are installed

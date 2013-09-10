@@ -24,6 +24,7 @@ import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.MenuItem;
 
 import de.thm.hcia.twofactorlockscreen.io.SharedPreferenceIO;
+import de.thm.hcia.twofactorlockscreen.network.NetInfo;
 
 public class AssistentSpeechActivity extends SherlockActivity implements OnClickListener {
 	private static final String TAG = "AssistentSpeechActivity";
@@ -75,19 +76,23 @@ public class AssistentSpeechActivity extends SherlockActivity implements OnClick
 	}
 
 	public void onClick(View v){
-		if (v.getId() == R.id.iBttnRecord) {
-
+		if (v.getId() == R.id.iBttnRecord){
 			if(!mIsRecording){
-				//Start speech recognition
-				mIsRecording = true;
-				iBttnRecord.setBackgroundColor(Color.RED);
-				recordingIntent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-				recordingIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);	
-				recordingIntent.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_COMPLETE_SILENCE_LENGTH_MILLIS, Long.valueOf(2000));
-				recordingIntent.putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE,"voice.recognition.test");
-				recordingIntent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 5);
-		
-				sr.startListening(recordingIntent);
+				if(NetInfo.inetAvailable(mContext)){
+					//inet available -> start speech recognition
+					mIsRecording = true;
+					iBttnRecord.setBackgroundColor(Color.RED);
+					recordingIntent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+					recordingIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);	
+					recordingIntent.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_COMPLETE_SILENCE_LENGTH_MILLIS, Long.valueOf(2000));
+					recordingIntent.putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE,"voice.recognition.test");
+					recordingIntent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 5);
+			
+					sr.startListening(recordingIntent);
+				}else{
+					//no inet available -> required!
+					Toast.makeText(mContext, R.string.no_inet_connection, Toast.LENGTH_LONG).show();
+				}			
 			}else{
 				//TODO!
 				//cancel recording intent

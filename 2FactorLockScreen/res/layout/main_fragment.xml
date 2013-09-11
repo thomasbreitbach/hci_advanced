@@ -38,7 +38,7 @@
 	  	<include
 	  	    android:id="@+id/dashboard"
 	  	    layout="@layout/dashboard"
-	  	    android:paddingTop="50dip" android:visibility="visible" />
+	  	    android:paddingTop="50dip" android:visibility="gone" />
 	  	
 	  	<include
 	           layout="@layout/tv_install_pattern_explanation"

@@ -1,4 +1,4 @@
-hci_advanced
+HCI advanced
 ============
 
 Repo zur Masterveranstaltung "Fortgeschrittene Mensch Maschine Interaktion"

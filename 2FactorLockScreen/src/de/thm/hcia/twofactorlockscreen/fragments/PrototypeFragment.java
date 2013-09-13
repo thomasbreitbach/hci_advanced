@@ -11,6 +11,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.actionbarsherlock.app.SherlockFragment;
 
@@ -18,6 +19,7 @@ import de.thm.hcia.twofactorlockscreen.AssistentMainActivity;
 import de.thm.hcia.twofactorlockscreen.MainActivity;
 import de.thm.hcia.twofactorlockscreen.PrototypeTestActivity;
 import de.thm.hcia.twofactorlockscreen.R;
+import de.thm.hcia.twofactorlockscreen.network.NetInfo;
 
 public class PrototypeFragment extends SherlockFragment {
 
@@ -82,9 +84,13 @@ public class PrototypeFragment extends SherlockFragment {
 			
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(LockPattern2FLSActivity.ACTION_COMPARE_PATTERN, null,
-				        mContext, LockPattern2FLSActivity.class);
-				startActivityForResult(intent, MainActivity.REQ_CODE_COMPARE_PATTERN);
+				if(NetInfo.inetAvailable(mContext)){
+					Intent intent = new Intent(LockPattern2FLSActivity.ACTION_COMPARE_PATTERN, null,
+					        mContext, LockPattern2FLSActivity.class);
+					startActivityForResult(intent, MainActivity.REQ_CODE_COMPARE_PATTERN);
+				}else{
+					Toast.makeText(mContext, R.string.no_inet_connection, Toast.LENGTH_LONG).show();
+				}
 			}
 		});
 		

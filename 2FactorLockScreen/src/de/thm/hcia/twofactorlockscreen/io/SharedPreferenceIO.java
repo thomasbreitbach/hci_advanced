@@ -7,6 +7,8 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
+import de.thm.hcia.twofactorlockscreen.MainActivity;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 
@@ -151,6 +153,12 @@ public class SharedPreferenceIO{
 	{
 		mPrefEditor.clear();
 		mPrefEditor.commit();
+		
+		setPatternToNull();
+		
+		MainActivity.setPatternInstalled(false);
+		MainActivity.setSpeechInstalled(false);
+		
 		return true;
 	}
 	

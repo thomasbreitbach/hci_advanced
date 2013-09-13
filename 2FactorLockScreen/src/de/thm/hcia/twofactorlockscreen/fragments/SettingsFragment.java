@@ -1,11 +1,8 @@
 package de.thm.hcia.twofactorlockscreen.fragments;
 
-import android.R.bool;
-import android.R.string;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -15,6 +12,7 @@ import android.widget.Toast;
 
 import com.actionbarsherlock.app.SherlockFragment;
 
+import de.thm.hcia.twofactorlockscreen.MainActivity;
 import de.thm.hcia.twofactorlockscreen.R;
 import de.thm.hcia.twofactorlockscreen.io.SharedPreferenceIO;
 
@@ -39,7 +37,15 @@ public class SettingsFragment extends SherlockFragment implements OnClickListene
 		bttnDeleteConfig		= (Button) v.findViewById(R.id.bttnAppDelete);
 		
 		bttnInfoDialog.setBackgroundResource(R.drawable.sa_off);
-		
+		bttnDeleteConfig.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) 
+			{		
+				Toast.makeText(mContext, "Reset", Toast.LENGTH_LONG).show();
+				sIo.remove();
+			}
+		});
 
 		isInfoDialog			= false;
 		isDeleteConfig			= false;
@@ -71,17 +77,18 @@ public class SettingsFragment extends SherlockFragment implements OnClickListene
 			}
 		});
 		
-		bttnDeleteConfig.setOnClickListener(new OnClickListener() {
+		/*bttnDeleteConfig.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) 
 			{		
+				
 				if(sIo.remove())
 				{
 					Toast.makeText(mContext, "Einstellungen wurden zurückgesetzt!", Toast.LENGTH_SHORT);
 				}				
 			}
-		});
+		});*/
 	}
 
 	@Override
@@ -92,15 +99,10 @@ public class SettingsFragment extends SherlockFragment implements OnClickListene
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
-	/*	switch(v.getId()){
-			case R.id.btn_pattern_activation_switch:
-														patternActivation();
-														break;
-			case R.id.btn_speech_activation_switch: 	speechActivation();
-														break;
-		
-			default: 									break;
-		}*/
+		if(v.getId() == R.id.bttnAppDelete)
+		{
+			Toast.makeText(mContext, "TEST", Toast.LENGTH_SHORT);
+		}
 	}
 
 	private void infoDialogActivation() 

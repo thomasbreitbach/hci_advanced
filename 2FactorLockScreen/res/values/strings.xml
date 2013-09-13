@@ -7,8 +7,8 @@
     <string name="app_explanation_head">Information</string>
     <string name="app_explanation_txt">Herzlich Willkommen und vielen Dank,  dass Sie an der Evaluation dieser APP teilnehmen. Mit dieser APP soll herausgefunden werden, ob man zwei Sicherheitsmechanismen im täglichen Gebrauch verwenden kann.</string>
     <string name="quick_start_statement">Sie haben noch keine Einrichtung vorgenommen. Nutzen Sie den Lock-Assistenten für eine einfache Konfiguration.</string>
-    <string name="about_info_txt">        Dieser Prototyp entstand in der Veranstaltung „Fortgeschrittene Mensch-Maschine-Interaktion“ 
-        der Technischen Hochschule Fiedberg. In dieser App geht es darum zu Evaluieren, ob man im täglichen 
+    <string name="about_info_txt">Dieser Prototyp entstand in der Veranstaltung „Fortgeschrittene Mensch-Maschine-Interaktion“ 
+        der Technischen Hochschule Mittelhessen. In dieser App geht es darum zu Evaluieren, ob man im täglichen 
         Gebrauch mehr als nur eine Sicherheitsabfrage für ein Android-Smartphone verwenden sollte.\n\n
         Hierzu verwenden wir die Mustereingabe von Android und gleichzeitig die 
         Spracheingabe für die zweite Sicherheitsabfrage. Nun soll evaluiert werden, ob es im täglichen 
@@ -17,7 +17,8 @@
         Thomas Breitbach\n
         André Wißner\n
         Julius Jay Butler\n
-        Natalie Göpfert</string>
+        Natalie Göpfert
+    </string>
 
     <!-- assistenten strings -->
     <string name="assistent_explanation">Der Lock Assistent führt Sie bequem und einfach durch diese App und erklärt Ihnen die einzelnen Optionen und Einstellungsmöglichkeiten. \n\nDauer: ca. 3 Minuten!</string>
@@ -96,7 +97,7 @@
     <string name="title_activity_assistent_speech_input">AssistentSpeechInputActivity</string>
 
     <!-- Prototype Testing -->
-    <string name="prototype_information_text">Nach dem Sie nun die zwei Sicherheitsmeschanismen eingestellt haben, können Sie nun den Prototypen testen. Am Ende des Testens, können Sie direkt im Anschluss eine Evaluation durchführen.\n\n Klicken Sie auf "Test starten", wenn Sie bereit sind!</string>
+    <string name="prototype_information_text">Nachdem Sie nun die zwei Sicherheitsmeschanismen eingestellt haben, können Sie nun den Prototypen testen. Am Ende des Testens, können Sie direkt im Anschluss eine Evaluation durchführen.\n\n Klicken Sie auf "Test starten", wenn Sie bereit sind!</string>
     <string name="prototype_bttn_start">Test starten</string>
     <string name="speech_Activation_LBL">Spracheingabe</string>
     <string name="muster_Activation_LBL">Mustereingabe</string>

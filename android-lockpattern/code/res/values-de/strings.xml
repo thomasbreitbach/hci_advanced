@@ -16,4 +16,5 @@
    <string name="alp_msg_try_again">Entschuldigung, bitte erneut versuchen.</string>
    <string name="alp_msg_your_new_unlock_pattern">Dies ist Ihr neues Entsperrungsmuster:</string>
    <string name="alp_pmsg_connect_x_dots">Verbinde mind. %1$d Punkte.\nVersuche es bitte erneut…</string> 
+   <string name="tfls_msg_talk_and_draw_pattern_to_unlock">Zum Entsperren bitte Muster zeichnen und gleichzeitig Entsperrbefehl einsprechen:</string>
 </resources>

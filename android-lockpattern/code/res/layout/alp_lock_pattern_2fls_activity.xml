@@ -42,9 +42,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/alp_footer"
-        android:layout_below="@id/alp_info"
-        android:background="@drawable/microphone_512">
+        android:layout_below="@id/alp_info">
 
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/microphone_512"
+            android:alpha="0.2" />
+        
         <include
             android:id="@+id/alp_lock_pattern"
             android:layout_width="wrap_content"

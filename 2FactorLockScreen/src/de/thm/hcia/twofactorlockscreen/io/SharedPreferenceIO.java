@@ -150,6 +150,7 @@ public class SharedPreferenceIO{
 	public boolean remove()
 	{
 		mPrefEditor.clear();
+		mPrefEditor.commit();
 		return true;
 	}
 	

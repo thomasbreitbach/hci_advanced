@@ -75,10 +75,7 @@ public class SettingsFragment extends SherlockFragment implements OnClickListene
 			
 			@Override
 			public void onClick(View v) 
-			{
-				isDeleteConfig = true;
-				
-				sIo.setPatternToNull();				
+			{		
 				if(sIo.remove())
 				{
 					Toast.makeText(mContext, "Einstellungen wurden zurückgesetzt!", Toast.LENGTH_SHORT);

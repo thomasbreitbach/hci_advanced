@@ -94,6 +94,14 @@ public class SharedPreferenceIO{
 	}
 	
 	/**
+	 * Set the patterns to null
+	 */
+	public void setPatternToNull()
+	{
+		SecurityPrefs.setPattern(mCont, null);
+	}
+	
+	/**
 	 * Methode zum laden der abgespeicherten Spracheingabe
 	 * @return the speech input as String or null
 	 */
@@ -134,6 +142,18 @@ public class SharedPreferenceIO{
 	      
 	    return strings;
 	}
+	
+	/**
+	 * remove setting from preferences
+	 * @return true or false, for the result
+	 */
+	public boolean remove()
+	{
+		mPrefEditor.clear();
+		return true;
+	}
+	
+	
 	
 	
 //	public ArrayList<String> loadArrayFromSharedPreferences(String key)

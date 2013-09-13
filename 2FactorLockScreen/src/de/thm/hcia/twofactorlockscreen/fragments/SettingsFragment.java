@@ -22,8 +22,8 @@ public class SettingsFragment extends SherlockFragment implements OnClickListene
 
 	SharedPreferences.Editor		mPrefEditor; 
 	private static 	Context 		mContext;
-	private 		Button			btnPatternActivation, btnSpeechActivation, bttnInfoDialog; 
-	private			boolean			isPatternActive, isSpeechActive, isInfoDialog;
+	private 		Button			bttnInfoDialog, bttnDeleteConfig; 
+	private			boolean			isInfoDialog, isDeleteConfig;
 	private 		SharedPreferenceIO sIo;
 
 	private static SharedPreferences 	mSettings;
@@ -35,23 +35,16 @@ public class SettingsFragment extends SherlockFragment implements OnClickListene
 
 		sIo = new SharedPreferenceIO(mContext);
 			
-		/*btnPatternActivation 	= (Button) v.findViewById(R.id.musterActivationBtn);
-		btnSpeechActivation 	= (Button) v.findViewById(R.id.SpeechActivationBtn);*/
-		bttnInfoDialog 			= (Button) v.findViewById(R.id.bttn_infoDialog);
+		bttnInfoDialog 			= (Button) v.findViewById(R.id.bttnDialog);
+		bttnDeleteConfig		= (Button) v.findViewById(R.id.bttnAppDelete);
 		
-		/*btnPatternActivation.setBackgroundResource(R.drawable.sa_off);
-		btnSpeechActivation.setBackgroundResource(R.drawable.sa_off);*/
 		bttnInfoDialog.setBackgroundResource(R.drawable.sa_off);
 		
-		isPatternActive 		= false;
-		isSpeechActive 			= false;
+
 		isInfoDialog			= false;
+		isDeleteConfig			= false;
 		
 		setupOnClickListeners();
-		
-		
-		//mSettings 	= mContext.getSharedPreferences("AppPrefs", mContext.MODE_PRIVATE);
-		//mPrefEditor = mSettings.edit();
 		
 		
 		if(sIo.getBoolean("informationRead"))
@@ -66,25 +59,8 @@ public class SettingsFragment extends SherlockFragment implements OnClickListene
 		return v;
 	}
 	
-	private void setupOnClickListeners() {
-		
-		/*btnPatternActivation.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				patternActivation();
-				
-			}
-		});
-		
-		btnSpeechActivation.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				speechActivation();
-				
-			}
-		});*/
+	private void setupOnClickListeners() 
+	{
 
 		bttnInfoDialog.setOnClickListener(new OnClickListener() {
 			
@@ -92,6 +68,21 @@ public class SettingsFragment extends SherlockFragment implements OnClickListene
 			public void onClick(View v) {
 				infoDialogActivation();
 				
+			}
+		});
+		
+		bttnDeleteConfig.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) 
+			{
+				isDeleteConfig = true;
+				
+				sIo.setPatternToNull();				
+				if(sIo.remove())
+				{
+					Toast.makeText(mContext, "Einstellungen wurden zurückgesetzt!", Toast.LENGTH_SHORT);
+				}				
 			}
 		});
 	}
@@ -115,46 +106,6 @@ public class SettingsFragment extends SherlockFragment implements OnClickListene
 		}*/
 	}
 
-	/* private void speechActivation() {
-		if(!isSpeechActive){
-			
-			isSpeechActive = true;
-			btnSpeechActivation.setBackgroundResource(R.drawable.sa_on);
-			
-			
-			CharSequence toastText =(CharSequence) getString(R.string.tst_speech_on);
-			Toast.makeText(mContext,  toastText , Toast.LENGTH_SHORT).show();
-		}
-		else{
-			isSpeechActive = false;
-			btnSpeechActivation.setBackgroundResource(R.drawable.sa_off);
-		
-			Toast.makeText(mContext,  R.string.tst_speech_off , Toast.LENGTH_SHORT).show();
-		}
-		
-	}
-
-	private void patternActivation() {
-		if(!isPatternActive){
-			
-			isPatternActive = true;
-			btnPatternActivation.setBackgroundResource(R.drawable.sa_on);
-			
-			
-			CharSequence toastText =(CharSequence) getString(R.string.tst_muster_on);
-			Toast.makeText(mContext,  toastText , Toast.LENGTH_SHORT).show();
-		}
-		else{
-			isPatternActive = false;
-			btnPatternActivation.setBackgroundResource(R.drawable.sa_off);
-			
-			
-			CharSequence toastText =(CharSequence) getString(R.string.tst_muster_off);
-			Toast.makeText(mContext,  toastText , Toast.LENGTH_SHORT).show();
-		}
-		
-	}
-	*/
 	private void infoDialogActivation() 
 	{
 		boolean isReaded = false;
@@ -175,24 +126,4 @@ public class SettingsFragment extends SherlockFragment implements OnClickListene
 		}
 		sIo.putBoolean("informationRead", isReaded);		
 	}
-	
-	public Boolean getSpeechStatus(){
-		return isSpeechActive;
-	}
-	
-	public Boolean getMusterStatus(){
-		return isPatternActive;
-	}
-	
-	/*public void setSpeechStatus(Boolean s){
-		isSpeechActive = s;
-		speechActivation();
-	}
-	
-	public void setMusterStatus(Boolean m){
-		isPatternActive = m;
-		patternActivation();
-	}*/
-
-	
 }

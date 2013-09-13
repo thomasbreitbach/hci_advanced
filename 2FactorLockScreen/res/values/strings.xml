@@ -101,6 +101,7 @@
     <string name="speech_Activation_LBL">Spracheingabe</string>
     <string name="muster_Activation_LBL">Mustereingabe</string>
     <string name="info_Activation_LBL">Informationsdialog</string>
+    <string name="info_delete_LBL">App zurücksetzen</string>
     <string name="tst_speech_on">Spracherkennung wurde aktiviert</string>
     <string name="tst_speech_off">Spracherkennung wurde deaktiviert</string>
     <string name="tst_muster_on">Mustererkennung wurde aktiviert</string>

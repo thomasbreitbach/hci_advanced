@@ -396,7 +396,7 @@ public class MainActivity extends SlidingFragmentActivity {
 	  public void checkInstallation(){
 		  
 		if(sPiO.getPattern() != null){
-			Toast.makeText(mContext, sPiO.getPattern().toString(), Toast.LENGTH_LONG).show();
+			
 			patternInstalled = true;
 		}
 		if(!sPiO.getSpeech().equals("")) speechInstalled = true;

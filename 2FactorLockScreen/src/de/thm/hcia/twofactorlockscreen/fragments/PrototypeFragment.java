@@ -1,5 +1,6 @@
 package de.thm.hcia.twofactorlockscreen.fragments;
 
+import group.pals.android.lib.ui.lockpattern.LockPattern2FLSActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -81,12 +82,9 @@ public class PrototypeFragment extends SherlockFragment {
 			
 			@Override
 			public void onClick(View v) {
-				/*
-				 * Start assistent
-				 */
-				Intent intent = new Intent();
-	            intent.setClass(mContext, PrototypeTestActivity.class);
-	            startActivity(intent);
+				Intent intent = new Intent(LockPattern2FLSActivity.ACTION_COMPARE_PATTERN, null,
+				        mContext, LockPattern2FLSActivity.class);
+				startActivityForResult(intent, MainActivity.REQ_CODE_COMPARE_PATTERN);
 			}
 		});
 		

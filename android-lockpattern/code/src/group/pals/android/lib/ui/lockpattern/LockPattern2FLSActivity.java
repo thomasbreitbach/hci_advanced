@@ -37,6 +37,9 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.ResultReceiver;
 import android.provider.Settings;
+import android.speech.RecognitionListener;
+import android.speech.RecognizerIntent;
+import android.speech.SpeechRecognizer;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -201,6 +204,12 @@ public class LockPattern2FLSActivity extends Activity {
     private Intent mIntentResult;
 
     /*
+     * FIELDS 2FLS
+     */
+    private Intent mRecognizerIntent;
+    private SpeechRecognizer mSpeechRecognizer;
+    
+    /*
      * CONTROLS
      */
     private TextView mTxtInfo;
@@ -212,7 +221,9 @@ public class LockPattern2FLSActivity extends Activity {
     /*
      * CONTROLS 2FLS
      */
-	private ProgressBar mPbVoice;
+	public ProgressBar mPbVoice;
+	
+	
 
     /** Called when the activity is first created. */
     @Override
@@ -255,11 +266,16 @@ public class LockPattern2FLSActivity extends Activity {
 
         mIntentResult = new Intent();
         setResult(RESULT_CANCELED, mIntentResult);
+        
+        /*
+         * VOICE RecordingIntent (2FLS)
+         */
+        initVoiceRecordingElements();
 
         initContentView();
     }// onCreate()
 
-    @Override
+	@Override
     public void onConfigurationChanged(Configuration newConfig) {
         Log.d(CLASS_NAME, "onConfigurationChanged()");
         super.onConfigurationChanged(newConfig);
@@ -300,13 +316,18 @@ public class LockPattern2FLSActivity extends Activity {
         setContentView(R.layout.alp_lock_pattern_2fls_activity);
         UI.adjustDialogSizeForLargeScreen(getWindow());
 
-        mTxtInfo = (TextView) findViewById(R.id.alp_info);
-        mPbVoice = (ProgressBar) findViewById(R.id.pb_voice_input);
+        mTxtInfo = (TextView) findViewById(R.id.alp_info);        
         mLockPatternView = (LockPatternView) findViewById(R.id.alp_lock_pattern);
 
         mFooter = findViewById(R.id.alp_footer);
         mBtnCancel = (Button) findViewById(R.id.alp_cancel);
         mBtnConfirm = (Button) findViewById(R.id.alp_confirm);
+        
+        /*
+         * 2FLS ProgressBar
+         */
+        mPbVoice = (ProgressBar) findViewById(R.id.pb_voice_input);
+        mPbVoice.setMax(10);
 
         /*
          * LOCK EXTRA_PATTERN VIEW
@@ -384,6 +405,20 @@ public class LockPattern2FLSActivity extends Activity {
     }// initContentView()
 
     /**
+	 * Initializes voice recording intent
+	 */
+	private void initVoiceRecordingElements() {
+		mSpeechRecognizer = SpeechRecognizer.createSpeechRecognizer(this);
+		mSpeechRecognizer.setRecognitionListener(new RecordListener());
+		
+		mRecognizerIntent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+		mRecognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);	
+		mRecognizerIntent.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_COMPLETE_SILENCE_LENGTH_MILLIS, Long.valueOf(2000));
+		mRecognizerIntent.putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE,"voice.recognition.test");
+		mRecognizerIntent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 5);
+	}//initVoiceRecordingElements
+
+	/**
      * Encodes {@code pattern} to a string.
      * <p>
      * <li>If {@link #_EncrypterClass} is not set, returns SHA-1 of
@@ -579,6 +614,11 @@ public class LockPattern2FLSActivity extends Activity {
         public void onPatternStart() {
             mLockPatternView.setDisplayMode(DisplayMode.Correct);
 
+            /*
+             * START LISTENING (2FLS)
+             */
+            mSpeechRecognizer.startListening(mRecognizerIntent);
+            
             if (ACTION_CREATE_PATTERN.equals(getIntent().getAction())) {
                 mTxtInfo.setText(R.string.alp_msg_release_finger_when_done);
                 mBtnConfirm.setEnabled(false);
@@ -643,4 +683,51 @@ public class LockPattern2FLSActivity extends Activity {
             }
         }// onClick()
     };// mBtnConfirmOnClickListener
+    
+    
+    
+    /**
+	 * Inner Class RescordListener
+	 *
+	 * Computes the returned values of google speech recognition
+	 */
+	class RecordListener implements RecognitionListener {
+		public void onReadyForSpeech(Bundle params) {
+			Log.d(CLASS_NAME, "onReadyForSpeech");
+		}
+
+		public void onBeginningOfSpeech() {
+			Log.d(CLASS_NAME, "onBeginningOfSpeech");
+		}
+
+		/**
+		 * update value of progress bar
+		 */
+		public void onRmsChanged(float rmsdB) {
+			mPbVoice.setProgress((int)rmsdB);
+		}
+		public void onBufferReceived(byte[] buffer) 	{Log.d(CLASS_NAME, "onBufferReceived");}
+		public void onError(int error) 				{Log.d(CLASS_NAME, "error " + error);}
+		public void onEndOfSpeech() 					{Log.d(CLASS_NAME, "onEndofSpeech");}
+
+		/**
+		 * compute speech recognition recognition
+		 */
+		public void onResults(Bundle results) 
+		{
+//			mIsRecording = false;
+//			
+//			/* Filtern der Ergebnisse auch für später zum Vergleichen */
+//			ArrayList<String> data = results.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
+//			isSpeechCorrect = checkSpeechInput(data);
+		}
+
+		public void onPartialResults(Bundle partialResults) {
+			Log.d(CLASS_NAME, "onPartialResults");
+		}
+
+		public void onEvent(int eventType, Bundle params) {
+			Log.d(CLASS_NAME, "onEvent " + eventType);
+		}
+	}//RecordListener
 }

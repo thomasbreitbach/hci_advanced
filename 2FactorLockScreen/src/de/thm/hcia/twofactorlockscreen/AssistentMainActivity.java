@@ -71,6 +71,7 @@ public class AssistentMainActivity extends SherlockActivity {
 					Intent aIntent = new Intent();
 					aIntent.setClass(getBaseContext(), AssistentSpeechActivity.class);
 		            startActivity(aIntent);
+		            finish();
 		        }else{
 		        	//TODO
 		        	//TOAST Fehlerausgabe

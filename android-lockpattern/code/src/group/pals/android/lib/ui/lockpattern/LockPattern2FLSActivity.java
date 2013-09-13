@@ -379,7 +379,7 @@ public class LockPattern2FLSActivity extends Activity {
             if (infoText != null)
                 mTxtInfo.setText(infoText);
             else
-                mTxtInfo.setText(R.string.alp_msg_draw_pattern_to_unlock);
+                mTxtInfo.setText(R.string.tfls_msg_talk_and_draw_pattern_to_unlock);
         }// ACTION_COMPARE_PATTERN
     }// initContentView()
 
@@ -607,7 +607,7 @@ public class LockPattern2FLSActivity extends Activity {
                 } else
                     mTxtInfo.setText(R.string.alp_msg_redraw_pattern_to_confirm);
             } else if (ACTION_COMPARE_PATTERN.equals(getIntent().getAction())) {
-                mTxtInfo.setText(R.string.alp_msg_draw_pattern_to_unlock);
+                mTxtInfo.setText(R.string.tfls_msg_talk_and_draw_pattern_to_unlock);
             }
         }// onPatternCleared()
 

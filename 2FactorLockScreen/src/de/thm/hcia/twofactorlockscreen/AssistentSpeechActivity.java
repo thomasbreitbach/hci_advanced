@@ -94,8 +94,8 @@ public class AssistentSpeechActivity extends SherlockActivity implements OnClick
 					Toast.makeText(mContext, R.string.no_inet_connection, Toast.LENGTH_LONG).show();
 				}			
 			}else{
-				//TODO!
 				//cancel recording intent
+				sr.stopListening();
 			}
 		}
 		if (v.getId() == R.id.bttnSpeechAbort) {

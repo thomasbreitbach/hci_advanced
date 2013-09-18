@@ -29,10 +29,13 @@ import group.pals.android.lib.ui.lockpattern.widget.LockPatternView.DisplayMode;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import android.app.Activity;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.ResultReceiver;
@@ -208,6 +211,11 @@ public class LockPattern2FLSActivity extends Activity {
      */
     private Intent mRecognizerIntent;
     private SpeechRecognizer mSpeechRecognizer;
+    private Context mContext;
+    private SharedPreferences mSettings;
+    private String mSpeechAnswer;
+    private static final AtomicBoolean mIsSpeechInputCompleted = new AtomicBoolean();
+    private static final AtomicBoolean mIsSpeechInputCorrect = new AtomicBoolean();
     
     /*
      * CONTROLS
@@ -222,6 +230,10 @@ public class LockPattern2FLSActivity extends Activity {
      * CONTROLS 2FLS
      */
 	public ProgressBar mPbVoice;
+
+	
+
+	
 	
 	
 
@@ -408,6 +420,13 @@ public class LockPattern2FLSActivity extends Activity {
 	 * Initializes voice recording intent
 	 */
 	private void initVoiceRecordingElements() {
+		mContext = getApplicationContext();
+		mSettings = mContext.getSharedPreferences("AppPrefs", Context.MODE_PRIVATE);
+		mSpeechAnswer = mSettings.getString("speechResult", "");
+		
+		mIsSpeechInputCompleted.set(false);
+	    mIsSpeechInputCorrect.set(false);
+		
 		mSpeechRecognizer = SpeechRecognizer.createSpeechRecognizer(this);
 		mSpeechRecognizer.setRecognitionListener(new RecordListener());
 		
@@ -459,7 +478,7 @@ public class LockPattern2FLSActivity extends Activity {
         if (currentPattern == null)
             currentPattern = SecurityPrefs.getPattern(this);
 
-        if (Arrays.equals(encodePattern(pattern), currentPattern))
+        if (Arrays.equals(encodePattern(pattern), currentPattern) && mIsSpeechInputCorrect.get())
             finishWithResultOk(null);
         else {
             mRetryCount++;
@@ -605,9 +624,8 @@ public class LockPattern2FLSActivity extends Activity {
     }// finishWithNegativeResult()
 
     /*
-     * LISTENERS
+     * LISTENERS LockPatternView
      */
-
     private final LockPatternView.OnPatternListener mPatternViewListener = new LockPatternView.OnPatternListener() {
 
         @Override
@@ -632,12 +650,32 @@ public class LockPattern2FLSActivity extends Activity {
             if (ACTION_CREATE_PATTERN.equals(getIntent().getAction()))
                 doCreatePattern(pattern);
             else if (ACTION_COMPARE_PATTERN.equals(getIntent().getAction()))
+				
+            	if(mIsSpeechInputCompleted.get() == false){
+            		
+            		synchronized (mIsSpeechInputCompleted) {
+            			try {
+        					mIsSpeechInputCompleted.wait();
+        				} catch (InterruptedException e) {
+        					// TODO Auto-generated catch block
+        					e.printStackTrace();
+        				}
+					}
+            		
+            	}
+            	
+            	
                 doComparePattern(pattern);
         }// onPatternDetected()
 
         @Override
         public void onPatternCleared() {
             mLockPatternView.setDisplayMode(DisplayMode.Correct);
+            
+            /*
+             * Stop Listening (2FLS)
+             */
+            mSpeechRecognizer.stopListening();
 
             if (ACTION_CREATE_PATTERN.equals(getIntent().getAction())) {
                 mBtnConfirm.setEnabled(false);
@@ -682,9 +720,7 @@ public class LockPattern2FLSActivity extends Activity {
                 finishWithResultOk(pattern);
             }
         }// onClick()
-    };// mBtnConfirmOnClickListener
-    
-    
+    };// mBtnConfirmOnClickListener    
     
     /**
 	 * Inner Class RescordListener
@@ -692,6 +728,7 @@ public class LockPattern2FLSActivity extends Activity {
 	 * Computes the returned values of google speech recognition
 	 */
 	class RecordListener implements RecognitionListener {
+	
 		public void onReadyForSpeech(Bundle params) {
 			Log.d(CLASS_NAME, "onReadyForSpeech");
 		}
@@ -715,11 +752,17 @@ public class LockPattern2FLSActivity extends Activity {
 		 */
 		public void onResults(Bundle results) 
 		{
-//			mIsRecording = false;
-//			
-//			/* Filtern der Ergebnisse auch für später zum Vergleichen */
-//			ArrayList<String> data = results.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
-//			isSpeechCorrect = checkSpeechInput(data);
+			synchronized (mIsSpeechInputCompleted) {
+				mIsSpeechInputCompleted.set(true);
+			}
+
+			ArrayList<String> data = results.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
+			mIsSpeechInputCorrect.set(checkSpeechInput(data));
+			
+			synchronized (mIsSpeechInputCompleted) {
+				mIsSpeechInputCompleted.notify();
+			}
+			
 		}
 
 		public void onPartialResults(Bundle partialResults) {
@@ -730,4 +773,22 @@ public class LockPattern2FLSActivity extends Activity {
 			Log.d(CLASS_NAME, "onEvent " + eventType);
 		}
 	}//RecordListener
+	
+	/**
+	 * checks speech input
+	 * @param theList list of speech recognition results
+	 * @return true if one of the result equals speech command
+	 */
+	private boolean checkSpeechInput(ArrayList<String> theList){
+		boolean isTrue = false;
+		for(int i = 0; i < theList.size(); i++)
+		{
+			if(theList.get(i).equals(mSpeechAnswer))
+			{
+				Log.d(CLASS_NAME, theList.get(i));
+				isTrue = true;
+			}
+		}		
+		return isTrue;
+	}//checkSpeechInput
 }

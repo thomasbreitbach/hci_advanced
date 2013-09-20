@@ -109,7 +109,7 @@ public class AssistentSpeechActivity extends SherlockActivity implements OnClick
 				Intent intent = new Intent();
 	            intent.setClass(this.getApplicationContext(), AssistentFinishActivity.class);
 	            startActivity(intent);
-
+	            finish();
 			}else{
 				Toast.makeText(mContext, R.string.nothing_recorded, Toast.LENGTH_LONG).show();
 			}
@@ -208,6 +208,12 @@ public class AssistentSpeechActivity extends SherlockActivity implements OnClick
 		public void onEvent(int eventType, Bundle params) {
 			Log.d(TAG, "onEvent " + eventType);
 		}
+	}
+	
+	@Override
+	public void onDestroy(){
+		super.onDestroy();
+		sr.destroy();
 	}
 	
 

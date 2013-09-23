@@ -8,6 +8,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.MenuItem;
 
 public class AssistentFinishActivity extends SherlockActivity {
 
@@ -16,6 +17,7 @@ public class AssistentFinishActivity extends SherlockActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.assistent_finish_activity);
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		
 		bttnAbort = (Button) findViewById(R.id.bttnAbort);
 		bttnTesten = (Button) findViewById(R.id.bttnTesten);
@@ -42,5 +44,14 @@ public class AssistentFinishActivity extends SherlockActivity {
 				finish();				
 			}
 		});
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			finish();
+		}
+		return super.onOptionsItemSelected(item);
 	}
 }

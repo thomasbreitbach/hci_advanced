@@ -576,6 +576,11 @@ public class LockPattern2FLSActivity extends Activity {
             }
         }
 
+        /*
+         * cancel SpeechRecognizer (2FLS) 
+         */
+//        mSpeechRecognizer.cancel();
+        
         finish();
     }// finishWithResultOk()
 
@@ -623,12 +628,17 @@ public class LockPattern2FLSActivity extends Activity {
         finish();
     }// finishWithNegativeResult()
 
+    
+    private List<Cell> mDetectedPattern;
+    
     /*
      * LISTENERS LockPatternView
      */
     private final LockPatternView.OnPatternListener mPatternViewListener = new LockPatternView.OnPatternListener() {
 
-        @Override
+       
+
+		@Override
         public void onPatternStart() {
             mLockPatternView.setDisplayMode(DisplayMode.Correct);
 
@@ -646,26 +656,47 @@ public class LockPattern2FLSActivity extends Activity {
         }// onPatternStart()
 
         @Override
-        public void onPatternDetected(List<Cell> pattern) {
-            if (ACTION_CREATE_PATTERN.equals(getIntent().getAction()))
-                doCreatePattern(pattern);
-            else if (ACTION_COMPARE_PATTERN.equals(getIntent().getAction()))
-				
+        public void onPatternDetected(List<Cell> pattern){
+            if (ACTION_CREATE_PATTERN.equals(getIntent().getAction())){
+            	doCreatePattern(pattern);
+            }else if (ACTION_COMPARE_PATTERN.equals(getIntent().getAction())){
+            	
+            	mDetectedPattern = pattern;
+            	
             	if(mIsSpeechInputCompleted.get() == false){
-            		
-            		synchronized (mIsSpeechInputCompleted) {
-            			try {
-        					mIsSpeechInputCompleted.wait();
-        				} catch (InterruptedException e) {
-        					// TODO Auto-generated catch block
-        					e.printStackTrace();
-        				}
-					}
-            		
-            	}
-            	
-            	
-                doComparePattern(pattern);
+            		Runnable runnable = new Runnable(){
+
+    					@Override
+    					public void run() {
+    						while(true) {
+    							if(mIsSpeechInputCompleted.get() == true){
+    								break;
+    							}
+    						}
+    						
+    						doComparePattern(mDetectedPattern);
+    					}
+                		
+                	};
+                	new Thread(runnable).start();
+            	}else{
+            		doComparePattern(mDetectedPattern);
+            	}         	
+            }
+				
+//            	if(mIsSpeechInputCompleted.get() == false){
+//            		
+//            		synchronized (mIsSpeechInputCompleted) {
+//            			try {
+//        					mIsSpeechInputCompleted.wait();
+//        				} catch (InterruptedException e) {
+//        					// TODO Auto-generated catch block
+//        					e.printStackTrace();
+//        				}
+//					}
+//            		
+//            	}
+
         }// onPatternDetected()
 
         @Override
@@ -752,15 +783,12 @@ public class LockPattern2FLSActivity extends Activity {
 		 */
 		public void onResults(Bundle results) 
 		{
+
 			synchronized (mIsSpeechInputCompleted) {
 				mIsSpeechInputCompleted.set(true);
-			}
-
-			ArrayList<String> data = results.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
-			mIsSpeechInputCorrect.set(checkSpeechInput(data));
-			
-			synchronized (mIsSpeechInputCompleted) {
-				mIsSpeechInputCompleted.notify();
+				
+				ArrayList<String> data = results.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
+				mIsSpeechInputCorrect.set(checkSpeechInput(data));
 			}
 			
 		}

@@ -673,8 +673,15 @@ public class LockPattern2FLSActivity extends Activity {
     								break;
     							}
     						}
+    						mTxtInfo.post(new Runnable() {
+								
+								@Override
+								public void run() {
+									// TODO Auto-generated method stub
+									doComparePattern(mDetectedPattern);
+								}
+							});
     						
-    						doComparePattern(mDetectedPattern);
     					}
                 		
                 	};

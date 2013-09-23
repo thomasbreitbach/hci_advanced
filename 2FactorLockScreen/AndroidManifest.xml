@@ -61,7 +61,8 @@
         </activity>
         <activity
             android:name="de.thm.hcia.twofactorlockscreen.AssistentFinishActivity"
-            android:label="@string/title_activity_assistent__finish_" >
+            android:label="@string/title_activity_assistent__finish"
+            android:theme="@style/Theme.Sherlock.Light.DarkActionBar">
         </activity>
         <activity
             android:name="de.thm.hcia.twofactorlockscreen.PrototypeTestActivity"

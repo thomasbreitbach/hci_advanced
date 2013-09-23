@@ -579,7 +579,7 @@ public class LockPattern2FLSActivity extends Activity {
         /*
          * cancel SpeechRecognizer (2FLS) 
          */
-//        mSpeechRecognizer.cancel();
+        mSpeechRecognizer.destroy();
         
         finish();
     }// finishWithResultOk()

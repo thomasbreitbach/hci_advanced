@@ -296,19 +296,16 @@ public class MainActivity extends SlidingFragmentActivity {
 	    case REQ_CODE_COMPARE_PATTERN:
 	        switch(resultCode){
 	        case RESULT_OK:
-	            // The user passed
-	        	//TODO
+	           Log.e("RESULT", String.valueOf(resultCode));
 	            break;
 	        case RESULT_CANCELED:
-	            // The user cancelled the task
-	        	//TODO
+	        	Log.e("RESULT", String.valueOf(resultCode));
 	            break;
 	        case LockPatternActivity.RESULT_FAILED:
-	            // The user failed to enter the pattern
-	        	//TODO
+	        	Log.e("RESULT", String.valueOf(resultCode));
 	            break;
 	        }	
-		        
+	        Log.e("RESULT", String.valueOf(resultCode)); 
 	        /*
     		 * Speichern der Sprache in "prefs"
     		 */

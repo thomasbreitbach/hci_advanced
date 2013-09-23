@@ -87,7 +87,7 @@ public class PrototypeFragment extends SherlockFragment {
 				if(NetInfo.inetAvailable(mContext)){
 					Intent intent = new Intent(LockPattern2FLSActivity.ACTION_COMPARE_PATTERN, null,
 					        mContext, LockPattern2FLSActivity.class);
-					startActivityForResult(intent, MainActivity.REQ_CODE_COMPARE_PATTERN);
+					mMainActivity.startActivityForResult(intent, MainActivity.REQ_CODE_COMPARE_PATTERN);
 				}else{
 					Toast.makeText(mContext, R.string.no_inet_connection, Toast.LENGTH_LONG).show();
 				}

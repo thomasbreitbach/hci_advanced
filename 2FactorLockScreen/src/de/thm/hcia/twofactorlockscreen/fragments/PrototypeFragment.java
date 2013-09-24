@@ -4,6 +4,7 @@ import group.pals.android.lib.ui.lockpattern.LockPattern2FLSActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -87,7 +88,9 @@ public class PrototypeFragment extends SherlockFragment {
 				if(NetInfo.inetAvailable(mContext)){
 					Intent intent = new Intent(LockPattern2FLSActivity.ACTION_COMPARE_PATTERN, null,
 					        mContext, LockPattern2FLSActivity.class);
-					mMainActivity.startActivityForResult(intent, MainActivity.REQ_CODE_COMPARE_PATTERN);
+					
+					getActivity().startActivityForResult(intent, MainActivity.REQ_CODE_COMPARE_PATTERN);
+					
 				}else{
 					Toast.makeText(mContext, R.string.no_inet_connection, Toast.LENGTH_LONG).show();
 				}
@@ -113,6 +116,12 @@ public class PrototypeFragment extends SherlockFragment {
 		});
 	}
 
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+	  super.onActivityResult(requestCode, resultCode, data);
+	 Log.e("DONE", "TEST");
+	}
+	
 	@Override
 	public void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);

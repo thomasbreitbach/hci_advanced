@@ -31,6 +31,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import android.R.bool;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -242,7 +243,9 @@ public class LockPattern2FLSActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         if (BuildConfig.DEBUG)
             Log.d(CLASS_NAME, "ClassName = " + CLASS_NAME);
-
+        
+        
+        
         /*
          * EXTRA_THEME
          */
@@ -277,7 +280,7 @@ public class LockPattern2FLSActivity extends Activity {
         }
 
         mIntentResult = new Intent();
-        setResult(RESULT_CANCELED, mIntentResult);
+//        setResult(RESULT_CANCELED, mIntentResult);
         
         /*
          * VOICE RecordingIntent (2FLS)
@@ -477,7 +480,8 @@ public class LockPattern2FLSActivity extends Activity {
         char[] currentPattern = getIntent().getCharArrayExtra(EXTRA_PATTERN);
         if (currentPattern == null)
             currentPattern = SecurityPrefs.getPattern(this);
-
+        
+        //Testen auf true
         if (Arrays.equals(encodePattern(pattern), currentPattern) && mIsSpeechInputCorrect.get())
             finishWithResultOk(null);
         else {
@@ -536,6 +540,10 @@ public class LockPattern2FLSActivity extends Activity {
              * If the user was "logging in", minimum try count can not be zero.
              */
             mIntentResult.putExtra(EXTRA_RETRY_COUNT, mRetryCount + 1);
+            
+            Log.e("DONE", "geschafft");
+            setResult(RESULT_OK, mIntentResult);
+            
         }
 
         setResult(RESULT_OK, mIntentResult);
@@ -575,7 +583,7 @@ public class LockPattern2FLSActivity extends Activity {
                 }
             }
         }
-
+        finish();
         /*
          * cancel SpeechRecognizer (2FLS) 
          */
@@ -624,7 +632,8 @@ public class LockPattern2FLSActivity extends Activity {
                 }
             }
         }
-
+        Log.e("DONE", "geschafft:fwnr");
+        setResult(RESULT_OK, mIntentResult);
         finish();
     }// finishWithNegativeResult()
 

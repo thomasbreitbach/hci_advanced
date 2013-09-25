@@ -17,8 +17,7 @@
         Thomas Breitbach\n
         André Wißner\n
         Julius Jay Butler\n
-        Natalie Göpfert
-    </string>
+        Natalie Göpfert</string>
 
     <!-- assistenten strings -->
     <string name="assistent_explanation">Der Lock Assistent führt Sie bequem und einfach durch diese App und erklärt Ihnen die einzelnen Optionen und Einstellungsmöglichkeiten. \n\nDauer: ca. 3 Minuten!</string>
@@ -113,5 +112,9 @@
     <string name="title_activity_assistent__finish">Lockscreen Assistent</string>
     <string name="title_activity_prototype_test">PrototypeTestActivity</string>
     <string name="no_inet_connection">Achtung: Bitte stellen Sie sicher, dass Sie mit dem Internet verbunden sind!</string>
+    <string name="title_activity_prototype_tes_finish">PrototypeTesFinish</string>
+    <string name="lastTextString">Herzlichen Glückwunsch! Sie haben erfolgreich das Szenario beendet! \n\nKlicken Sie auf den Button &quot;Evaluiren&quot;, wenn Sie die App evaluieren möchten oder auf &quot;Nicht evaluieren&quot;, wenn Sie es an einem späteren Zeitpunkt tun möchten!</string>
+    <string name="evalApp">Evaluieren</string>
+    <string name="evalAbort">Nicht evaluieren</string>
 
 </resources>

@@ -279,6 +279,7 @@ public class MainActivity extends SlidingFragmentActivity {
 	//HIER AM ARBEITEN
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data){
+		super.onActivityResult(requestCode, resultCode, data);
 		Log.i(TAG, "onActivityResult");
 		switch(requestCode){
 		case MainActivity.REQ_CODE_CREATE_PATTERN:
@@ -297,6 +298,8 @@ public class MainActivity extends SlidingFragmentActivity {
 	        switch(resultCode){
 	        case RESULT_OK:
 	           Log.e("RESULT", String.valueOf(resultCode));
+	           Intent i = new Intent(mContext, PrototypeTestFinish.class);
+	           startActivity(i);
 	            break;
 	        case RESULT_CANCELED:
 	        	Log.e("RESULT", String.valueOf(resultCode));

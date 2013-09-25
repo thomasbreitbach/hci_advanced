@@ -232,19 +232,12 @@ public class LockPattern2FLSActivity extends Activity {
      */
 	public ProgressBar mPbVoice;
 
-	
-
-	
-	
-	
 
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         if (BuildConfig.DEBUG)
             Log.d(CLASS_NAME, "ClassName = " + CLASS_NAME);
-        
-        
         
         /*
          * EXTRA_THEME
@@ -280,7 +273,7 @@ public class LockPattern2FLSActivity extends Activity {
         }
 
         mIntentResult = new Intent();
-//        setResult(RESULT_CANCELED, mIntentResult);
+        setResult(RESULT_CANCELED, mIntentResult);
         
         /*
          * VOICE RecordingIntent (2FLS)
@@ -487,7 +480,13 @@ public class LockPattern2FLSActivity extends Activity {
         else {
             mRetryCount++;
             mIntentResult.putExtra(EXTRA_RETRY_COUNT, mRetryCount);
-
+            
+            /*
+             * reset speech vars (2FLS)
+             */
+            mIsSpeechInputCompleted.set(false);
+            mIsSpeechInputCorrect.set(false);
+            
             if (mRetryCount >= mMaxRetry)
                 finishWithNegativeResult(RESULT_FAILED);
             else {
@@ -540,10 +539,6 @@ public class LockPattern2FLSActivity extends Activity {
              * If the user was "logging in", minimum try count can not be zero.
              */
             mIntentResult.putExtra(EXTRA_RETRY_COUNT, mRetryCount + 1);
-            
-            Log.e("DONE", "geschafft");
-            setResult(RESULT_OK, mIntentResult);
-            
         }
 
         setResult(RESULT_OK, mIntentResult);
@@ -583,7 +578,6 @@ public class LockPattern2FLSActivity extends Activity {
                 }
             }
         }
-        finish();
         /*
          * cancel SpeechRecognizer (2FLS) 
          */
@@ -632,8 +626,7 @@ public class LockPattern2FLSActivity extends Activity {
                 }
             }
         }
-        Log.e("DONE", "geschafft:fwnr");
-        setResult(RESULT_OK, mIntentResult);
+
         finish();
     }// finishWithNegativeResult()
 

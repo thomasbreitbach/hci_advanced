@@ -1,8 +1,9 @@
 package de.thm.hcia.twofactorlockscreen.fragments;
 
+import group.pals.android.lib.ui.lockpattern.LockPatternActivity;
+
 import java.util.List;
 
-import group.pals.android.lib.ui.lockpattern.LockPatternActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -11,16 +12,15 @@ import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
-
 import com.actionbarsherlock.app.SherlockFragment;
 
-import de.thm.hcia.twofactorlockscreen.AssistentSpeechActivity;
 import de.thm.hcia.twofactorlockscreen.MainActivity;
+import de.thm.hcia.twofactorlockscreen.ManuelSpeechActivity;
 import de.thm.hcia.twofactorlockscreen.R;
 
 public class ManualInputFragment extends SherlockFragment {
@@ -87,7 +87,7 @@ public class ManualInputFragment extends SherlockFragment {
 				
 				//neue Activity
 				Intent aIntent = new Intent();
-				aIntent.setClass(mContext, AssistentSpeechActivity.class);
+				aIntent.setClass(mContext, ManuelSpeechActivity.class);
 	            startActivity(aIntent);
 			}
 		});

@@ -1,46 +1,61 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".AssistentFinishActivity" >
 
     <TextView
         android:id="@+id/tv_headline"
         android:layout_width="fill_parent"
         android:layout_height="50dip"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
         android:background="@color/abs__background_holo_light"
         android:gravity="center"
         android:text="@string/asisstent_finish_title"
         android:textSize="@dimen/txt_headline_size" />
 
-    <TextView
-        android:id="@+id/test"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_headline"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="18dp"
-        android:text="@string/assistent_finish_information"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
 
-    <Button
-        android:id="@+id/bttnTesten"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="52dp"
-        android:text="@string/assistent_finish_test_button" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/bttnAbort"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/bttnTesten"
-        android:layout_alignBottom="@+id/bttnTesten"
-        android:layout_alignParentLeft="true"
-        android:text="@string/assistent_finish_later_button" />
+            <TextView
+                android:id="@+id/test"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="@string/assistent_finish_information"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
-</RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" 
+                android:layout_marginTop="50dp">
+
+                <Button
+                    android:id="@+id/bttnAbort"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/assistent_finish_later_button" />
+
+                <Button
+                    android:id="@+id/bttnTesten"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/assistent_finish_test_button" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

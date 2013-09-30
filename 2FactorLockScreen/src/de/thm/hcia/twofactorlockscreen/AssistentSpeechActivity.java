@@ -145,6 +145,7 @@ public class AssistentSpeechActivity extends SherlockActivity implements OnClick
 
 		public void onError(int error) {
 			Log.d(TAG, "error " + error);
+			sr.startListening(recordingIntent);
 		}
 
 		public void onEndOfSpeech() {

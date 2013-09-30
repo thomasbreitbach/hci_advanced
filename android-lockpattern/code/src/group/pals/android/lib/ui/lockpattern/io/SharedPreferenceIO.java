@@ -1,13 +1,9 @@
-package de.thm.hcia.twofactorlockscreen.io;
+package group.pals.android.lib.ui.lockpattern.io;
 
 import group.pals.android.lib.ui.lockpattern.prefs.SecurityPrefs;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Set;
-
-import de.thm.hcia.twofactorlockscreen.MainActivity;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -130,20 +126,6 @@ public class SharedPreferenceIO{
 	}
 	
 	/**
-	 * Get the increments value of PREF_LOGINS_FAILED
-	 */
-	public int getIncrementLoginsFailed()
-	{
-		return mSettings.getInt(PREF_LOGINS_FAILED, 0);
-	}
-	/**
-	 * Get the increments value of PREF_LOGINS_SUCCESSFUL
-	 */
-	public int getIncrementLoginsSuccessful()
-	{
-		return mSettings.getInt(PREF_LOGINS_SUCCESSFUL, 0);
-	}
-	/**
 	 * replace strings to lower case
 	 */
 	public Set<String> replaceToLowercase(Set<String> strings)
@@ -158,25 +140,10 @@ public class SharedPreferenceIO{
 	      
 	    return strings;
 	}
-	
-	/**
-	 * remove setting from preferences
-	 * @return true or false, for the result
-	 */
-	public boolean remove()
-	{
-		mPrefEditor.clear();
-		mPrefEditor.commit();
-		
-		setPatternToNull();
-		
-		MainActivity.setPatternInstalled(false);
-		MainActivity.setSpeechInstalled(false);
-		
-		return true;
-	}
-	
 
+	
+	
+	
 //	public ArrayList<String> loadArrayFromSharedPreferences(String key)
 //	{
 //		Set<String> aSList 		= new HashSet<String>();

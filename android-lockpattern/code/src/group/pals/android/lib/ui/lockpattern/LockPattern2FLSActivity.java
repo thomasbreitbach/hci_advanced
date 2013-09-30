@@ -16,6 +16,7 @@
 
 package group.pals.android.lib.ui.lockpattern;
 
+import group.pals.android.lib.ui.lockpattern.io.SharedPreferenceIO;
 import group.pals.android.lib.ui.lockpattern.prefs.DisplayPrefs;
 import group.pals.android.lib.ui.lockpattern.prefs.SecurityPrefs;
 import group.pals.android.lib.ui.lockpattern.util.IEncrypter;
@@ -31,7 +32,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import android.R.bool;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -214,6 +214,7 @@ public class LockPattern2FLSActivity extends Activity {
     private SpeechRecognizer mSpeechRecognizer;
     private Context mContext;
     private SharedPreferences mSettings;
+    private SharedPreferenceIO mSpIo;
     private String mSpeechAnswer;
     private static final AtomicBoolean mIsSpeechInputCompleted = new AtomicBoolean();
     private static final AtomicBoolean mIsSpeechInputCorrect = new AtomicBoolean();
@@ -238,6 +239,8 @@ public class LockPattern2FLSActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         if (BuildConfig.DEBUG)
             Log.d(CLASS_NAME, "ClassName = " + CLASS_NAME);
+        
+        mSpIo = new SharedPreferenceIO(getApplicationContext());
         
         /*
          * EXTRA_THEME
@@ -492,6 +495,10 @@ public class LockPattern2FLSActivity extends Activity {
             else {
                 mLockPatternView.setDisplayMode(DisplayMode.Wrong);
                 mTxtInfo.setText(R.string.alp_msg_try_again);
+                
+                //HIer ist einen neue SharedIO drinne
+                mSpIo.incrementLoginsSuccessful();
+                Log.e("FAIL","2");
             }
         }
     }// doComparePattern()

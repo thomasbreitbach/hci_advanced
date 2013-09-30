@@ -1,8 +1,7 @@
 package de.thm.hcia.twofactorlockscreen.fragments;
 
+import de.thm.hcia.twofactorlockscreen.io.SharedPreferenceIO;
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,11 +11,9 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.actionbarsherlock.app.SherlockFragment;
 
-import de.thm.hcia.twofactorlockscreen.AssistentMainActivity;
 import de.thm.hcia.twofactorlockscreen.MainActivity;
 import de.thm.hcia.twofactorlockscreen.R;
 
@@ -31,7 +28,12 @@ public class MainFragment extends SherlockFragment {
 	private Button mBtnManualInput;
 	private Button mBtnStartAssistent;
 	
+	private TextView loginFails;
+	private TextView loginSuccessfull;
+	
 	private MainActivity mMainActivity;
+	
+	private SharedPreferenceIO sIo;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -52,6 +54,8 @@ public class MainFragment extends SherlockFragment {
 		mTvInstallPatternExpl = (TextView) v.findViewById(R.id.tv_install_pattern_explanation);
 		mBtnManualInput = (Button) v.findViewById(R.id.btn_goto_manuel_input);
 		mBtnStartAssistent = (Button) v.findViewById(R.id.btn_start_assistent);
+		
+		sIo = new SharedPreferenceIO(mMainActivity.getBaseContext());
 		
 		setUpOnClickListeners();
 		
@@ -77,6 +81,12 @@ public class MainFragment extends SherlockFragment {
 		}else{
 			//Everything installed --> show start prototype
 			dashboard.setVisibility(View.VISIBLE);
+			
+			loginFails = (TextView) dashboard.findViewById(R.id.tv_logins_failed_count);
+			loginSuccessfull = (TextView) dashboard.findViewById(R.id.tv_logins_successfull_count);
+			
+			//Hier toDo
+			loginFails.setText(sIo.getIncrementLoginsFailed());
 		}
 	}
 	

@@ -298,6 +298,7 @@ public class MainActivity extends SlidingFragmentActivity {
 	        switch(resultCode){
 	        case RESULT_OK:
 	           Log.e("RESULT", String.valueOf(resultCode));
+	           sPiO.incrementLoginsSuccessful();
 	           Intent i = new Intent(mContext, PrototypeTestFinish.class);
 	           startActivity(i);
 	            break;

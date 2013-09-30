@@ -84,10 +84,7 @@ public class MainFragment extends SherlockFragment {
 			
 			loginFails = (TextView) dashboard.findViewById(R.id.tv_logins_failed_count);
 			loginSuccessfull = (TextView) dashboard.findViewById(R.id.tv_logins_successfull_count);
-			
-			//Hier toDo
-			//loginFails.setText(sIo.getIncrementLoginsFailed());
-			
+
 		}
 	}
 	

@@ -87,6 +87,7 @@ public class MainFragment extends SherlockFragment {
 			
 			//Hier toDo
 			//loginFails.setText(sIo.getIncrementLoginsFailed());
+			
 		}
 	}
 	

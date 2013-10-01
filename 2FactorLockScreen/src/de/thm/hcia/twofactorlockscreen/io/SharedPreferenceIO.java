@@ -115,8 +115,8 @@ public class SharedPreferenceIO{
 	 * Increments value of PREF_LOGINS_FAILED
 	 */
 	public boolean incrementLoginsFailed(){
-		int fails = mSettings.getInt(PREF_LOGINS_FAILED, 0);
-		mPrefEditor.putInt(PREF_LOGINS_FAILED, fails++);
+		int fails = mSettings.getInt(PREF_LOGINS_FAILED, 0)+1;
+		mPrefEditor.putInt(PREF_LOGINS_FAILED, fails);
 		return mPrefEditor.commit();
 	}
 	
@@ -124,22 +124,22 @@ public class SharedPreferenceIO{
 	 * Increments value of PREF_LOGINS_SUCCESSFUL
 	 */
 	public boolean incrementLoginsSuccessful(){
-		int success = mSettings.getInt(PREF_LOGINS_SUCCESSFUL, 0);
-		mPrefEditor.putInt(PREF_LOGINS_SUCCESSFUL, success++);
+		int success = mSettings.getInt(PREF_LOGINS_SUCCESSFUL, 0)+1;
+		mPrefEditor.putInt(PREF_LOGINS_SUCCESSFUL, success);
 		return mPrefEditor.commit();
 	}
 	
 	/**
 	 * Get the increments value of PREF_LOGINS_FAILED
 	 */
-	public int getIncrementLoginsFailed()
+	public int getLoginsFailed()
 	{
 		return mSettings.getInt(PREF_LOGINS_FAILED, 0);
 	}
 	/**
 	 * Get the increments value of PREF_LOGINS_SUCCESSFUL
 	 */
-	public int getIncrementLoginsSuccessful()
+	public int getLoginsSuccessful()
 	{
 		return mSettings.getInt(PREF_LOGINS_SUCCESSFUL, 0);
 	}

@@ -73,8 +73,17 @@
             android:name="de.thm.hcia.twofactorlockscreen.PrototypeTestActivity"
             android:label="@string/title_activity_prototype_test" >
         </activity>
+        <activity
+            android:name="de.thm.hcia.twofactorlockscreen.PrototypeTestFinish"
+            android:label="@string/title_activity_prototype_tes_finish"
+            android:theme="@style/Theme.Sherlock.Light.DarkActionBar" >
+        </activity>
 
-<!--         	LOCKPATTERN Activities -->
+<!--
+***************************     
+***LOCKPATTERN Activities**
+*************************** 
+-->
         <activity
             android:name="group.pals.android.lib.ui.lockpattern.LockPatternActivity"
             android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
@@ -85,10 +94,7 @@
             android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
             android:screenOrientation="portrait"
             android:theme="@style/Alp.Theme.Light" />
-        <activity
-            android:name="de.thm.hcia.twofactorlockscreen.PrototypeTestFinish"
-            android:label="@string/title_activity_prototype_tes_finish" >
-        </activity>
+        
     </application>
 
 </manifest>

@@ -36,6 +36,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.ResultReceiver;
@@ -216,6 +217,9 @@ public class LockPattern2FLSActivity extends Activity {
     private String mSpeechAnswer;
     private static final AtomicBoolean mIsSpeechInputCompleted = new AtomicBoolean();
     private static final AtomicBoolean mIsSpeechInputCorrect = new AtomicBoolean();
+    private static final String PREF_LOGINS_FAILED = "loginsFailed";
+	private Editor mPrefEditor;
+
     
     /*
      * CONTROLS
@@ -277,7 +281,7 @@ public class LockPattern2FLSActivity extends Activity {
         /*
          * VOICE RecordingIntent (2FLS)
          */
-        initVoiceRecordingElements();
+        init2FLSElements();
 
         initContentView();
     }// onCreate()
@@ -414,10 +418,11 @@ public class LockPattern2FLSActivity extends Activity {
     /**
 	 * Initializes voice recording intent
 	 */
-	private void initVoiceRecordingElements() {
+	private void init2FLSElements() {
 		mContext = getApplicationContext();
 		mSettings = mContext.getSharedPreferences("AppPrefs", Context.MODE_PRIVATE);
 		mSpeechAnswer = mSettings.getString("speechResult", "");
+		mPrefEditor = mSettings.edit();
 		
 		mIsSpeechInputCompleted.set(false);
 	    mIsSpeechInputCorrect.set(false);
@@ -485,6 +490,11 @@ public class LockPattern2FLSActivity extends Activity {
              */
             mIsSpeechInputCompleted.set(false);
             mIsSpeechInputCorrect.set(false);
+            
+            /*
+             * increment logins fails
+             */
+            incrementLoginsFailed();
             
             if (mRetryCount >= mMaxRetry)
                 finishWithNegativeResult(RESULT_FAILED);
@@ -827,4 +837,13 @@ public class LockPattern2FLSActivity extends Activity {
 		}		
 		return isTrue;
 	}//checkSpeechInput
+	
+	/**
+	 * Increments value of PREF_LOGINS_FAILED
+	 */
+	public boolean incrementLoginsFailed(){
+		int fails = mSettings.getInt(PREF_LOGINS_FAILED, 0)+1;
+		mPrefEditor.putInt(PREF_LOGINS_FAILED, fails);
+		return mPrefEditor.commit();
+	}//
 }

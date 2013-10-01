@@ -12,24 +12,39 @@
         android:id="@+id/lastText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/lastTextString" />
+        android:text="@string/lastTextString" 
+         android:textSize="@dimen/txt_info_text_size"/>
 
-    <Button
-        android:id="@+id/bttnAbort"
+    <include
+        android:id="@+id/statistik"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/lastText"
+        android:layout_marginTop="25dp"
+        layout="@layout/dashboard" />
 
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="62dp"
-        android:text="@string/evalAbort" />
-
-    <Button
-        android:id="@+id/bttnEval"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/navigationLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/bttnAbort"
-        android:layout_alignBottom="@+id/bttnAbort"
-        android:layout_alignRight="@+id/lastText"
-        android:text="@string/evalApp" />
+        android:layout_below="@+id/statistik"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/bttnAbort"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/evalAbort" />
+
+        <Button
+            android:id="@+id/bttnEval"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/evalApp" />
+    </LinearLayout>
 
 </RelativeLayout>

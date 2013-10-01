@@ -46,9 +46,12 @@ public class MainActivity extends SlidingFragmentActivity {
 
 	private static final String 		TAG 						= "MainActivity";
 	
+	//Request Codes
 	public static final int 			REQ_CODE_CREATE_PATTERN 	= 1;
 	public static final int 			REQ_CODE_COMPARE_PATTERN 	= 2;
 	public static final int 			REQ_CODE_CREATE_VOICE 		= 3; 
+	
+	//Fragments
 	public static final int			MAIN_FRAGMENT				= 10;
 	public static final int			ASSISTENT_FRAGMENT			= 11;
 	public static final int			MANUAL_INPUT_FRAGMENT		= 12;
@@ -70,9 +73,6 @@ public class MainActivity extends SlidingFragmentActivity {
 	private static char[] 			savedPattern = null;
 	private ArrayList<String> 			matches;
 	
-	/*
-	 * Variablen f�r Zur�ck, Men�-Button
-	 */
 	private boolean						isSlideMenue	= false;
 	private boolean						isHomescreen	= true;
 	
@@ -298,7 +298,8 @@ public class MainActivity extends SlidingFragmentActivity {
 	        switch(resultCode){
 	        case RESULT_OK:
 	           Log.e("RESULT", String.valueOf(resultCode));
-	           Intent i = new Intent(mContext, PrototypeTestFinish.class);
+	           sPiO.incrementLoginsSuccessful();
+	           Intent i = new Intent(mContext, PrototypeTestFinish.class);   
 	           startActivity(i);
 	            break;
 	        case RESULT_CANCELED:

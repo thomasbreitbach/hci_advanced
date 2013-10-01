@@ -43,6 +43,28 @@
 	           android:text="@string/about_info_txt"
 	           android:textSize="@dimen/txt_info_text_size" />
 
+	       <LinearLayout
+	           android:layout_width="wrap_content"
+	           android:layout_height="wrap_content"
+	           android:orientation="vertical"
+	           android:layout_gravity="left"
+	           android:layout_marginTop="25dip" >
+
+	           <ImageButton
+	               android:id="@+id/githubLogo"
+	               android:layout_width="wrap_content"
+	               android:layout_height="wrap_content"
+	               android:src="@drawable/github_android_logo"
+	               android:background="@android:color/transparent" />
+	           
+	           <TextView
+	               android:id="@+id/githubtxt"
+	               android:layout_width="wrap_content"
+	               android:layout_height="wrap_content"
+	               android:text="@string/code_on_github" />
+         
+	       </LinearLayout>
+
 	       <TextView
 	           android:id="@+id/tv_app_version"
 	           android:layout_width="wrap_content"

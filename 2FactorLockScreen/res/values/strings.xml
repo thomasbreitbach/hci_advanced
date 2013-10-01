@@ -24,8 +24,8 @@
     <string name="start_assistent">Assistent starten</string>
     <string name="quickstart_assistent">Zum Assistenten</string>
     <string name="assistent">Assistent</string>
-    <string name="assistent_start_pattern_description">Zeichnen Sie im nächsten Schritt mit einem Finger ein beliebiges Muster Ihrer Wahl. Die einzelnen Punkte können mehrfach selektiert werden, um komplexere Muster zu ermöglichen.</string>
-    <string name="assistent_pattern_record_description">Bitte zeichnen Sie ein beliebiges Muster Ihrer Wahl und Bestätigen Sie Ihre Eingabe anschließend mit „OK“.</string>
+    <string name="assistent_start_pattern_description">Zeichnen Sie im nächsten Schritt mit einem Finger ein beliebiges Muster Ihrer Wahl.</string>
+    <string name="assistent_pattern_record_description">Bitte zeichnen Sie ein beliebiges Muster Ihrer Wahl und bestätigen Sie Ihre Eingabe anschließend mit „OK“.</string>
     <string name="assistent_pattern_record_description_repeat">Bitte wiederholen Sie Ihr eingegebenes Muster und bestätigen Sie dann mit „OK“.</string>
     <string name="assistent_speech_input_record_description">Sprechen Sie jetzt ihren Entsperrbefehl in das Mikrofon und bestätigen Sie Ihre Aufnahme anschließend mit „OK“.</string>
     <string name="assistent_speech_input_record_description_repeat">Wiederholen Sie den von Ihnen eingesprochenen Entsperrbefehl und bestätigen Sie diesen dann mit „OK“.</string>

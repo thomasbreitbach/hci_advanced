@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="de.thm.hcia.twofactorlockscreen"
     android:versionCode="1"
-    android:versionName="0.1 alpha rev 1" >
+    android:versionName="0.9 beta" >
 
     <uses-sdk
         android:minSdkVersion="10"
@@ -75,7 +75,7 @@
         </activity>
         <activity
             android:name="de.thm.hcia.twofactorlockscreen.PrototypeTestFinish"
-            android:label="@string/title_activity_prototype_tes_finish"
+            android:label="@string/title_activity_prototype_test_finish"
             android:theme="@style/Theme.Sherlock.Light.DarkActionBar" >
         </activity>
 

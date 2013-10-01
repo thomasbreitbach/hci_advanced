@@ -25,7 +25,6 @@ public class AssistentFinishActivity extends SherlockActivity {
 		bttnAbort.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				//TODOs!!!!
 				Intent intent = new Intent();
 	            intent.setClass(getApplicationContext(), MainActivity.class);
 	            intent.putExtra("fragment", MainActivity.MAIN_FRAGMENT);

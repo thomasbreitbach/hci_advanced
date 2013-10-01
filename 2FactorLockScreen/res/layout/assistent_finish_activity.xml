@@ -42,13 +42,15 @@
 
                 <Button
                     android:id="@+id/bttnAbort"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text="@string/assistent_finish_later_button" />
 
                 <Button
                     android:id="@+id/bttnTesten"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text="@string/assistent_finish_test_button" />
 

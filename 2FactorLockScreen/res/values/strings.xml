@@ -112,8 +112,9 @@
     <string name="title_activity_assistent__finish">Lockscreen Assistent</string>
     <string name="title_activity_prototype_test">PrototypeTestActivity</string>
     <string name="no_inet_connection">Achtung: Bitte stellen Sie sicher, dass Sie mit dem Internet verbunden sind!</string>
-    <string name="title_activity_prototype_tes_finish">PrototypeTesFinish</string>
-    <string name="lastTextString">Herzlichen Glückwunsch! Sie haben das Szenario erfolgreich beendet! \n\nKlicken Sie auf den Button &quot;Evaluiren&quot;, wenn Sie die App evaluieren möchten oder auf &quot;Nicht evaluieren&quot;, wenn Sie es an einem späteren Zeitpunkt tun möchten!</string>
+    <string name="title_activity_prototype_test_finish">Erfolgreich eingeloggt!</string>
+    <string name="lastTextString">Herzlichen Glückwunsch! Sie haben das Szenario erfolgreich beendet!</string>
+    <string name="lastExplanationString">Möchten Sie mit der Evaluation fortfahren?</string>
     <string name="evalApp">Evaluieren</string>
     <string name="evalAbort">Nicht jetzt</string>
 

@@ -29,6 +29,7 @@ public class PrototypeTestFinish extends SherlockActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		setTitle(R.string.title_activity_prototype_test_finish);
 		setContentView(R.layout.prototype_test_finish);
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		mContext = this;

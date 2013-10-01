@@ -29,7 +29,7 @@ public class MainFragment extends SherlockFragment {
 	private Button mBtnStartAssistent;
 	
 	private TextView loginFails;
-	private TextView loginSuccessfull;
+	private TextView loginSuccessful;
 	
 	private MainActivity mMainActivity;
 	
@@ -55,12 +55,10 @@ public class MainFragment extends SherlockFragment {
 		mBtnManualInput = (Button) v.findViewById(R.id.btn_goto_manuel_input);
 		mBtnStartAssistent = (Button) v.findViewById(R.id.btn_start_assistent);
 		
-		sIo = new SharedPreferenceIO(mMainActivity.getBaseContext());
+		sIo = new SharedPreferenceIO(mContext);
 		
 		setUpOnClickListeners();
 		
-		
-			
 		return v;
 	}
 	
@@ -83,8 +81,9 @@ public class MainFragment extends SherlockFragment {
 			dashboard.setVisibility(View.VISIBLE);
 			
 			loginFails = (TextView) dashboard.findViewById(R.id.tv_logins_failed_count);
-			loginSuccessfull = (TextView) dashboard.findViewById(R.id.tv_logins_successfull_count);
-
+			loginSuccessful = (TextView) dashboard.findViewById(R.id.tv_logins_successfull_count);
+			loginFails.setText(String.valueOf(sIo.getLoginsFailed()));
+			loginSuccessful.setText(String.valueOf(sIo.getLoginsSuccessful()));
 		}
 	}
 	

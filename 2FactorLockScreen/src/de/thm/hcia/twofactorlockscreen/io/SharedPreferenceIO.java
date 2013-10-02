@@ -9,6 +9,7 @@ import java.util.Set;
 
 import de.thm.hcia.twofactorlockscreen.MainActivity;
 
+import android.R.bool;
 import android.content.Context;
 import android.content.SharedPreferences;
 
@@ -143,6 +144,16 @@ public class SharedPreferenceIO{
 	{
 		return mSettings.getInt(PREF_LOGINS_SUCCESSFUL, 0);
 	}
+	
+	/**
+	 * sets statistic to zero
+	 */
+	public boolean resetStatistic(){
+		mPrefEditor.putInt(PREF_LOGINS_SUCCESSFUL, 0);
+		mPrefEditor.putInt(PREF_LOGINS_FAILED, 0);
+		return mPrefEditor.commit();
+	}
+	
 	/**
 	 * replace strings to lower case
 	 */

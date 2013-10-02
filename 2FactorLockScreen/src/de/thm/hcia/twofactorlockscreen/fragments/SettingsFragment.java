@@ -20,7 +20,7 @@ public class SettingsFragment extends SherlockFragment implements OnClickListene
 
 	SharedPreferences.Editor		mPrefEditor; 
 	private static 	Context 		mContext;
-	private 		Button			bttnInfoDialog, bttnDeleteConfig; 
+	private 		Button			bttnInfoDialog, bttnDeleteConfig, bttnDeleteStatistik; 
 	private			boolean			isInfoDialog, isDeleteConfig;
 	private 		SharedPreferenceIO sIo;
 
@@ -35,18 +35,35 @@ public class SettingsFragment extends SherlockFragment implements OnClickListene
 			
 		bttnInfoDialog 			= (Button) v.findViewById(R.id.bttnDialog);
 		bttnDeleteConfig		= (Button) v.findViewById(R.id.bttnAppDelete);
+		bttnDeleteStatistik		= (Button) v.findViewById(R.id.bttnStatistikDelete);
 		
 		bttnInfoDialog.setBackgroundResource(R.drawable.sa_off);
 		bttnDeleteConfig.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) 
-			{		
-				Toast.makeText(mContext, "Reset", Toast.LENGTH_LONG).show();
-				sIo.remove();
+			{				
+				if(sIo.remove()){
+					Toast.makeText(mContext, "App reset", Toast.LENGTH_LONG).show();
+				}else{
+					Toast.makeText(mContext, "Unkown error", Toast.LENGTH_LONG).show();
+				}
 			}
 		});
 
+		bttnDeleteStatistik.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) 
+			{		
+				if(sIo.resetStatistic()){
+					Toast.makeText(mContext, "Statistic reset", Toast.LENGTH_LONG).show();
+				}else{
+					Toast.makeText(mContext, "Unkown error", Toast.LENGTH_LONG).show();
+				}		
+			}
+		});
+		
 		isInfoDialog			= false;
 		isDeleteConfig			= false;
 		
@@ -85,7 +102,7 @@ public class SettingsFragment extends SherlockFragment implements OnClickListene
 				
 				if(sIo.remove())
 				{
-					Toast.makeText(mContext, "Einstellungen wurden zurŸckgesetzt!", Toast.LENGTH_SHORT);
+					Toast.makeText(mContext, "Einstellungen wurden zurï¿½ckgesetzt!", Toast.LENGTH_SHORT);
 				}				
 			}
 		});*/

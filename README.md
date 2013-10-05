@@ -11,6 +11,6 @@ Benutzte Bibliotheken:
 
 android-lockpattern: https://code.google.com/p/android-lockpattern/ by haibison-apps
 
-actionbarSherlock: http://actionbarsherlock.com/
+ActionBarSherlock: http://actionbarsherlock.com/
 
 SlidingMenu: https://github.com/jfeinstein10/SlidingMenu by jfeinstein
